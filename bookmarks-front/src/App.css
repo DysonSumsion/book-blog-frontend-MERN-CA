@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: lightskyblue;
+  padding: 50px;
+  height: 100vh;
+}
+
