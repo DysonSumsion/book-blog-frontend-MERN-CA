@@ -38,7 +38,16 @@ Instructions on how to setup, configure, deploy and use your App.
 <hr>
 
 Design documentation including,
-- Design process
+- Design process  
+  
+  Tuesday 9/7  
+  -Challenges  
+  -ERD - creating relationships with collections. 
+
+  Wednesday 10/7
+  - challenges
+  - finding an API with appropriate image resolution
+
 - User stories
 - A workflow diagram of the user journey/s.
 - Wireframes
@@ -46,11 +55,45 @@ Design documentation including,
 
 ![erd_V1](https://user-images.githubusercontent.com/47741682/60852110-a8c79b00-a239-11e9-8597-ce22f15f3850.jpg)  
 
+![erd_V2](https://user-images.githubusercontent.com/47741682/60930074-4e8d0f80-a2f7-11e9-82a7-a6a3a747f36d.jpg)  
+
+
+
 - Data Flow Diagram
 - OO design documentation  
  
 Details of Project Management & Planning process including,
-- Project plan & timeline
+- Project plan & timeline  
+ 
+Day | Date | Tasks | Tasks completed | Blocks | Completed by  
+--- | --- | --- | --- | --- | ---  
+Mon | `08 July` | --- | --- | --- | ---
+Tues | `09 July` | --- | --- | --- | --- 
+Wed | `10 July` | --- | --- | Finding appropriate API for images | --- 
+Thu | `11 July` | Anna:High fidelity wireframes, Rob: backend deployment, Gary: backend routes/controllers | --- | --- | ---
+Fri | `12 July` | --- | --- | --- | ---  
+  
+
+Day | Date | Tasks | Tasks completed | Blocks | Completed by  
+--- | --- | --- | --- | --- | ---  
+Mon | `15 July` | --- | --- | --- | ---
+Tues | `16 July` | --- | --- | --- | --- 
+Wed | `17 July` | --- | --- | --- | --- 
+Thu | `18 July` | --- | --- | --- | ---
+Fri | `19 July` | --- | --- | --- | ---  
+
+Day | Date | Tasks | Tasks completed | Blocks | Completed by  
+--- | --- | --- | --- | --- | ---  
+Mon | `22 July` | --- | --- | --- | ---
+Tues | `23 July` | --- | --- | --- | --- 
+Wed | `24 July` | --- | --- | --- | --- 
+Thu | `25 July` | --- | --- | --- | ---
+Fri | `26 July` | --- | --- | --- | ---
+
+
+
+
+  
 - Client communications
 - Screenshots of Trello board(s)  
 
