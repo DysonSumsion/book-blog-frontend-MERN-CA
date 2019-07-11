@@ -1,9 +1,16 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Real World Application (A3-1)
+Robert De Matteo,  Gaurav Pathak, Anna Roszko   
 
-## Available Scripts
+#### Required README.md requirerements
+A link (URL) to your published App  
+<hr>
 
-In the project directory, you can run:
-
+A link to your GitHub repository  
+Backend link: https://github.com/rdematteo/book-blog-backend-MERN-CA  
+Frontend link: https://github.com/rdematteo/book-blog-frontend-MERN-CA
+<hr>
+Ensure the repo is accessible by your Educators  
+<hr>
 
 Description of your project, including,
 - Problem definition / purpose
@@ -31,16 +38,7 @@ Instructions on how to setup, configure, deploy and use your App.
 <hr>
 
 Design documentation including,
-- Design process  
-  
-  Tuesday 9/7  
-  -Challenges  
-  -ERD - creating relationships with collections. 
-
-  Wednesday 10/7
-  - challenges
-  - finding an API with appropriate image resolution
-
+- Design process
 - User stories
 - A workflow diagram of the user journey/s.
 - Wireframes
@@ -48,45 +46,11 @@ Design documentation including,
 
 ![erd_V1](https://user-images.githubusercontent.com/47741682/60852110-a8c79b00-a239-11e9-8597-ce22f15f3850.jpg)  
 
-![erd_V2](https://user-images.githubusercontent.com/47741682/60930074-4e8d0f80-a2f7-11e9-82a7-a6a3a747f36d.jpg)  
-
-
-
 - Data Flow Diagram
 - OO design documentation  
  
 Details of Project Management & Planning process including,
-- Project plan & timeline  
- 
-Day | Date | Tasks | Tasks completed | Blocks | Completed by  
---- | --- | --- | --- | --- | ---  
-Mon | `08 July` | --- | --- | --- | ---
-Tues | `09 July` | --- | --- | --- | --- 
-Wed | `10 July` | --- | --- | Finding appropriate API for images | --- 
-Thu | `11 July` | Anna:High fidelity wireframes, Rob: backend deployment, Gary: backend routes/controllers | --- | --- | ---
-Fri | `12 July` | --- | --- | --- | ---  
-  
-
-Day | Date | Tasks | Tasks completed | Blocks | Completed by  
---- | --- | --- | --- | --- | ---  
-Mon | `15 July` | --- | --- | --- | ---
-Tues | `16 July` | --- | --- | --- | --- 
-Wed | `17 July` | --- | --- | --- | --- 
-Thu | `18 July` | --- | --- | --- | ---
-Fri | `19 July` | --- | --- | --- | ---  
-
-Day | Date | Tasks | Tasks completed | Blocks | Completed by  
---- | --- | --- | --- | --- | ---  
-Mon | `22 July` | --- | --- | --- | ---
-Tues | `23 July` | --- | --- | --- | --- 
-Wed | `24 July` | --- | --- | --- | --- 
-Thu | `25 July` | --- | --- | --- | ---
-Fri | `26 July` | --- | --- | --- | ---
-
-
-
-
-  
+- Project plan & timeline
 - Client communications
 - Screenshots of Trello board(s)  
 
@@ -136,6 +100,46 @@ Testability shows how well the system allows performing tests, according to pred
 
 
 Overall, quality software is a well-defined process for creating a useful product that adds value for both the consumer and the manufacturer.
+
+
+
+1. What libraries are being used in the app and why?  
+
+
+2. A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
+- project management
+- communication
+- time management
+- people management
+- software development knowledge (web development, deployment)
+- negotiation skills
+1. Within your own project what knowledge or skills were required to complete your project, and overcome challenges?
+- project management
+- communication
+- time management
+- 
+- 
+5. Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
+
+References:  
+https://dzone.com/articles/10-groups-software-quality  
+https://asq.org/quality-resources/software-quality  
+https://en.wikipedia.org/wiki/ISO/IEC_9126#cite_note-1  
+https://medium.com/@nvashanin/quality-attributes-in-software-architecture-3844ea482732
+
+
+
+
+
+
+
+
+
+
+## Available Scripts
+
+In the project directory, you can run:
+
 =======
 ### `npm start`
 
