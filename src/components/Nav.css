@@ -1,0 +1,23 @@
+.navbar {
+  background-color: wheat;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  background-color: darkcyan;
+  border-radius: 100%;
+}
+
+.navlinks {
+  height: 60px;
+  width: 600px;
+  background-color: darkcyan;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
