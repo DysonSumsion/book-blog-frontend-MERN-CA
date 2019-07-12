@@ -5,10 +5,10 @@ class Homepage extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch('http://localhost:5500/')
+      const response = await fetch("http://localhost:5500/reviews")
       console.log(response)
       const data = await response.json()
-      
+      console.log(data)
       this.setState({
         data: data
       })
@@ -22,7 +22,7 @@ class Homepage extends React.Component {
     const { data } = this.state
     console.log(data)
     if (!data) {
-      return <h1>No data</h1>
+      return <h1>I am the homepage, there is no data</h1>
     } else {
       // console.log(data)
       return (
