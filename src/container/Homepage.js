@@ -5,7 +5,7 @@ class Homepage extends React.Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch("http://localhost:5500/reviews")
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/reviews`)
       console.log(response)
       const data = await response.json()
       console.log(data)
