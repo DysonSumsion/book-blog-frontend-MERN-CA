@@ -24,8 +24,6 @@ function HomePage() {
   );
 }
 
-export default HomePage;
-
 // class Homepage extends React.Component {
 //   state = { data: null }
 
