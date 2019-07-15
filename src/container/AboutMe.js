@@ -1,14 +1,17 @@
 import React from 'react';
-import Nav from '../components/Nav.js';
+import IntroSection from '../components/IntroSection';
 
 function AboutMe() {
 
   return (
-  <div>
-    <h1>About Me!</h1>
-  </div>
+    <>
+    <div>
+      <IntroSection 
+        headingOne="A little bit about me..." 
+      />
+    </div>
+    </>
   );
 }
-
 
 export default AboutMe;

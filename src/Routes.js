@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Homepage from './container/Homepage';
-import Showpage from './container/Showpage';
+import Homepage from './container/HomePage';
+import Showpage from './container/ShowPage';
 import TopPicks from './container/TopPicks';
 import SortByYear from './container/SortByYear';
 import SortByGenre from './container/SortByGenre';

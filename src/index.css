@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: lightgray;
+  height: 100vh;
+}
+
+h1 {
+  color: #4F4F4F;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 600;
+  font-size: 33pt;
+  padding-bottom: 30px;
+  max-width: 1000px;
+}
+
+h2 {
+  color: #4F4F4F;
+  font-family: 'Noto Serif JP', serif; 
+  font-weight: 400; 
+  font-size: 25pt;
+  max-width: 1000px;
+}
+
+p {
+  color: #4F4F4F;
+  font-family: 'Noto Serif JP', serif; 
+  font-size: 16pt;
+  font-weight: 400;
+}
