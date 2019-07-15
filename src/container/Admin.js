@@ -1,14 +1,17 @@
 import React from 'react';
-import Nav from '../components/Nav.js';
+import IntroSection from '../components/IntroSection';
 
 function Admin() {
 
   return (
-  <div>
-    <h1>Admin!</h1>
-  </div>
+    <>
+    <div>
+      <IntroSection 
+        headingOne="Admin page" 
+      />
+    </div>
+    </>
   );
 }
-
 
 export default Admin;

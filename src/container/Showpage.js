@@ -1,12 +1,25 @@
 import React from 'react';
+import IntroSection from '../components/IntroSection';
+import SubheadSection from '../components/SubheadSection';
+import CardDisplay from '../components/CardDisplay';
 
-function Showpage() {
+function ShowPage() {
 
   return (
-  <div>
-    <h1>I am the showpage!</h1>
-  </div>
+    <>
+    <div>
+      <IntroSection 
+        headingOne="Show Page"
+      />
+    </div>
+    <div>
+      <SubheadSection heading="You might also like..." />
+    </div>
+    <div>
+      <CardDisplay />
+    </div>
+    </>
   );
 }
 
-export default Showpage;
+export default ShowPage;

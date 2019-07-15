@@ -1,0 +1,17 @@
+.card {
+  background-color: sandybrown;
+  width: 350px;
+  height: 150px;
+  display: flex;
+
+}
+
+.cardLeft {
+  width: 30%;
+  background-color: grey;
+}
+
+.cardRight {
+  width: 70%;
+  padding-left: 10px;
+}
