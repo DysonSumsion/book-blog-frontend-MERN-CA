@@ -9,6 +9,7 @@ import AboutMe from './container/AboutMe';
 import Subscribe from './container/Subscribe';
 import Admin from './container/Admin';
 import FormAdd from './container/FormAdd'
+import ForgotPassword from './container/ForgotPassword'
 
 class Routes extends React.Component {
 
@@ -27,9 +28,9 @@ render() {
       <Route path="/aboutme" exact component={AboutMe} />
       <Route path="/subscribe" exact component={Subscribe} />
       <Route path="/adminjaclyn" exact component={Admin} />
-      {/* <Route path="/addreview" exact component={FormAdd} /> */}
-      <Route path="/addreview" render={(props)=> {
-        return <FormAdd {...props} />}}/>
+      <Route path="/addreview" exact component={FormAdd} />
+      <Route path="/subscribe" exact component={Subscribe}/>
+      <Route path="/ForgotPassword" exact component={ForgotPassword}/>
     </Switch>
   )
   }
