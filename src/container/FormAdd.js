@@ -1,8 +1,10 @@
 import React from "react";
+import axios from "axios";
 import FormInput from "../components/FormInput";
 import FormTextArea from "../components/FormTextArea";
 import FormCheckbox from "../components/FormCheckbox";
-import Button from '../components/Button'
+import Button from '../components/Button';
+import '../components/FormAdd.css';
 
 class FormAdd extends React.Component {
   state = {
@@ -11,7 +13,7 @@ class FormAdd extends React.Component {
       author: "",
       review: "",
       publisher: "",
-      year: "",
+      yearPublished: "2000",
       genre: [],
       isbn: "",
       linkToBuy: "",
@@ -31,14 +33,30 @@ class FormAdd extends React.Component {
       "Short Stories",
       "Young Adult(YA)"
     ],
-    topPickOptions: ["Top Pick"]
+    topPickOptions: ["Top Pick"],
+    errors: {
+      title: "",
+      author: "",
+      publisher: "",
+      yearPublished: "",
+      isbn: "",
+      linkToBuy: "",
+      review: "",
+      genre: ""
+      
+    }
   };
 
+  
   handleFormSubmit = () => {};
 
   handleTextArea = e => {
-    console.log("Inside handleTextArea");
+    e.preventDefault();
+    let errors = this.state.errors
     let value = e.target.value;
+    
+    errors.review = value.length < 2 ? "Must enter a review" : "";
+
     this.setState(
       prevState => ({
         newReview: {
@@ -51,9 +69,38 @@ class FormAdd extends React.Component {
   };
 
   handleInput = e => {
-    console.log(e);
+    // console.log(e);
+    e.preventDefault();
+    let errors = this.state.errors
     let value = e.target.value;
     let name = e.target.name;
+
+    switch (name){
+      case 'title':
+        errors.title = value.length < 2 ? "Must enter a title" : "";
+        break;
+      case 'author':
+        errors.author = value.length < 2 ? "Must enter an author" : "";
+        break;
+      case 'publisher':
+        errors.publisher = value.length < 2 ? "Must enter an publisher" : "";
+        break;
+      case 'yearPublished':
+        errors.yearPublished = value > 1900 ? "Must enter year" : "";
+        break;
+      case 'isbn':
+        errors.isbn = value.length < 2 ? "Must enter ISBN" : "";
+        break;
+      case 'linkToBuy':
+        errors.linkToBuy = value.length < 2 ? "Must enter a link" : "";
+        break;
+      default:
+        break;
+    }
+
+    this.setState({errors, [name]: value}, ()=> {
+      console.log(errors)
+  })
 
     this.setState(
       prevState => ({
@@ -64,10 +111,12 @@ class FormAdd extends React.Component {
       }),
       () => console.log(this.state.newReview)
     );
+
+
   };
 
   handleInputSeo = e => {
-    console.log(e);
+    // console.log(e);
     let value = e.target.value;
     let name = e.target.name;
     console.log(value);
@@ -86,8 +135,10 @@ class FormAdd extends React.Component {
   };
 
   handleCheckBox = e => {
+    
     const newSelection = e.target.value;
     let newSelectionArray;
+    
 
     if (this.state.newReview.genre.indexOf(newSelection) > -1) {
       newSelectionArray = this.state.newReview.genre.filter(
@@ -97,9 +148,16 @@ class FormAdd extends React.Component {
       newSelectionArray = [...this.state.newReview.genre, newSelection];
     }
 
+    console.log(newSelectionArray.length);
+    let errors = this.state.errors
+    errors.genre = newSelectionArray.length < 1 ? "Must enter a genre" : "";
+
+
     this.setState(prevState => ({
       newReview: { ...prevState.newReview, genre: newSelectionArray }
-    }));
+    }),
+    () => console.log(this.state.newReview)
+    );
   };
 
   handleCheckbox = e => {
@@ -132,7 +190,7 @@ class FormAdd extends React.Component {
       prevState => ({
         newReview: {
           ...prevState.newReview,
-          year: value
+          yearPublished: value
         }
       }),
       () => console.log(this.state.newReview)
@@ -147,7 +205,7 @@ class FormAdd extends React.Component {
         author: "",
         review: "",
         publisher: "",
-        year: "",
+        yearPublished: "",
         genre: [],
         isbn: "",
         linkToBuy: "",
@@ -156,26 +214,39 @@ class FormAdd extends React.Component {
       }
     });
   }
+
+validateForm = (errors) => {
+    let valid = true;
+    Object.values(errors).forEach(
+      // if we have an error string set valid to false
+      (val) => val.length > 0 && (valid = false)
+    );
+    return valid;
+  }
+
   handleFormSubmit = (e) => {
     e.preventDefault();
-    let userData = this.state.newReview;
-    console.log(userData);
+    if(this.validateForm(this.state.errors)) {
+      console.info('Valid Form')
+    }else{
+      console.error('Invalid Form')
+    }
 
-    // fetch("http://example.com", {
-    //   method: "POST",
-    //   body: JSON.stringify(userData),
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json"
-    //   }
-    // }).then(response => {
-    //   response.json().then(data => {
-    //     console.log("Successful" + data);
-    //   });
-    // });
+    let newReview = this.state.newReview;
+    // console.log(newReview);
+
+    axios.post('http://localhost:5500/seed', newReview)
+    .then((res) => {
+      console.log("Where am I")
+      
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
   render() {
+    const { errors } = this.state
     return (
       <>
         <div>
@@ -188,6 +259,8 @@ class FormAdd extends React.Component {
               placeholder={"Enter book name"}
               handleChange={this.handleInput}
             />{" "}
+              {errors.title.length > 0 && 
+                <span className='error'>{errors.title}</span>}
             <FormInput
               inputType={"text"}
               title={"Author"}
@@ -196,14 +269,17 @@ class FormAdd extends React.Component {
               placeholder={"Enter author name"}
               handleChange={this.handleInput}
             />{" "}
+            {errors.author.length > 0 && 
+                <span className='error'>{errors.author}</span>}
             <FormTextArea
               title={"Review"}
               rows={10}
               value={this.state.newReview.review}
-              name={"currentPetInfo"}
+              name={"review"}
               handleChange={this.handleTextArea}
               placeholder={"Enter your review"}
-            />
+            />{errors.review.length > 0 && 
+                <span className='error'>{errors.review}</span>}
             <FormInput
               inputType={"text"}
               title={"Publisher"}
@@ -212,22 +288,27 @@ class FormAdd extends React.Component {
               placeholder={"Enter publisher"}
               handleChange={this.handleInput}
             />{" "}
+              {errors.publisher.length > 0 && 
+                <span className='error'>{errors.publisher}</span>}
             <FormInput
               inputType={"number"}
-              min="2010"
-              name={"year"}
+              name={"yearPublished"}
               title={"Year Published"}
-              value={this.state.newReview.year}
+              value={this.state.newReview.yearPublished}
               placeholder={"Published Year"}
               handleChange={this.handleYear}
             />{" "}
+              {errors.yearPublished.length > 0 && 
+                <span className='error'>{errors.yearPublished}</span>}
             <FormCheckbox
-              title={"Skills"}
-              name={"skills"}
+              title={"Genre"}
+              name={"genre"}
               options={this.state.genreOptions}
               selectedOptions={this.state.newReview.genre}
               handleChange={this.handleCheckBox}
             />{" "}
+              {errors.genre.length > 0 && 
+                <span className='error'>{errors.genre}</span>}
             <FormInput
               inputType={"text"}
               title={"ISBN"}
@@ -236,6 +317,8 @@ class FormAdd extends React.Component {
               placeholder={"Enter ISBN"}
               handleChange={this.handleInput}
             />{" "}
+              {errors.isbn.length > 0 && 
+                <span className='error'>{errors.isbn}</span>}
             <FormInput
               inputType={"text"}
               title={"Link to Buy"}
@@ -244,6 +327,8 @@ class FormAdd extends React.Component {
               placeholder={"Enter URL"}
               handleChange={this.handleInput}
             />{" "}
+              {errors.linkToBuy.length > 0 && 
+                <span className='error'>{errors.linkToBuy}</span>}
             <div className="form-group">
               <label htmlFor="check">Top Pick</label>
               <input
