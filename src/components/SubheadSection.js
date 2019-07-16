@@ -5,7 +5,7 @@ function SubheadSection(props) {
 
   return (
   <div className="SubheadSection">
-    <h2>{props.heading}</h2>
+    <h3>{props.heading}</h3>
   </div>
   );
 }
