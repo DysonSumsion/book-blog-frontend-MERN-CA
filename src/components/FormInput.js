@@ -16,6 +16,8 @@ const FormInput = props => {
         value={props.value}
         onChange={props.handleChange}
         placeholder={props.placeholder}
+        min='1999'
+        noValidate
         // {...props}
       />
     </div>
