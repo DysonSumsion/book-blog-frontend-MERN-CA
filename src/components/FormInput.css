@@ -1,0 +1,22 @@
+
+
+.form-control {
+  width: 500px;
+  height: 50px;
+}
+
+#publisher {
+  width: 250px;
+  height: 50px;
+}
+
+#year {
+  width: 250px;
+  height: 50px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+}

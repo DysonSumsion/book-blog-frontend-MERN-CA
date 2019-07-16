@@ -8,6 +8,7 @@ import SortByGenre from './container/SortByGenre';
 import AboutMe from './container/AboutMe';
 import Subscribe from './container/Subscribe';
 import Admin from './container/Admin';
+import FormAdd from './container/FormAdd'
 
 class Routes extends React.Component {
 
@@ -26,6 +27,9 @@ render() {
       <Route path="/aboutme" exact component={AboutMe} />
       <Route path="/subscribe" exact component={Subscribe} />
       <Route path="/adminjaclyn" exact component={Admin} />
+      {/* <Route path="/addreview" exact component={FormAdd} /> */}
+      <Route path="/addreview" render={(props)=> {
+        return <FormAdd {...props} />}}/>
     </Switch>
   )
   }
