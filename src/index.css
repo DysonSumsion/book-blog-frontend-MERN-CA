@@ -4,8 +4,9 @@
 }
 
 .container {
-  background-color: lightgray;
+  background-color: white;
   height: 100vh;
+  width: 100vw;
 }
 
 h1 {
@@ -25,9 +26,26 @@ h2 {
   max-width: 1000px;
 }
 
+h3 {
+  color: #4F4F4F;
+  font-family: 'Noto Serif JP', serif; 
+  font-weight: 400; 
+  font-size: 18pt;
+}
+
 p {
   color: #4F4F4F;
   font-family: 'Noto Serif JP', serif; 
   font-size: 16pt;
   font-weight: 400;
+}
+
+a {
+  color: #4F4F4F;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 11pt;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  /* text-decoration: none; */
 }

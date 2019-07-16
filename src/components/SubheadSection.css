@@ -1,9 +1,9 @@
 .SubheadSection {
-  background-color: pink;
+  /* background-color: pink; */
   height: 10vh;
   /* padding: <padding-top> || <padding-right> || <padding-bottom> || <padding-left> */
   padding-left: 80px;
   padding-right: 80px;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }

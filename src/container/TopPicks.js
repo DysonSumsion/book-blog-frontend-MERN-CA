@@ -10,7 +10,7 @@ function TopPicks() {
     <div>
     <IntroSection 
       headingOne="Wahoo, here are my Top Picks!" 
-      headingTwo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duislectus quam, vestibulum nec cursus non, sagittis nec tortor. Fusce lacinia mi nisi, vestibulum congue diam."
+      headingTwo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duislectus quam, vestibulum nec cursus non, sagittis nec tortor. Fusce lacinia mi nisi."
     />
     </div>
     <div>
