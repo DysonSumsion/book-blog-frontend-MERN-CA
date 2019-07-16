@@ -2,11 +2,9 @@ import React from 'react';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
 
-class Subscribe extends React.Component {
+class ForgotPassword extends React.Component {
   state = {
     newSubscribe: {
-      name: "",
-      email: "",
       confirmEmail: ""
     }
   }
@@ -15,8 +13,6 @@ class Subscribe extends React.Component {
     e.preventDefault();
     this.setState({
       newSubscribe: {
-        name: "",
-        email: "",
         confirmEmail: ""
       }
     });
@@ -36,39 +32,16 @@ class Subscribe extends React.Component {
       <form className="form-add" onSubmit={this.handleFormSubmit}>
           <FormInput
             inputType={"text"}
-            title={"Name"}
+            title={"Forgot Password"}
             name={"title"}
             value={this.state.newSubscribe.title}
-            placeholder={"Enter book name"}
+            placeholder={"Enter your email"}
             handleChange={this.handleInput}
           />{" "}
-          <FormInput
-            inputType={"text"}
-            title={"Email"}
-            name={"author"}
-            value={this.state.newSubscribe.author}
-            placeholder={"Enter author name"}
-            handleChange={this.handleInput}
-          />{" "}
-          <FormInput
-            inputType={"text"}
-            title={"Confirm Email"}
-            name={"author"}
-            value={this.state.newSubscribe.author}
-            placeholder={"Enter author name"}
-            handleChange={this.handleInput}
-          />{" "}
-          {/* Clear the form */}
-          <Button
-          action={this.handleFormSubmit}
-          type={"primary"}
-          title={"Submit"}
-        />{" "}
-        {/*Submit */}
         <Button
           action={this.handleClearForm}
           type={"secondary"}
-          title={"Clear"}
+          title={"Submit"}
         />{" "}
         </form>
   
@@ -79,8 +52,7 @@ class Subscribe extends React.Component {
     );
   } 
 }
-
-export default Subscribe;
+export default ForgotPassword;
 
 
 
