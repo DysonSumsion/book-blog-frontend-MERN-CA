@@ -18,6 +18,7 @@ const FormCheckbox = props => {
               value={option}
               checked={props.selectedOptions.indexOf(option) > -1}
               type="checkbox"
+              noValidate
             />
             {option}
           </label>
