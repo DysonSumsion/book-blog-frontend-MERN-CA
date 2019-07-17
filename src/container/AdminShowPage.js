@@ -1,6 +1,7 @@
 import React from "react";
 import IntroSection from "../components/IntroSection";
-import CardAdmin from "../components/CardAdmin"
+import CardAdmin from "../components/CardAdmin";
+import axios from "axios";
 
 class AdminShowPage extends React.Component {
   state = {
@@ -31,18 +32,34 @@ class AdminShowPage extends React.Component {
           <CardAdmin 
           title={review.title}
           author={review.author.name} 
+          handleDeleteClick={this.handleDeleteClick}
+          handleEditClick={this.handleEditClick}
           />
-          <button onClick={() => this.handleDeleteClick(review.title)} className="delete"> Delete</button>
         </div>
       )
     })
-
-
   }
 
-  handleDeleteClick=(review) => {
+  handleEditClick=(review) => {
     console.log(review)
+  }
 
+  handleDeleteClick=(title) => { 
+    const data = {data: {title}}
+
+    try {
+    axios.delete(`${process.env.REACT_APP_API_URL}/deleteReview`, data)
+          .then((res)=>{
+            console.log(res);
+            window.location.reload()
+          })
+
+    } catch(err){
+      console.log(`Error deleting with error: ${err}`);
+    }
+
+
+    
 
     
     

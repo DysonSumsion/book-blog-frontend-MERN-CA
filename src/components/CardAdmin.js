@@ -10,7 +10,8 @@ function CardAdmin(props) {
       <div className="cardRight">
         <p>Title: {props.title}</p>
         <p>Author: {props.author}</p>
-        <button>Edit</button>
+        <button onClick={() => props.handleEditClick(props.title)} className="edit"> Edit</button>
+        <button onClick={() => props.handleDeleteClick(props.title)} className="delete"> Delete</button>
       </div>
     </div>
   );
