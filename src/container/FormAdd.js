@@ -237,7 +237,7 @@ validateForm = (errors) => {
 
     axios.post('http://localhost:5500/seed', newReview)
     .then((res) => {
-      console.log("Where am I")
+      console.log("Review Saved")
       
     })
     .catch((err) => {
