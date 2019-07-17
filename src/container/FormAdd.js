@@ -4,7 +4,7 @@ import FormInput from "../components/FormInput";
 import FormTextArea from "../components/FormTextArea";
 import FormCheckbox from "../components/FormCheckbox";
 import Button from '../components/Button';
-import '../components/FormAdd.css';
+import '../container/FormAdd.css';
 
 class FormAdd extends React.Component {
   state = {
@@ -249,7 +249,7 @@ validateForm = (errors) => {
     const { errors } = this.state
     return (
       <>
-        <div>
+        <div className="formContainer">
           <form className="form-add" onSubmit={this.handleFormSubmit}>
             <FormInput
               inputType={"text"}
