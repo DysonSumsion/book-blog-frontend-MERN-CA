@@ -2,31 +2,17 @@ import React from "react";
 import './CardDisplay.css';
 import Card from '../components/Card';
 
-function CardDisplay() {
-
+function CardDisplay(props) {
+  //console.log(props)
   return (
     <div className="cardDisplay">
-      <div className="cardContainer">
-        <Card />
-      </div>
-      <div className="cardContainer">
-        <Card />
-      </div>
-      <div className="cardContainer">
-        <Card />
-      </div>
-      <div className="cardContainer">
-        <Card />
-      </div>
-      <div className="cardContainer">
-        <Card />
-      </div>
-      <div className="cardContainer">
-        <Card />
-      </div>
-      <div className="cardContainer">
-        <Card />
-      </div>
+      {props.result.map((review) => {
+        return (
+          <div className="cardContainer">
+            <Card review={review} />
+          </div>
+        )
+      })}
     </div>
   );
 }

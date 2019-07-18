@@ -79,6 +79,7 @@ class AdminShowPage extends React.Component {
     return <h2>Loading.......</h2>
   } 
   const result = this.renderReviews(reviews)
+
     return (
       <>
         <div>
