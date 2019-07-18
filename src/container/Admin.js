@@ -1,24 +1,49 @@
 import React from 'react';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 class Admin extends React.Component {
   state = {
-    admin: {
       email: "",
       password: "",
-      forgotPassword: ""
-    }
+      errMessage: ""
   }
-
-  handleClearForm = (e) => {
+  
+  handleInput = e => {
     e.preventDefault();
-  }
+    //  let errors = this.state.errors
+    let value = e.target.value;
+    let name = e.target.name;
+    if(name === 'email') {
+      this.setState( {email: value});
+    } else if (name === 'password') {
+      this.setState( {password: value});
+    }
+  };
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    let userData = this.state.admin;
-    console.log(userData)
+    const email = this.state.email;
+    const password = this.state.password;
+    axios.post('http://localhost:5500/auth/login', {
+      email:email,
+      password:password
+    })
+    .then((res) => {
+      console.log(res.data.token)  
+      const returnedToken = res.data.token   
+      window.localStorage.setItem("token", returnedToken);
+      console.log(window.localStorage.getItem("token"));
+      window.location.href = "/Dashboard";
+    })
+    .catch((err) => {
+      console.log(err);
+      this.setState({errMessage:"Invalid credentials. Try again"})
+
+    })
+    
   }
 
   render() {
@@ -30,17 +55,17 @@ class Admin extends React.Component {
           <FormInput
             inputType={"text"}
             title={"Email"}
-            name={"title"}
-            value={this.state.admin.title}
+            name={"email"}
+            value={this.state.email}
             placeholder={"Email"}
             handleChange={this.handleInput}
           />{" "}
           <FormInput
             inputType={"password"}
             title={"Password"}
-            name={"author"}
-            value={this.state.admin.author}
-            placeholder={"Enter author name"}
+            value={this.state.password}
+            name={"password"}
+            placeholder={"Enter password"}
             handleChange={this.handleInput}
           />{" "}
           {/* Clear the form */}
@@ -50,10 +75,10 @@ class Admin extends React.Component {
           title={"Submit"}
           style={buttonStyle}
         />{" "}
-        <Link to="/google.com">Forgot Password</Link>
+        <Link to="/ForgotPassword">Forgot Password</Link>
         {/*Submit */}
         </form>
-  
+        <h4>{this.state.errMessage}</h4>
       </div>
       
       </>
@@ -66,69 +91,3 @@ const buttonStyle = {
   margin: "10px 10px 10px 10px"
 };
 export default Admin;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import IntroSection from '../components/IntroSection';
-
-// function Subscribe() {
-
-//   return (
-//     <>
-//     <div>
-//       <IntroSection 
-//         headingOne="Subscribe page" 
-//       />
-//     </div>
-//     </>
-//   );
-// }
-
-// export default Subscribe;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import IntroSection from '../components/IntroSection';
-
-// function Admin() {
-
-//   return (
-//     <>
-//     <div>
-//       <IntroSection 
-//         headingOne="Admin page" 
-//       />
-//     </div>
-//     </>
-//   );
-// }
-
-// export default Admin;

@@ -1,27 +1,42 @@
 import React from 'react';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
+import axios from 'axios';
+
 
 class ForgotPassword extends React.Component {
   state = {
-    newSubscribe: {
-      confirmEmail: ""
-    }
+    forgotPassword: {
+      enterEmail: ""
+    },
+    checkmail: ""
   }
 
-  handleClearForm = (e) => {
+  handleInput = e => {
     e.preventDefault();
-    this.setState({
-      newSubscribe: {
-        confirmEmail: ""
-      }
-    });
-  }
+    //  let errors = this.state.errors
+    let value = e.target.value;
+      this.setState( {forgotPassword : {
+        enterEmail: value
+      }});
+  };
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    let userData = this.state.newSubscribe;
-    console.log(userData)
+    const email = this.state.forgotPassword.enterEmail;
+    console.log(email);
+    axios.post('http://localhost:5500/auth/forgot', {
+      email:email,
+    })
+    .then((res) => {
+      console.log(res.data.token)  
+      const returnedToken = res.data.token   
+      window.localStorage.setItem("resetToken", returnedToken);
+      this.setState( {checkmail : "Check your email. The link is valid for 10 minutes."})
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
   render() {
@@ -34,15 +49,16 @@ class ForgotPassword extends React.Component {
             inputType={"text"}
             title={"Forgot Password"}
             name={"title"}
-            value={this.state.newSubscribe.title}
+            value={this.state.forgotPassword.title}
             placeholder={"Enter your email"}
             handleChange={this.handleInput}
           />{" "}
         <Button
-          action={this.handleClearForm}
-          type={"secondary"}
+          action={this.handleFormSubmit}
+          type={"primary"}
           title={"Submit"}
         />{" "}
+        <h4>{this.state.checkmail}</h4>
         </form>
   
       </div>
