@@ -11,6 +11,8 @@ import Admin from './container/Admin';
 import FormAdd from './container/FormAdd';
 import ForgotPassword from './container/ForgotPassword';
 import AdminShowPage from './container/AdminShowPage';
+import Dashboard from './components/Dashboard';
+import ResetPassword from './container/ResetPassword';
 
 class Routes extends React.Component {
 
@@ -33,6 +35,8 @@ render() {
       <Route path="/subscribe" exact component={Subscribe}/>
       <Route path="/ForgotPassword" exact component={ForgotPassword}/>
       <Route path="/adminshow" exact component={AdminShowPage}/>
+      <Route path="/Dashboard" exact component={Dashboard}/>
+      <Route path="/ResetPassword" exact component={ResetPassword}/>
     </Switch>
   )
   }

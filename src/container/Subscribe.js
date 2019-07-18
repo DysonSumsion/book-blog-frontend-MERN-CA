@@ -4,28 +4,39 @@ import Button from '../components/Button';
 
 class Subscribe extends React.Component {
   state = {
-    newSubscribe: {
       name: "",
       email: "",
       confirmEmail: ""
-    }
   }
+
+
+  handleInput = e => {
+    console.log(e);
+    e.preventDefault();
+    //let errors = this.state.errors
+    let value = e.target.value;
+    let name = e.target.name;
+    if(name === 'name') {
+      this.setState( {name : value});
+    } else if (name === 'email') {
+      this.setState( {email : value});
+    } else if (name === 'confirmEmail') {
+      this.setState( {confirmEmail : value});
+    }
+  };
 
   handleClearForm = (e) => {
     e.preventDefault();
     this.setState({
-      newSubscribe: {
         name: "",
         email: "",
         confirmEmail: ""
-      }
     });
   }
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    let userData = this.state.newSubscribe;
-    console.log(userData)
+    console.log(this.state)
   }
 
   render() {
@@ -37,25 +48,25 @@ class Subscribe extends React.Component {
           <FormInput
             inputType={"text"}
             title={"Name"}
-            name={"title"}
-            value={this.state.newSubscribe.title}
-            placeholder={"Enter book name"}
+            name={"name"}
+            value={this.state.name}
+            placeholder={"Enter name"}
             handleChange={this.handleInput}
           />{" "}
           <FormInput
             inputType={"text"}
             title={"Email"}
-            name={"author"}
-            value={this.state.newSubscribe.author}
-            placeholder={"Enter author name"}
+            name={"email"}
+            value={this.state.email}
+            placeholder={"Enter email"}
             handleChange={this.handleInput}
           />{" "}
           <FormInput
             inputType={"text"}
             title={"Confirm Email"}
-            name={"author"}
-            value={this.state.newSubscribe.author}
-            placeholder={"Enter author name"}
+            name={"confirmEmail"}
+            value={this.state.confirmEmail}
+            placeholder={"Confirm Email"}
             handleChange={this.handleInput}
           />{" "}
           {/* Clear the form */}
