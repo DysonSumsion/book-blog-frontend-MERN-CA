@@ -1,3 +1,12 @@
+.menu {
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  position: absolute;
+  left: 800px;
+}
+
 .navbar {
   background-color: white;
   margin-bottom: 0px;
@@ -78,4 +87,3 @@
   }
 
 }
-

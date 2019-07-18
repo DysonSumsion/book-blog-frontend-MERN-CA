@@ -92,7 +92,6 @@ class AdminShowPage extends React.Component {
   } 
   const result = this.renderReviews(reviews)
 
-  
     return (
       <>
         <div>
@@ -117,10 +116,6 @@ class AdminShowPage extends React.Component {
           
           </div>
         </div>
-
-
-        
-
       </>
     );
   }
