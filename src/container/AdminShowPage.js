@@ -15,13 +15,10 @@ class AdminShowPage extends React.Component {
   async componentDidMount() {
       try {
         const response = await fetch(`${process.env.REACT_APP_API_URL}/reviews`)
-        // console.log(response)
         const data = await response.json()
-        // console.log(data);
         this.setState({
           data: data
         })
-        // console.log(data)
       } catch(err) {
         console.log(err)
       }
@@ -46,43 +43,42 @@ class AdminShowPage extends React.Component {
   }
 
   handleEditClick=(review) => {
-    console.log(review)
-    console.log(review._id);
     const id = review._id
-    
-    this.setState({ adding: true })
+    this.setState({ adding: true,  })
     this.setState({ selectedReview: review })
     this.setState({ id: id})
-    console.log(this.state.id);
-    
+  }
 
+  refresh = (reviewsData)  => {
+    console.log(reviewsData);
+    const reviews = reviewsData.data
+    console.log(reviews);
+    this.setState({
+      data: reviews,
+      adding: false
+    })
   }
 
   handleDeleteClick=(title) => { 
     const data = {data: {title}}
-
     try {
     axios.delete(`${process.env.REACT_APP_API_URL}/deleteReview`, data)
           .then((res)=>{
             console.log(res);
             window.location.reload()
           })
-
     } catch(err){
       console.log(`Error deleting with error: ${err}`);
     }
   }
 
-
   render() {
-    // console.log(this.state);
+    console.log(this.state);
   const { reviews } = this.state.data
   if (!reviews) {
     return <h2>Loading.......</h2>
   } 
   const result = this.renderReviews(reviews)
-
-  
     return (
       <>
         <div>
@@ -102,16 +98,13 @@ class AdminShowPage extends React.Component {
             topPick={this.state.selectedReview.topPick}
             seoKeyword={this.state.selectedReview.seoKeyword}
             id={this.state.id}
+            refresh={this.refresh}
             /> 
             : <div>{result}</div>
             }
           
           </div>
         </div>
-
-
-        
-
       </>
     );
   }

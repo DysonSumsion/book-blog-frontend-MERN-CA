@@ -3,8 +3,8 @@ import axios from "axios";
 import FormInput from "../components/FormInput";
 import FormTextArea from "../components/FormTextArea";
 import FormCheckbox from "../components/FormCheckbox";
-import Button from '../components/Button';
-import '../container/FormAdd.css';
+import Button from "../components/Button";
+import "../container/FormAdd.css";
 
 class FormAdd extends React.Component {
   state = {
@@ -16,7 +16,7 @@ class FormAdd extends React.Component {
       yearPublished: this.props.yearPublished || "2000",
       genre: this.props.genre || [],
       isbn: this.props.isbn || "",
-      linkToBuy: this.props.linkToBuy ||"",
+      linkToBuy: this.props.linkToBuy || "",
       topPick: this.props.topPick || "",
       seoKeyword: this.props.seoKeyword || ""
     },
@@ -43,18 +43,16 @@ class FormAdd extends React.Component {
       linkToBuy: "",
       review: "",
       genre: ""
-      
     }
   };
 
-  
   handleFormSubmit = () => {};
 
   handleTextArea = e => {
     e.preventDefault();
-    let errors = this.state.errors
+    let errors = this.state.errors;
     let value = e.target.value;
-    
+
     errors.review = value.length < 2 ? "Must enter a review" : "";
 
     this.setState(
@@ -71,36 +69,36 @@ class FormAdd extends React.Component {
   handleInput = e => {
     // console.log(e);
     e.preventDefault();
-    let errors = this.state.errors
+    let errors = this.state.errors;
     let value = e.target.value;
     let name = e.target.name;
 
-    switch (name){
-      case 'title':
+    switch (name) {
+      case "title":
         errors.title = value.length < 2 ? "Must enter a title" : "";
         break;
-      case 'author':
+      case "author":
         errors.author = value.length < 2 ? "Must enter an author" : "";
         break;
-      case 'publisher':
+      case "publisher":
         errors.publisher = value.length < 2 ? "Must enter an publisher" : "";
         break;
-      case 'yearPublished':
+      case "yearPublished":
         errors.yearPublished = value > 1900 ? "Must enter year" : "";
         break;
-      case 'isbn':
+      case "isbn":
         errors.isbn = value.length < 2 ? "Must enter ISBN" : "";
         break;
-      case 'linkToBuy':
+      case "linkToBuy":
         errors.linkToBuy = value.length < 2 ? "Must enter a link" : "";
         break;
       default:
         break;
     }
 
-    this.setState({errors, [name]: value}, ()=> {
-      console.log(errors)
-  })
+    this.setState({ errors, [name]: value }, () => {
+      console.log(errors);
+    });
 
     this.setState(
       prevState => ({
@@ -111,8 +109,6 @@ class FormAdd extends React.Component {
       }),
       () => console.log(this.state.newReview)
     );
-
-
   };
 
   handleInputSeo = e => {
@@ -120,7 +116,7 @@ class FormAdd extends React.Component {
     let value = e.target.value;
     let name = e.target.name;
     console.log(value);
-    const split = value.split(',')
+    const split = value.split(",");
     console.log(split[0]);
 
     this.setState(
@@ -135,10 +131,9 @@ class FormAdd extends React.Component {
   };
 
   handleCheckBox = e => {
-    
     const newSelection = e.target.value;
     let newSelectionArray;
-    
+
     if (this.state.newReview.genre.indexOf(newSelection) > -1) {
       newSelectionArray = this.state.newReview.genre.filter(
         s => s !== newSelection
@@ -147,15 +142,14 @@ class FormAdd extends React.Component {
       newSelectionArray = [...this.state.newReview.genre, newSelection];
     }
 
-    console.log(newSelectionArray.length);
-    let errors = this.state.errors
+    let errors = this.state.errors;
     errors.genre = newSelectionArray.length < 1 ? "Must enter a genre" : "";
 
-
-    this.setState(prevState => ({
-      newReview: { ...prevState.newReview, genre: newSelectionArray }
-    }),
-    () => console.log(this.state.newReview)
+    this.setState(
+      prevState => ({
+        newReview: { ...prevState.newReview, genre: newSelectionArray }
+      }),
+      () => console.log(this.state.newReview)
     );
   };
 
@@ -196,7 +190,7 @@ class FormAdd extends React.Component {
     );
   };
 
-  handleClearForm = (e) => {
+  handleClearForm = e => {
     e.preventDefault();
     this.setState({
       newReview: {
@@ -212,61 +206,53 @@ class FormAdd extends React.Component {
         seoKeyword: ""
       }
     });
-  }
+  };
 
-validateForm = (errors) => {
+  validateForm = errors => {
     let valid = true;
     Object.values(errors).forEach(
       // if we have an error string set valid to false
-      (val) => val.length > 0 && (valid = false)
+      val => val.length > 0 && (valid = false)
     );
     return valid;
-  }
+  };
 
   handleFormSubmit = (e, props) => {
     e.preventDefault();
-    if(this.validateForm(this.state.errors)) {
-      console.info('Valid Form')
-    }else{
-      console.error('Invalid Form')
+    if (this.validateForm(this.state.errors)) {
+      console.info("Valid Form");
+    } else {
+      console.error("Invalid Form");
     }
     console.log(this.props.id);
-    const id = this.props.id
+    const id = this.props.id;
     const newReview = this.state.newReview;
     console.log(newReview);
-    const data = {id:id, newReview:newReview}
-
-
-
+    const data = { id: id, newReview: newReview };
 
     if (window.location.pathname.split("/").pop() === "adminshow") {
-      // run the put request
-      console.log('im here');
-      axios.put(`${process.env.REACT_APP_API_URL}/updateReview`, data)
-      .then((res) => {
-        console.log("Review Updated");
-        console.log(res);
-        // change state of adding
-
-      })
-      .catch((err)=>{
-        console.log(`update review error with error: ${err}`);
-      })
-      } else {
-        axios.post('http://localhost:5500/seed', newReview)
-        .then((res) => {
-          console.log("Review Saved")
-          
-          
+      axios
+        .put(`${process.env.REACT_APP_API_URL}/updateReview`, data)
+        .then(res => {
+          this.props.refresh(res);
         })
-        .catch((err) => {
-          console.log(err)
+        .catch(err => {
+          console.log(`update review error with error: ${err}`);
+        });
+    } else {
+      axios
+        .post("http://localhost:5500/seed", newReview)
+        .then(res => {
+          console.log("Review Saved");
         })
-      }
-  }
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  };
 
   render() {
-    const { errors } = this.state
+    const { errors } = this.state;
     return (
       <>
         <div className="formContainer">
@@ -279,8 +265,9 @@ validateForm = (errors) => {
               placeholder={"Enter book name"}
               handleChange={this.handleInput}
             />{" "}
-              {errors.title.length > 0 && 
-                <span className='error'>{errors.title}</span>}
+            {errors.title.length > 0 && (
+              <span className="error">{errors.title}</span>
+            )}
             <FormInput
               inputType={"text"}
               title={"Author"}
@@ -289,8 +276,9 @@ validateForm = (errors) => {
               placeholder={"Enter author name"}
               handleChange={this.handleInput}
             />{" "}
-            {errors.author.length > 0 && 
-                <span className='error'>{errors.author}</span>}
+            {errors.author.length > 0 && (
+              <span className="error">{errors.author}</span>
+            )}
             <FormTextArea
               title={"Review"}
               rows={10}
@@ -298,8 +286,10 @@ validateForm = (errors) => {
               name={"review"}
               handleChange={this.handleTextArea}
               placeholder={"Enter your review"}
-            />{errors.review.length > 0 && 
-                <span className='error'>{errors.review}</span>}
+            />
+            {errors.review.length > 0 && (
+              <span className="error">{errors.review}</span>
+            )}
             <FormInput
               inputType={"text"}
               title={"Publisher"}
@@ -308,8 +298,9 @@ validateForm = (errors) => {
               placeholder={"Enter publisher"}
               handleChange={this.handleInput}
             />{" "}
-              {errors.publisher.length > 0 && 
-                <span className='error'>{errors.publisher}</span>}
+            {errors.publisher.length > 0 && (
+              <span className="error">{errors.publisher}</span>
+            )}
             <FormInput
               inputType={"number"}
               name={"yearPublished"}
@@ -318,8 +309,9 @@ validateForm = (errors) => {
               placeholder={"Published Year"}
               handleChange={this.handleYear}
             />{" "}
-              {errors.yearPublished.length > 0 && 
-                <span className='error'>{errors.yearPublished}</span>}
+            {errors.yearPublished.length > 0 && (
+              <span className="error">{errors.yearPublished}</span>
+            )}
             <FormCheckbox
               title={"Genre"}
               name={"genre"}
@@ -327,8 +319,9 @@ validateForm = (errors) => {
               selectedOptions={this.state.newReview.genre}
               handleChange={this.handleCheckBox}
             />{" "}
-              {errors.genre.length > 0 && 
-                <span className='error'>{errors.genre}</span>}
+            {errors.genre.length > 0 && (
+              <span className="error">{errors.genre}</span>
+            )}
             <FormInput
               inputType={"text"}
               title={"ISBN"}
@@ -337,8 +330,9 @@ validateForm = (errors) => {
               placeholder={"Enter ISBN"}
               handleChange={this.handleInput}
             />{" "}
-              {errors.isbn.length > 0 && 
-                <span className='error'>{errors.isbn}</span>}
+            {errors.isbn.length > 0 && (
+              <span className="error">{errors.isbn}</span>
+            )}
             <FormInput
               inputType={"text"}
               title={"Link to Buy"}
@@ -347,9 +341,9 @@ validateForm = (errors) => {
               placeholder={"Enter URL"}
               handleChange={this.handleInput}
             />{" "}
-              {errors.linkToBuy.length > 0 && 
-                <span className='error'>{errors.linkToBuy}</span>}
-            
+            {errors.linkToBuy.length > 0 && (
+              <span className="error">{errors.linkToBuy}</span>
+            )}
             <div className="form-group">
               <label htmlFor="check">Top Pick</label>
               <input
@@ -358,11 +352,8 @@ validateForm = (errors) => {
                 id="checkbox"
                 name="topPick"
                 checked={this.state.newReview.topPick}
-                
-                
               />
             </div>
-            
             <FormInput
               inputType={"text"}
               title={"Seo Keywords (Separate by comma)"}
@@ -371,14 +362,12 @@ validateForm = (errors) => {
               placeholder={"Enter SEO Keywords"}
               handleChange={this.handleInputSeo}
             />{" "}
-
             <Button
               action={this.handleFormSubmit}
               type={"primary"}
               title={"Submit"}
               // style={buttonStyle}
             />{" "}
-
             {/*Submit */}
             <Button
               action={this.handleClearForm}
