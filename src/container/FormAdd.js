@@ -13,13 +13,15 @@ class FormAdd extends React.Component {
       author: this.props.author || "",
       review: this.props.review || "",
       publisher: this.props.publisher || "",
-      yearPublished: this.props.yearPublished || "2000",
+      yearPublished: this.props.yearPublished || "2019",
       genre: this.props.genre || [],
       isbn: this.props.isbn || "",
       linkToBuy: this.props.linkToBuy || "",
-      topPick: this.props.topPick || "",
-      seoKeyword: this.props.seoKeyword || ""
+      topPick: this.props.topPick || false,
+      seoKeyword: this.props.seoKeyword || "",
+      url: this.props.url || ""
     },
+    image: "",
 
     genreOptions: [
       "Australian Fiction",
@@ -217,6 +219,15 @@ class FormAdd extends React.Component {
     return valid;
   };
 
+  handleUploadImage = (e) => {
+    e.preventDefault();
+    console.log("in image");
+    const file = e.target.parentNode.childNodes[10].files[0]
+    console.log(file);
+    this.setState({ image: file})
+
+  }
+
   handleFormSubmit = (e, props) => {
     e.preventDefault();
     if (this.validateForm(this.state.errors)) {
@@ -224,29 +235,38 @@ class FormAdd extends React.Component {
     } else {
       console.error("Invalid Form");
     }
-    console.log(this.props.id);
-    const id = this.props.id;
     const newReview = this.state.newReview;
-    console.log(newReview);
+    const file = this.state.image
+    
+    const id = this.props.id;
     const data = { id: id, newReview: newReview };
 
     if (window.location.pathname.split("/").pop() === "adminshow") {
+      console.log("in adminshow");
       axios
         .put(`${process.env.REACT_APP_API_URL}/updateReview`, data)
         .then(res => {
+          alert("review updated")
           this.props.refresh(res);
         })
         .catch(err => {
           console.log(`update review error with error: ${err}`);
         });
     } else {
+      console.log("in addreview");
+      const stringifyData = JSON.stringify(newReview)
+      const formData = new FormData()
+        formData.append('data', stringifyData)
+        formData.append('file', file)
+
       axios
-        .post("http://localhost:5500/seed", newReview)
+        .post(`${process.env.REACT_APP_API_URL}/seed`, formData)
         .then(res => {
-          console.log("Review Saved");
+          alert("Review Saved");
+          console.log(res);
         })
         .catch(err => {
-          console.log(err);
+          console.log(err.message);
         });
     }
   };
@@ -256,7 +276,7 @@ class FormAdd extends React.Component {
     return (
       <>
         <div className="formContainer">
-          <form className="form-add" onSubmit={this.handleFormSubmit}>
+          <form className="form-add" onSubmit={this.handleFormSubmit} encType="multipart/form-data">
             <FormInput
               inputType={"text"}
               title={"Book Title"}
@@ -312,6 +332,26 @@ class FormAdd extends React.Component {
             {errors.yearPublished.length > 0 && (
               <span className="error">{errors.yearPublished}</span>
             )}
+
+            <label htmlFor="image-upload">Upload Image</label>
+            <input 
+              type="file" 
+              name="image-upload" 
+              id="image-load" 
+              onChange={this.handleUploadImage} >
+            </input>
+
+            <div>
+            <input
+            className="form-control"
+            type="text"  
+            value={this.state.newReview.url}>
+            {/* readOnly */}
+            </input>
+            </div>
+
+            
+
             <FormCheckbox
               title={"Genre"}
               name={"genre"}
