@@ -9,6 +9,7 @@ class AdminShowPage extends React.Component {
     data: "",
     adding: false,
     selectedReview: null,
+    id: ""
   }
 
   async componentDidMount() {
@@ -46,25 +47,14 @@ class AdminShowPage extends React.Component {
 
   handleEditClick=(review) => {
     console.log(review)
+    console.log(review._id);
+    const id = review._id
     
     this.setState({ adding: true })
     this.setState({ selectedReview: review })
+    this.setState({ id: id})
+    console.log(this.state.id);
     
-    
-    // const updatedReview = {
-    //   title: this.state.title,
-    //   author: this.state.author,
-    //   review: this.state.review,
-    //   publisher: this.state.publisher,
-    //   yearPublished: this.state.yearPublished,
-    //   genre: this.state.genre,
-    //   isbn: this.state.isbn,
-    //   linkToBuy: this.state.linkToBuy,
-    //   topPick: this.state.topPick,
-    //   seoKeyword: this.state.seoKeyword
-    // };
-    // console.log(updatedReview);
-
 
   }
 
@@ -111,6 +101,7 @@ class AdminShowPage extends React.Component {
             genre={this.state.selectedReview.genre.name}
             topPick={this.state.selectedReview.topPick}
             seoKeyword={this.state.selectedReview.seoKeyword}
+            id={this.state.id}
             /> 
             : <div>{result}</div>
             }

@@ -223,41 +223,46 @@ validateForm = (errors) => {
     return valid;
   }
 
-  handleFormSubmit = (e) => {
+  handleFormSubmit = (e, props) => {
     e.preventDefault();
     if(this.validateForm(this.state.errors)) {
       console.info('Valid Form')
     }else{
       console.error('Invalid Form')
     }
-
-    let newReview = this.state.newReview;
+    console.log(this.props.id);
+    const id = this.props.id
+    const newReview = this.state.newReview;
     console.log(newReview);
+    const data = {id:id, newReview:newReview}
+
+
+
+
     if (window.location.pathname.split("/").pop() === "adminshow") {
       // run the put request
       console.log('im here');
-      axios.put(`${process.env.REACT_APP_API_URL}/updateReview`, newReview)
+      axios.put(`${process.env.REACT_APP_API_URL}/updateReview`, data)
       .then((res) => {
         console.log("Review Updated");
+        console.log(res);
+        // change state of adding
+
       })
       .catch((err)=>{
         console.log(`update review error with error: ${err}`);
       })
-
-
-
-
-    } else {
-      axios.post('http://localhost:5500/seed', newReview)
-      .then((res) => {
-        console.log("Review Saved")
-        
-        
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-    }
+      } else {
+        axios.post('http://localhost:5500/seed', newReview)
+        .then((res) => {
+          console.log("Review Saved")
+          
+          
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      }
   }
 
   render() {
