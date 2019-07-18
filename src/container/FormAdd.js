@@ -9,16 +9,16 @@ import '../container/FormAdd.css';
 class FormAdd extends React.Component {
   state = {
     newReview: {
-      title: "",
-      author: "",
-      review: "",
-      publisher: "",
-      yearPublished: "2000",
-      genre: [],
-      isbn: "",
-      linkToBuy: "",
-      topPick: "",
-      seoKeyword: ""
+      title: this.props.title || "",
+      author: this.props.author || "",
+      review: this.props.review || "",
+      publisher: this.props.publisher || "",
+      yearPublished: this.props.yearPublished || "2000",
+      genre: this.props.genre || [],
+      isbn: this.props.isbn || "",
+      linkToBuy: this.props.linkToBuy ||"",
+      topPick: this.props.topPick || "",
+      seoKeyword: this.props.seoKeyword || ""
     },
 
     genreOptions: [
@@ -139,7 +139,6 @@ class FormAdd extends React.Component {
     const newSelection = e.target.value;
     let newSelectionArray;
     
-
     if (this.state.newReview.genre.indexOf(newSelection) > -1) {
       newSelectionArray = this.state.newReview.genre.filter(
         s => s !== newSelection
@@ -233,16 +232,32 @@ validateForm = (errors) => {
     }
 
     let newReview = this.state.newReview;
-    // console.log(newReview);
+    console.log(newReview);
+    if (window.location.pathname.split("/").pop() === "adminshow") {
+      // run the put request
+      console.log('im here');
+      axios.put(`${process.env.REACT_APP_API_URL}/updateReview`, newReview)
+      .then((res) => {
+        console.log("Review Updated");
+      })
+      .catch((err)=>{
+        console.log(`update review error with error: ${err}`);
+      })
 
-    axios.post('http://localhost:5500/seed', newReview)
-    .then((res) => {
-      console.log("Review Saved")
-      
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+
+
+
+    } else {
+      axios.post('http://localhost:5500/seed', newReview)
+      .then((res) => {
+        console.log("Review Saved")
+        
+        
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
   }
 
   render() {
@@ -329,14 +344,20 @@ validateForm = (errors) => {
             />{" "}
               {errors.linkToBuy.length > 0 && 
                 <span className='error'>{errors.linkToBuy}</span>}
+            
             <div className="form-group">
               <label htmlFor="check">Top Pick</label>
               <input
                 onChange={this.handleCheckbox}
                 type="checkbox"
                 id="checkbox"
+                name="topPick"
+                checked={this.state.newReview.topPick}
+                
+                
               />
             </div>
+            
             <FormInput
               inputType={"text"}
               title={"Seo Keywords (Separate by comma)"}
@@ -345,12 +366,14 @@ validateForm = (errors) => {
               placeholder={"Enter SEO Keywords"}
               handleChange={this.handleInputSeo}
             />{" "}
+
             <Button
               action={this.handleFormSubmit}
               type={"primary"}
               title={"Submit"}
               // style={buttonStyle}
             />{" "}
+
             {/*Submit */}
             <Button
               action={this.handleClearForm}
