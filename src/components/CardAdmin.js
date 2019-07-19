@@ -1,5 +1,5 @@
 import React from "react";
-import './CardAdmin.css';
+import './Card.css';
 
 function CardAdmin(props) {
 

@@ -36,15 +36,25 @@ h3 {
 p {
   color: #4F4F4F;
   font-family: 'Noto Serif JP', serif; 
-  font-size: 16pt;
+  font-size: 12pt;
   font-weight: 400;
+  margin-bottom: 10px;
+}
+
+p.cardTitle {
+  color: #4F4F4F;
+  font-family: 'Noto Serif JP', serif; 
+  font-size: 14pt;
+  font-weight: 900;
+  margin-bottom: 10px;
 }
 
 a {
   color: #4F4F4F;
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  font-size: 11pt;
+  font-size: 10pt;
+  line-height: 12pt;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   /* text-decoration: none; */

@@ -241,7 +241,7 @@ class FormAdd extends React.Component {
         });
     } else {
       axios
-        .post("http://localhost:5500/seed", newReview)
+        .post("http://localhost:5500/createReview", newReview)
         .then(res => {
           console.log("Review Saved");
         })
