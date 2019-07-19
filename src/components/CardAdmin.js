@@ -1,11 +1,14 @@
 import React from "react";
-import './CardAdmin.css';
+import './Card.css';
 
 function CardAdmin(props) {
 
   return (
     <div className="card">
       <div className="cardLeft">
+      {/* <img src="${movie.Poster}" onerror="this.src='../images/NO_PHOTO_PROVIDED.jpg';"  srcset=""> */}
+  
+        <img src={props.url} alt={props.title}  ></img>
       </div>
       <div className="cardRight">
         <p>Title: {props.title}</p>
