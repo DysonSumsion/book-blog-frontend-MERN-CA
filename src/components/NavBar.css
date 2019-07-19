@@ -57,8 +57,11 @@
 .hamburger {
   height: 60px;
   width: 60px;
-  background-color: green;
   display: none;
+}
+
+i {
+  color: #4F4F4F;
 }
 
 /* Media queries –––––––––––––––––––––––––––––––––––– */
