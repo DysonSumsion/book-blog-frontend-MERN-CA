@@ -236,6 +236,7 @@ class FormAdd extends React.Component {
       console.error("Invalid Form");
     }
     const newReview = this.state.newReview;
+    const updatedReview = this.state.newReview
     const file = this.state.image
     
     const id = this.props.id;
@@ -243,8 +244,18 @@ class FormAdd extends React.Component {
 
     if (window.location.pathname.split("/").pop() === "adminshow") {
       console.log("in adminshow");
+      // console.log(updatedReview);
+      // console.log(file);
+
+      const stringifyData = JSON.stringify(data)
+      const formData = new FormData()
+        formData.append('data', stringifyData)
+        formData.append('file', file)
+      // console.log(formData);
+
+
       axios
-        .put(`${process.env.REACT_APP_API_URL}/updateReview`, data)
+        .put(`${process.env.REACT_APP_API_URL}/updateReview`, formData)
         .then(res => {
           alert("review updated")
           this.props.refresh(res);
@@ -260,7 +271,7 @@ class FormAdd extends React.Component {
         formData.append('file', file)
 
       axios
-        .post(`${process.env.REACT_APP_API_URL}/seed`, formData)
+        .post(`${process.env.REACT_APP_API_URL}/createReview`, formData)
         .then(res => {
           alert("Review Saved");
           console.log(res);
@@ -341,16 +352,16 @@ class FormAdd extends React.Component {
               onChange={this.handleUploadImage} >
             </input>
 
-            <div>
-            <input
-            className="form-control"
-            type="text"  
-            value={this.state.newReview.url}>
-            {/* readOnly */}
-            </input>
-            </div>
-
-            
+            {this.state.newReview.url && (
+              <div>
+                <input
+                className="form-control"
+                type="text"  
+                value={this.state.newReview.url}
+                readOnly>
+              </input>
+              </div>
+             )}
 
             <FormCheckbox
               title={"Genre"}
