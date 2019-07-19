@@ -33,7 +33,8 @@ class AdminShowPage extends React.Component {
           <CardAdmin 
           title={review.title}
           author={review.author.name}
-          review={review} 
+          review={review}
+          url={review.url}
           handleDeleteClick={this.handleDeleteClick}
           handleEditClick={this.handleEditClick}
           />
@@ -44,9 +45,7 @@ class AdminShowPage extends React.Component {
 
   handleEditClick=(review) => {
     const id = review._id
-    this.setState({ adding: true,  })
-    this.setState({ selectedReview: review })
-    this.setState({ id: id})
+    this.setState({ adding: true, selectedReview: review, id: id })
   }
 
   refresh = (reviewsData)  => {
@@ -98,6 +97,7 @@ class AdminShowPage extends React.Component {
             genre={this.state.selectedReview.genre.name}
             topPick={this.state.selectedReview.topPick}
             seoKeyword={this.state.selectedReview.seoKeyword}
+            url={this.state.selectedReview.url}
             id={this.state.id}
             refresh={this.refresh}
             /> 
