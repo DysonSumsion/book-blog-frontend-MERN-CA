@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './NavBar.css';
-import SearchBar from './SearchBar';
+import SearchBarContainer from '../container/SearchBarContainer';
 
 class NavBar extends React.Component {
   constructor() {
@@ -41,7 +41,7 @@ class NavBar extends React.Component {
         <div className="navLeft">
           <div className="logo">
           </div>
-          <SearchBar />
+          <SearchBarContainer /> 
         </div>
         <div className="navRight">
           <div className="navLinks">
