@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './NavBar.css';
+//import Showpage from '../container/Showpage';
+//import ShowPage from '../container/ShowPage';
 import SearchBarContainer from '../container/SearchBarContainer';
 
 class NavBar extends React.Component {
@@ -55,7 +57,7 @@ class NavBar extends React.Component {
             <Link to="/subscribe">Subscribe</Link>
             </div>
             <div className="hamburger">
-              <i class="huge bars icon"></i>
+              <i className="huge bars icon"></i>
             </div>
           </div>
       </div>

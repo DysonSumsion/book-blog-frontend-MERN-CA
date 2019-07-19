@@ -236,7 +236,7 @@ class FormAdd extends React.Component {
       console.error("Invalid Form");
     }
     const newReview = this.state.newReview;
-    const updatedReview = this.state.newReview
+    //const updatedReview = this.state.newReview
     const file = this.state.image
     
     const id = this.props.id;
