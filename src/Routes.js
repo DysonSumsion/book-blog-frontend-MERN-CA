@@ -24,7 +24,7 @@ render() {
   return (
     <Switch>
       <Route path="/home" exact component={HomePage} />
-      <Route path="/show" exact component={ShowPage} />
+      <Route path="/show/:q" exact component={ShowPage} />
       <Route path="/toppicks" exact component={TopPicks} />
       <Route path="/sortbyyear" exact component={SortByYear} />
       <Route path="/sortbygenre" exact component={SortByGenre} />
