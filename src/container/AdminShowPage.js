@@ -26,7 +26,7 @@ class AdminShowPage extends React.Component {
 
   renderReviews = reviewList => {
     console.log("in render reviews");
-    console.log(reviewList);
+    // console.log(reviewList);
     return reviewList.map((review, index) => {
       return (
         < div className="reviewList" key={index}>
@@ -64,6 +64,7 @@ class AdminShowPage extends React.Component {
     axios.delete(`${process.env.REACT_APP_API_URL}/deleteReview`, data)
           .then((res)=>{
             console.log(res);
+            alert("Review Deleted")
             window.location.reload()
           })
     } catch(err){
@@ -72,7 +73,7 @@ class AdminShowPage extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
   const { reviews } = this.state.data
   if (!reviews) {
     return <h2>Loading.......</h2>
