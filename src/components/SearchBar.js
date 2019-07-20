@@ -1,31 +1,24 @@
-import React from 'react';
-import './SearchBar.css';
+import React from "react";
 
-class SearchBar extends React.Component {
-  state = { term: 'Search Title'};
-
-  onFormSubmit = (event) => {
-    // stops browser submitting form automatically
-    event.preventDefault();
-
-    this.props.onSubmitCanNameAnything(this.state.term);
-    //console.log(this.state.term);
-  }
-
-  render() {
-    return (
-      <div className="searchContainer">
-          <form onSubmit={this.onFormSubmit} className="ui form">
-            <div className="field">
-              <input 
-                type="text" 
-                value={this.state.term}
-                onChange={e => this.setState({ term: e.target.value })}/>
-            </div>
-          </form>
-      </div>
-    );
-  }
-}
+const SearchBar = props => {
+  console.log(props)
+ return(
+ <>
+  <div className="form-group">
+    <label htmlFor={props.name} className="form-label">{props.title}</label>
+    <input
+      className="form-control"
+      id={props.name}
+      name={props.name}
+      type={props.inputType}
+      value={props.value}
+      onChange={props.handleChange}
+      placeholder={props.placeholder}
+      // {...props}
+    />
+  </div>
+ </>
+ );
+};
 
 export default SearchBar;

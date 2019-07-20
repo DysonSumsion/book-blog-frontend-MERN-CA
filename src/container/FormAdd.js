@@ -5,6 +5,14 @@ import FormTextArea from "../components/FormTextArea";
 import FormCheckbox from "../components/FormCheckbox";
 import Button from "../components/Button";
 import "../container/FormAdd.css";
+// import history from '../history';
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
+const location = history.location;
+console.log(location.pathname);
+
+// import { withRouter } from "react-router-dom";
 
 class FormAdd extends React.Component {
   state = {
@@ -47,8 +55,6 @@ class FormAdd extends React.Component {
       genre: ""
     }
   };
-
-  handleFormSubmit = () => {};
 
   handleTextArea = e => {
     e.preventDefault();
@@ -219,45 +225,40 @@ class FormAdd extends React.Component {
     return valid;
   };
 
-  handleUploadImage = (e) => {
+  handleUploadImage = e => {
     e.preventDefault();
     console.log("in image");
-    const file = e.target.parentNode.childNodes[10].files[0]
+    const file = e.target.parentNode.childNodes[10].files[0];
     console.log(file);
-    this.setState({ image: file})
+    this.setState({ image: file });
+  };
 
-  }
-
-  handleFormSubmit = (e, props) => {
+  handleFormSubmit = (e) => {
     e.preventDefault();
+    
     if (this.validateForm(this.state.errors)) {
       console.info("Valid Form");
     } else {
       console.error("Invalid Form");
     }
     const newReview = this.state.newReview;
-    const updatedReview = this.state.newReview
-    const file = this.state.image
-    
+    // const updatedReview = this.state.newReview;
+    const file = this.state.image;
     const id = this.props.id;
     const data = { id: id, newReview: newReview };
 
     if (window.location.pathname.split("/").pop() === "adminshow") {
       console.log("in adminshow");
-      // console.log(updatedReview);
-      // console.log(file);
 
-      const stringifyData = JSON.stringify(data)
-      const formData = new FormData()
-        formData.append('data', stringifyData)
-        formData.append('file', file)
-      // console.log(formData);
-
+      const stringifyData = JSON.stringify(data);
+      const formData = new FormData();
+      formData.append("data", stringifyData);
+      formData.append("file", file);
 
       axios
         .put(`${process.env.REACT_APP_API_URL}/updateReview`, formData)
         .then(res => {
-          alert("review updated")
+          alert("review updated");
           this.props.refresh(res);
         })
         .catch(err => {
@@ -265,16 +266,17 @@ class FormAdd extends React.Component {
         });
     } else {
       console.log("in addreview");
-      const stringifyData = JSON.stringify(newReview)
-      const formData = new FormData()
-        formData.append('data', stringifyData)
-        formData.append('file', file)
+      const stringifyData = JSON.stringify(newReview);
+      const formData = new FormData();
+      formData.append("data", stringifyData);
+      formData.append("file", file);
 
       axios
         .post(`${process.env.REACT_APP_API_URL}/createReview`, formData)
         .then(res => {
           alert("Review Saved");
           console.log(res);
+          this.props.history.push("/adminshow");
         })
         .catch(err => {
           console.log(err.message);
@@ -282,12 +284,39 @@ class FormAdd extends React.Component {
     }
   };
 
+  
+
+  handleCancelForm = (e) => {
+    e.preventDefault();
+    console.log("hi");
+    console.log(this.props);
+    if (location.pathname === "/adminshow"){
+      window.location.reload()
+    } else {
+      this.props.history.push("/adminshow");
+    }
+
+  }
+
   render() {
     const { errors } = this.state;
+    let color;
+    if (this.props.adding === true) {
+      color = "formContainer box0"
+    }else{
+      color = "formContainer box1"
+    }
+
     return (
       <>
-        <div className="formContainer">
-          <form className="form-add" onSubmit={this.handleFormSubmit} encType="multipart/form-data">
+        {/* <div className="formContainer" > */}
+        <div className={color} >
+
+          <form
+            className="form-add"
+            onSubmit={this.handleFormSubmit}
+            encType="multipart/form-data"
+          >
             <FormInput
               inputType={"text"}
               title={"Book Title"}
@@ -343,26 +372,23 @@ class FormAdd extends React.Component {
             {errors.yearPublished.length > 0 && (
               <span className="error">{errors.yearPublished}</span>
             )}
-
             <label htmlFor="image-upload">Upload Image</label>
-            <input 
-              type="file" 
-              name="image-upload" 
-              id="image-load" 
-              onChange={this.handleUploadImage} >
-            </input>
-
+            <input
+              type="file"
+              name="image-upload"
+              id="image-load"
+              onChange={this.handleUploadImage}
+            />
             {this.state.newReview.url && (
               <div>
                 <input
-                className="form-control"
-                type="text"  
-                value={this.state.newReview.url}
-                readOnly>
-              </input>
+                  className="form-control"
+                  type="text"
+                  value={this.state.newReview.url}
+                  readOnly
+                />
               </div>
-             )}
-
+            )}
             <FormCheckbox
               title={"Genre"}
               name={"genre"}
@@ -426,7 +452,12 @@ class FormAdd extends React.Component {
               title={"Clear"}
               // style={buttonStyle}
             />{" "}
-            {/* Clear the form */}
+            <Button
+              action={this.handleCancelForm}
+              type={"secondary"}
+              title={"Cancel"}
+            />{" "}
+            
           </form>
         </div>
       </>

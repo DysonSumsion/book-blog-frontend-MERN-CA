@@ -25,14 +25,14 @@ render() {
     <Switch>
       <Route path="/" exact component={HomePage} />
       <Route path="/home" exact component={HomePage} />
-      <Route path="/show" exact component={ShowPage} />
+      <Route path="/show/:q" exact component={ShowPage} />
       <Route path="/toppicks" exact component={TopPicks} />
       <Route path="/sortbyyear" exact component={SortByYear} />
       <Route path="/sortbygenre" exact component={SortByGenre} />
       <Route path="/aboutme" exact component={AboutMe} />
       <Route path="/subscribe" exact component={Subscribe} />
       <Route path="/adminjaclyn" exact component={Admin} />
-      <Route path="/addreview" exact component={FormAdd} />
+      <Route path="/adminaddreview" exact component={FormAdd} />
       <Route path="/subscribe" exact component={Subscribe}/>
       <Route path="/ForgotPassword" exact component={ForgotPassword}/>
       <Route path="/adminshow" exact component={AdminShowPage}/>
