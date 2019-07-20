@@ -8,8 +8,7 @@ function Card(props) {
       <div className="cardLeft">
       </div>
       <div className="cardRight">
-      <p class="cardTitle">
-            {props.review.props.children.props.title}</p>
+      <p className="cardTitle">{props.review.props.children.props.title}</p>
         <p>{props.review.props.children.props.author}</p>
         <Link to="/show">Read more</Link>
       </div>

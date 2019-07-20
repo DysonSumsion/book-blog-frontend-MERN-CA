@@ -3,27 +3,15 @@ import IntroSection from '../components/IntroSection';
 import SubheadSection from '../components/SubheadSection';
 import CardDisplay from '../components/CardDisplay';
 import Card from "../components/Card";
-
+import axios from 'axios'
 
 class ShowPage extends React.Component {
   state = {
-    data: "",
-    adding: false,
-    selectedReview: null,
+    allReviews: [],
+    searchTerm: '',
+    matchReviews: []
   }
-
-  async componentDidMount() {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/reviews`)
-      const data = await response.json()
-      this.setState({
-        data: data
-      })
-    } catch(err) {
-      console.log(err)
-    }
-  }
-
+// Books Grid
   renderReviews = reviewList => {
     return reviewList.map((review, index) => {
       return (
@@ -44,20 +32,62 @@ class ShowPage extends React.Component {
     })
   }
 
-  render() {
-  const { reviews } = this.state.data
-  if (!reviews) {
-    return <h2>Loading.......</h2>
-  } 
-  const result = this.renderReviews(reviews)
+// Jumbotron 
+  renderResult = reviewList => {
+    return reviewList.map((review, index) => {
+      return (
+        <div key={index}>
+        <h2>{review.title}</h2>
+        </div>
+      )
+    })
+  }
 
+
+  componentDidMount() {
+    console.log("showPage")
+    this.getReviews();
+ }
+
+ getReviews = async () => {
+   let res = await axios.get(`${process.env.REACT_APP_API_URL}/reviews`);
+   let { reviews } = res.data;
+   let found = [];
+   let searchTerm = window.location.href.split('/').pop();
+   if (searchTerm.length > 0) {
+    found = reviews.filter(function(item) {
+      return item.title.toLowerCase().match( searchTerm );
+    });
+  }
+  console.log(reviews.length)
+   this.setState({ allReviews: reviews, matchReviews: found });
+ }
+
+ render() {
+    console.log('display reviews')
+    // console.log(this.state.allReviews)
+    const reviews = this.state.allReviews
+    console.log(reviews)
+    if (!reviews || reviews.length === 0) {
+      return <h2>Loading.......</h2>
+    } 
+    
+    const result = this.renderResult(reviews)
     return (
       <>
         <div>
           <IntroSection 
-          headingOne="Show Page" 
+          headingOne="Found" 
           />
+          <div>
+              {result}
+            </div>
         </div>
+        {this.state.matchReviews && this.state.matchReviews.length && 
+          <>
+            
+          </>
+        }
         <div>
           <SubheadSection heading="You might also like..." />
         </div>
