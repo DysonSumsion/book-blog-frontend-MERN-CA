@@ -5,6 +5,13 @@ import FormTextArea from "../components/FormTextArea";
 import FormCheckbox from "../components/FormCheckbox";
 import Button from "../components/Button";
 import "../container/FormAdd.css";
+// import history from '../history';
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
+const location = history.location;
+console.log(location.pathname);
+
 // import { withRouter } from "react-router-dom";
 
 class FormAdd extends React.Component {
@@ -48,8 +55,6 @@ class FormAdd extends React.Component {
       genre: ""
     }
   };
-
-  handleFormSubmit = () => {};
 
   handleTextArea = e => {
     e.preventDefault();
@@ -279,6 +284,20 @@ class FormAdd extends React.Component {
     }
   };
 
+  
+
+  handleCancelForm = (e) => {
+    e.preventDefault();
+    console.log("hi");
+    console.log(this.props);
+    if (location.pathname === "/adminshow"){
+      window.location.reload()
+    } else {
+      this.props.history.push("/adminshow");
+    }
+
+  }
+
   render() {
     const { errors } = this.state;
     let color;
@@ -433,7 +452,12 @@ class FormAdd extends React.Component {
               title={"Clear"}
               // style={buttonStyle}
             />{" "}
-            {/* Clear the form */}
+            <Button
+              action={this.handleCancelForm}
+              type={"secondary"}
+              title={"Cancel"}
+            />{" "}
+            
           </form>
         </div>
       </>
