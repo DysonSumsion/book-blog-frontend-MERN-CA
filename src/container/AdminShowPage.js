@@ -100,6 +100,7 @@ class AdminShowPage extends React.Component {
             url={this.state.selectedReview.url}
             id={this.state.id}
             refresh={this.refresh}
+            adding={this.state.adding}
             /> 
             : <div>{result}</div>
             }

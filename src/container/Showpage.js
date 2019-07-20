@@ -31,7 +31,7 @@ class ShowPage extends React.Component {
           <Card 
           title={review.title}
           author={review.author.name}
-          review={review.author.review}
+          review={review.review}
           publisher={review.publisher.name}
           yearPublished={review.yearPublished}
           isbn={review.isbn}
