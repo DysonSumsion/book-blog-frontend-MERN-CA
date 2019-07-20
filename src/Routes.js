@@ -23,6 +23,7 @@ render() {
 
   return (
     <Switch>
+      <Route path="/" exact component={HomePage} />
       <Route path="/home" exact component={HomePage} />
       <Route path="/show/:q" exact component={ShowPage} />
       <Route path="/toppicks" exact component={TopPicks} />
