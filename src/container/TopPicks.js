@@ -43,12 +43,35 @@ class TopPicks extends React.Component {
     })
   }
 
+  //   filterReviews = reviewList => {
+  //   const topPicks = reviewList.filter((review) => {
+  //   if (review.topPick === true) {
+  //     return (
+  //       < div className="reviewList">
+  //       title={review.title}
+  //       author={review.author.name}
+  //       review={review.review}
+  //       publisher={review.publisher.name}
+  //       yearPublished={review.yearPublished}
+  //       isbn={review.isbn}
+  //       linkToBuy={review.linkToBuy}
+  //       genre={review.genre.name}
+  //       topPick={review.topPick}
+  //     </div>
+  //     )
+  //   }
+  //   })
+  //   console.log(topPicks)
+  // }
+
   render() {
   const { reviews } = this.state.data
+  console.log(reviews)
   if (!reviews) {
     return <h2>Loading.......</h2>
   } 
   const result = this.renderReviews(reviews)
+  
 
     return (
       <>
@@ -70,3 +93,4 @@ class TopPicks extends React.Component {
 }
 
 export default TopPicks;
+
