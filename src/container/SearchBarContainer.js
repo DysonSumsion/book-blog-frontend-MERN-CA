@@ -1,6 +1,7 @@
 import React from "react";
 //import axios from "axios";
 import SearchBar from '../components/SearchBar'
+import {Redirect} from 'react-router-dom'
 
 class SearchBarContainer extends React.Component {
     state = {
@@ -19,7 +20,7 @@ class SearchBarContainer extends React.Component {
       //let found = []
       if (searchTerm.length > 0) {
         console.log("found")
-        // return <Redirect to="`/show/${searchTerm}`" />
+        // return <Redirect to={`/show/${searchTerm}`} />
         window.location.href =`/show/${searchTerm}`
       }
       // if (found.length>0){
