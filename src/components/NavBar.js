@@ -1,8 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './NavBar.css';
-//import Showpage from '../container/Showpage';
-//import ShowPage from '../container/ShowPage';
 import SearchBarContainer from '../container/SearchBarContainer';
 
 class NavBar extends React.Component {
@@ -40,27 +38,33 @@ class NavBar extends React.Component {
     return (
       <>
       <div className="navbar">
+
         <div className="navLeft">
           <div className="logo">
           </div>
           <SearchBarContainer /> 
         </div>
+
         <div className="navRight">
-          <div className="navLinks">
-            <Link to="/home">Home</Link>
-            <Link to="/aboutme">About</Link>
-            <button onClick={this.showMenu}>
-              Genre
-            </button>
-            <Link to="/sortbyyear">Reviews by year</Link>
-            <Link to="/toppicks">Top Picks</Link>
-            <Link to="/subscribe">Subscribe</Link>
+            <div className="navLinks">
+              <Link to="/home">Home</Link>
+              <Link to="/aboutme">About</Link>
+              <button onClick={this.showMenu}>
+                Genre
+              </button>
+              <Link to="/sortbyyear">Reviews by year</Link>
+              <Link to="/toppicks">Top Picks</Link>
+              <Link to="/subscribe">Subscribe</Link>
             </div>
-            <div className="hamburger">
-              <i className="huge bars icon"></i>
+            <div>
+              <div className="hamburger" onClick={this.showMenu}>
+                </div>
+                  <i className="huge bars icon"></i>
+                </div>
+              </div>
             </div>
-          </div>
-      </div>
+
+      
           
       <div> {
         this.state.showMenu

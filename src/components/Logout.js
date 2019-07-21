@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+
 class Dashboard extends Component {
   checkToken() {
     const token = window.localStorage.getItem("token");

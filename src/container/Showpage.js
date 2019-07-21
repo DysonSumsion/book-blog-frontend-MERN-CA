@@ -76,18 +76,9 @@ class ShowPage extends React.Component {
     return (
       <>
         <div>
-          <IntroSection 
-          headingOne="Found" 
-          />
-          <div>
-              {result}
-            </div>
+          <IntroSection headingOne="{Book Title}" />
+          {result}
         </div>
-        {this.state.matchReviews && this.state.matchReviews.length && 
-          <>
-            
-          </>
-        }
         <div>
           <SubheadSection heading="You might also like..." />
         </div>
