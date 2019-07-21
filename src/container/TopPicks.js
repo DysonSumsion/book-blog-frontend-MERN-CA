@@ -71,7 +71,7 @@ class TopPicks extends React.Component {
     return <h2>Loading.......</h2>
   } 
   const result = this.renderReviews(reviews)
-  
+  // const result = this.filterReviews(reviews)
 
     return (
       <>

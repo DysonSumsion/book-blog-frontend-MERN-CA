@@ -7,52 +7,52 @@
   left: 800px;
 }
 
-.navbar {
+/* .navbar {
   background-color: white;
   margin-bottom: 0px;
   padding: 0px 80px;
   position: sticky; top: 0;
   height: 10vh;
   width: 100vw;
-  min-height: 120px;
+  min-height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
-.logo {
+/* .logo {
   height: 60px;
   width: 60px;
   background-color: darkcyan;
   border-radius: 100%;
   margin-right: 30px;
-}
+} */
 
-.navLeft {
+/* .navLeft {
   height: 60px;
   width: 500px;
-  /* background-color: yellow; */
+  background-color: yellow;
   display: flex;
   align-items: center;
-}
+} */
 
-.navRight {
+/* .navRight {
   height: 60px;
   width: 580px;
-  /* background-color: pink; */
+  background-color: pink;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
+} */
 
-.navLinks {
-  /* background-color: yellow; */
+/* .navLinks {
+  background-color: yellow;
   width: 680px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 .hamburger {
   height: 60px;
