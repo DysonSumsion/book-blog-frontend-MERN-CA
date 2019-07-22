@@ -1,0 +1,15 @@
+.containerAlt {
+  background-color: wheat;
+  height: 100vh;
+  padding: 80px;
+}
+
+/* Media queries –––––––––––––––––––––––––––––––––––– */
+
+@media only screen and (max-width: 450px) {
+
+  .containerAlt {
+    padding: 20px;
+  }
+
+}

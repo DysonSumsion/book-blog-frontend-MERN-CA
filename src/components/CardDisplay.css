@@ -32,7 +32,5 @@
 }
 
 .cardContainer:nth-of-type(6n+5) {
-  background-color: rgba(126, 211, 196, 0.495);
+  background-color: rgba(126, 211, 196, 0.5);
 }
-
-/* background-color: #E7DEAC; */

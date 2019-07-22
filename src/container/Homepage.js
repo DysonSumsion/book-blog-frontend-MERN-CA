@@ -29,7 +29,7 @@ class HomePage extends React.Component {
         < div className="reviewList" key={index}>
           <Card 
           title={review.title}
-          //author={review.author.name}
+          author={review.author.name}
           review={review.review}
           publisher={review.publisher.name}
           yearPublished={review.yearPublished}

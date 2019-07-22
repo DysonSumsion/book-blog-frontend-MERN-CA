@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AdminShowPage /> displays author in author field  1`] = `
+<div
+  className="card"
+>
+  <div
+    className="cardLeft"
+  >
+    <img />
+  </div>
+  <div
+    className="cardRight"
+  >
+    <p>
+      Title: 
+    </p>
+    <p>
+      Author: 
+      Big Bad Wolf
+    </p>
+    <button
+      className="edit"
+      onClick={[Function]}
+    >
+       Edit
+    </button>
+    <button
+      className="delete"
+      onClick={[Function]}
+    >
+       Delete
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<AdminShowPage /> displays loading when no review in list 1`] = `
+<h2>
+  Loading.......
+</h2>
+`;
+
+exports[`<AdminShowPage /> displays title in title field  1`] = `
+<div
+  class="card"
+>
+  <div
+    class="cardLeft"
+  >
+    <img
+      alt="Three Litte Pigs"
+    />
+  </div>
+  <div
+    class="cardRight"
+  >
+    <p>
+      Title: Three Litte Pigs
+    </p>
+    <p>
+      Author: 
+    </p>
+    <button
+      class="edit"
+    >
+       Edit
+    </button>
+    <button
+      class="delete"
+    >
+       Delete
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<AdminShowPage /> renders .cardLeft  1`] = `
+<div
+  className="cardLeft"
+>
+  <img />
+</div>
+`;
+
+exports[`<AdminShowPage /> renders CardAdmin component  1`] = `
+<div
+  className="card"
+>
+  <div
+    className="cardLeft"
+  >
+    <img />
+  </div>
+  <div
+    className="cardRight"
+  >
+    <p>
+      Title: 
+    </p>
+    <p>
+      Author: 
+    </p>
+    <button
+      className="edit"
+      onClick={[Function]}
+    >
+       Edit
+    </button>
+    <button
+      className="delete"
+      onClick={[Function]}
+    >
+       Delete
+    </button>
+  </div>
+</div>
+`;

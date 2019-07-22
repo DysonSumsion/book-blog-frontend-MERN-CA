@@ -3,7 +3,7 @@
 }
 
 .formContainer {
-  background-color: pink;
+  background-color: rgba(126, 211, 196, 0.5);
   padding: 80px;
 }
 
@@ -12,5 +12,5 @@
 }
 
 .box1 {
-  background-color:  pink;
+  background-color:  rgba(126, 211, 196, 0.5);
 }

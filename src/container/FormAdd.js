@@ -276,7 +276,7 @@ class FormAdd extends React.Component {
         .then(res => {
           alert("Review Saved");
           console.log(res);
-          this.props.history.push("/adminshow");
+          this.props.history.push("/auth/adminshow");
         })
         .catch(err => {
           console.log(err.message);
@@ -284,18 +284,15 @@ class FormAdd extends React.Component {
     }
   };
 
-  
-
   handleCancelForm = (e) => {
     e.preventDefault();
     console.log("hi");
     console.log(this.props);
-    if (location.pathname === "/adminshow"){
+    if (location.pathname === "/auth/adminshow"){
       window.location.reload()
     } else {
-      this.props.history.push("/adminshow");
+      this.props.history.push("/auth/adminshow");
     }
-
   }
 
   render() {
