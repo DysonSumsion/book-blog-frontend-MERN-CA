@@ -3,7 +3,7 @@ import './CardDisplay.css';
 import Card from '../components/Card';
 
 function CardDisplay(props) {
-  //console.log(props)
+
   return (
     <div className="cardDisplay">
       {props.result.map((review, index) => {
@@ -11,10 +11,10 @@ function CardDisplay(props) {
           <div key={index} className="cardContainer">
             <Card review={review} />
           </div>
-        )
-      })}
-    </div>
-  );
-}
+          )
+        })}
+      </div>
+    );
+  }
 
 export default CardDisplay;

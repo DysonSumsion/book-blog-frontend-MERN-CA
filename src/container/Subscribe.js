@@ -1,6 +1,7 @@
 import React from 'react';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
+// import IntroSection from '../components/IntroSection';
 
 class Subscribe extends React.Component {
   state = {
@@ -8,7 +9,6 @@ class Subscribe extends React.Component {
       email: "",
       confirmEmail: ""
   }
-
 
   handleInput = e => {
     console.log(e);
@@ -43,7 +43,7 @@ class Subscribe extends React.Component {
 
     return (
       <>
-      <div>
+      <div className="IntroSection">
       <form className="form-add" onSubmit={this.handleFormSubmit}>
           <FormInput
             inputType={"text"}
@@ -82,44 +82,10 @@ class Subscribe extends React.Component {
           title={"Clear"}
         />{" "}
         </form>
-  
       </div>
-      
       </>
-     
     );
   } 
 }
 
 export default Subscribe;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import IntroSection from '../components/IntroSection';
-
-// function Subscribe() {
-
-//   return (
-//     <>
-//     <div>
-//       <IntroSection 
-//         headingOne="Subscribe page" 
-//       />
-//     </div>
-//     </>
-//   );
-// }
-
-// export default Subscribe;
