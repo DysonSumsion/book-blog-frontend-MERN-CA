@@ -1,33 +1,43 @@
 import React from "react";
-//import axios from "axios";
+import axios from "axios";
 import SearchBar from '../components/SearchBar'
+//import {Redirect} from 'react-router-dom'
 
 class SearchBarContainer extends React.Component {
-    state = {
-       searchTerm: '',
-    };
+   booksFromServer = []
 
-    // componentDidMount() {
-    //    this.getReviews();
-    // }
+    constructor(props) {
+      super();
+      
+      this.state = {
+        searchTerm: '',
+        books: ''
+     };
+     axios.get(`${process.env.REACT_APP_API_URL}/reviews`).then(res =>{
+      let reviewsAll = res.data.reviews;
+      reviewsAll.forEach(review => {
+        this.booksFromServer.push(review.title);
+      });
+    })
+  }
 
     handleFormSubmit = (e) => {
       e.preventDefault()
       console.log(e.target.name.value)
       const searchTerm = this.state.searchTerm
       //update match review
-      //let found = []
+      let found = []
       if (searchTerm.length > 0) {
         console.log("found")
-        // return <Redirect to={`/show/${searchTerm}`} />
+        //return <Redirect to={`/show/${searchTerm}`} />
         window.location.href =`/show/${searchTerm}`
       }
-      // if (found.length>0){
-      //   console.log("true")
-      //   this.setState({matchReviews:found})
-      // } else{
-      //   console.log("false")
-      // }
+      if (found.length>0){
+        console.log("true")
+        this.setState({matchReviews:found})
+      } else{
+        console.log("false")
+      }
     }
 
     handleInput = (e) => {
@@ -38,16 +48,20 @@ class SearchBarContainer extends React.Component {
       this.setState({
         searchTerm: value
       });
-      //this.setState({reviews})
-      
+
+      let found = this.booksFromServer.filter(function(item) {
+        return item.toLowerCase().includes( value.toLowerCase() );
+      });
+      console.log(found);
+      let optionElements = [];
+      found.forEach(book=>{
+        optionElements.push(<option key={book}>{book}</option>);
+      });
+      this.setState({books:optionElements});
     }
 
+
     render() {
-      // console.log(this.state.allReviews)
-      // if (!this.state.allReviews) {
-      //   return null
-      // } else {
-      //   //console.log(this.state.response)
         return (
           <form className="container-fluid" onSubmit={this.handleFormSubmit}>
             <SearchBar
@@ -56,6 +70,7 @@ class SearchBarContainer extends React.Component {
               value={this.state.reviews}
               placeholder={"search by title"}
               handleChange={this.handleInput}
+              books={this.state.books}
             />
           </form>
          );

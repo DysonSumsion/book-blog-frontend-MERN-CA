@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom'
 
 class Dashboard extends Component {
 
-  deleteToken() {
+  deleteToken= (e) => {
+    // e.preventDefault();
     window.localStorage.removeItem("token");
   }
 
@@ -14,6 +15,7 @@ class Dashboard extends Component {
     if(!token) { 
       return <Redirect to='/adminjaclyn' />
     } else {
+      // debugger
       axios.get("http://localhost:5500/private/secrets",{headers:{'token':token}})
       .then((res) => {
           console.log("############  success");
@@ -30,7 +32,7 @@ class Dashboard extends Component {
     return(
     <>
       {this.checkToken()}
-      <Link to = '/adminjaclyn' onClick={this.deleteToken()}> Logout </Link>
+      <Link to = '/adminjaclyn' onClick={this.deleteToken}> Logout </Link>
 
     </>)
   }

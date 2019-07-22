@@ -5,11 +5,11 @@ import Card from '../components/Card';
 function CardDisplay(props) {
 
   return (
-      <div className="cardDisplay">
-        {props.result.map((review, index) => {
-          return (
-          <div className="cardContainer" key={index}> 
-            <Card review={review} />            
+    <div className="cardDisplay">
+      {props.result.map((review, index) => {
+        return (
+          <div key={index} className="cardContainer">
+            <Card review={review} />
           </div>
           )
         })}

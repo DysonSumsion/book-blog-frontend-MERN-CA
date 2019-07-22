@@ -4,6 +4,7 @@ import CardAdmin from "../components/CardAdmin";
 import axios from "axios";
 import FormAdd from "../container/FormAdd";
 import './AdminShowPage.css';
+import {Link} from 'react-router-dom';
 
 class AdminShowPage extends React.Component {
   state = {
@@ -79,6 +80,11 @@ class AdminShowPage extends React.Component {
     }
   }
 
+  deleteToken= (e) => {
+    // e.preventDefault();
+    window.localStorage.removeItem("token");
+  }
+
   render() {
     // console.log(this.state);
   const { reviews } = this.state.data
@@ -90,8 +96,14 @@ class AdminShowPage extends React.Component {
     return (
       <>
         <div>
+
           <IntroSection headingOne="Hi Jaclyn!" 
           headingTwo="Welcome to your dashboard, here are all of your reviews..." />
+
+          {/* {result} */}
+          <Link to = '/adminjaclyn' onClick={this.deleteToken}> Logout </Link>
+          <Link to = '/auth/adminaddreview'> add review </Link>
+
           <div className="showreviews">
           {this.state.adding ? 
           <FormAdd
