@@ -236,7 +236,7 @@ We agreed to meet everyday at 9.30 to discuss where we were at with our tasks an
 
 Email correspondence: 
 
-<img width="800" alt="Initial Trello setup" src="https://raw.githubusercontent.com/annarosz/temp/master/bookmarks_emails.jpg"> 
+<img width="600" alt="Email correspondence" src="https://raw.githubusercontent.com/annarosz/temp/master/bookmarks_emails.jpg"> 
 
 Trello boards: 
 
