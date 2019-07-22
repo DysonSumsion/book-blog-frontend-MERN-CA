@@ -1,7 +1,6 @@
 import React from "react";
 //import axios from "axios";
 import SearchBar from '../components/SearchBar'
-import {Redirect} from 'react-router-dom'
 
 class SearchBarContainer extends React.Component {
     state = {

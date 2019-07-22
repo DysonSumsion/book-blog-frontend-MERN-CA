@@ -3,6 +3,7 @@ import IntroSection from "../components/IntroSection";
 import CardAdmin from "../components/CardAdmin";
 import axios from "axios";
 import FormAdd from "../container/FormAdd";
+import './AdminShowPage.css';
 
 class AdminShowPage extends React.Component {
   state = {
@@ -33,7 +34,13 @@ class AdminShowPage extends React.Component {
           <CardAdmin 
           title={review.title}
           author={review.author.name}
-          review={review}
+          review={review.review}
+          publisher={review.publisher.name}
+          yearPublished={review.yearPublished}
+          isbn={review.isbn}
+          linkToBuy={review.linkToBuy}
+          genre={review.genre.name}
+          topPick={review.topPick}
           url={review.url}
           handleDeleteClick={this.handleDeleteClick}
           handleEditClick={this.handleEditClick}
@@ -83,8 +90,8 @@ class AdminShowPage extends React.Component {
     return (
       <>
         <div>
-          <IntroSection headingOne="Admin Show Page" />
-          {/* {result} */}
+          <IntroSection headingOne="Hi Jaclyn!" 
+          headingTwo="Welcome to your dashboard, here are all of your reviews..." />
           <div className="showreviews">
           {this.state.adding ? 
           <FormAdd
@@ -105,7 +112,6 @@ class AdminShowPage extends React.Component {
             /> 
             : <div>{result}</div>
             }
-          
           </div>
         </div>
       </>
