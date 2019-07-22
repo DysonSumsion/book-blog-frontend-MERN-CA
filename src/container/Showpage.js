@@ -9,7 +9,8 @@ class ShowPage extends React.Component {
   state = {
     allReviews: [],
     searchTerm: '',
-    matchReviews: []
+    matchReviews: [],
+    displayHeader:""
   }
 // Books Grid
   renderReviews = reviewList => {
@@ -34,70 +35,94 @@ class ShowPage extends React.Component {
 
 // Jumbotron 
   renderResult = reviewList => {
-    return reviewList.map((review, index) => {
+    console.log(reviewList)
+    let mp = reviewList.map((review, index,reviewList) => {
       return (
         <div key={index}>
         <h2>{review.title}</h2>
         </div>
       )
-    })
-  }
+    });
+    console.log(mp)
+    return mp;
 
+  }
+  
+  
 
   componentDidMount() {
-    console.log("showPage")
     this.getReviews();
  }
 
+ replaceSpecialCharsInURL(str) {
+  str = str.replace("%20", " ");
+  return str;
+ }
+ 
  getReviews = async () => {
    let res = await axios.get(`${process.env.REACT_APP_API_URL}/reviews`);
-   let { reviews } = res.data;
+   let reviewsAll = res.data.reviews
+   this.setState({ allReviews: reviewsAll});
+   //console.log(reviewsAll)
    let found = [];
    let searchTerm = window.location.href.split('/').pop();
+   searchTerm = this.replaceSpecialCharsInURL(searchTerm);
+   searchTerm = searchTerm.toLowerCase();
+   console.log(searchTerm)
    if (searchTerm.length > 0) {
-    found = reviews.filter(function(item) {
+    found = reviewsAll.filter(function(item) {
       return item.title.toLowerCase().match( searchTerm );
     });
-  }
-  console.log(reviews.length)
-   this.setState({ allReviews: reviews, matchReviews: found });
+    }
+    console.log(found);
+
+  this.setState({matchReviews: found });
+  if(found.length > 0)
+      this.setState({displayHeader:<IntroSection 
+      headingOne="Found" value={found}
+      />});
+  else         this.setState({displayHeader:<IntroSection 
+    headingOne="No matching books found"
+    />});
+
+  console.log(this.state.matchReviews)
+  console.log(reviewsAll.length)
+ }
+
+ displayHeader(matchReviews) {
+
+
  }
 
  render() {
     console.log('display reviews')
-    // console.log(this.state.allReviews)
-    const reviews = this.state.allReviews
+    //console.log(this.state.allReviews)
+    const reviews = this.state.allReviews 
     console.log(reviews)
+    console.log(reviews.length)
     if (!reviews || reviews.length === 0) {
       return <h2>Loading.......</h2>
-    } 
-    
-    const result = this.renderResult(reviews)
-    return (
-      <>
-        <div>
-          <IntroSection 
-          headingOne="Found" 
-          />
+    } else {
+      const result = this.renderResult(reviews)
+      console.log(result)
+      return (
+        <>
+          <div> 
+            {this.state.displayHeader}            
+            <div>
+              {this.renderResult(this.state.matchReviews)}
+              </div>
+          </div>
           <div>
-              {result}
-            </div>
-        </div>
-        {this.state.matchReviews && this.state.matchReviews.length && 
-          <>
-            
-          </>
-        }
-        <div>
-          <SubheadSection heading="You might also like..." />
-        </div>
-        <div>
-          <CardDisplay result={result} /> 
-        </div>
-      </> 
-    );
+            <SubheadSection heading="You might also like..." />
+          </div>
+          <div>
+            <CardDisplay result={this.renderResult(this.state.matchReviews)} /> 
+          </div>
+        </> 
+      );
+      }
   }
-
 }
 
 export default ShowPage;
