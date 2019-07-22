@@ -11,6 +11,8 @@ function IntroSection(props) {
   <div className="IntroSection">
     <h1>{props.headingOne}</h1>
     <h2>{props.headingTwo}</h2>
+    <h2>{props.headingThree}</h2>
+    <img src={props.headingFour}/>
   </div>
   );
 }
