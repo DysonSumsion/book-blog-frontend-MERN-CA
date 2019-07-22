@@ -17,9 +17,9 @@ import ResetPassword from './container/ResetPassword';
 class Routes extends React.Component {
 
 render() {
-  console.log('routes rendering')
-  const { data } = this.props
-  console.log(data)
+  // console.log('routes rendering')
+  // const data  = this.props
+  // console.log(data)
 
   return (
     <Switch>

@@ -24,7 +24,6 @@ class HomePage extends React.Component {
   }
 
   renderReviews = reviewList => {
-    debugger
     return reviewList.map((review, index) => {
       return (
         < div className="reviewList" key={index}>

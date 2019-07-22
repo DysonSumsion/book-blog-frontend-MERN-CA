@@ -10,7 +10,7 @@ import { createBrowserHistory } from 'history';
 
 const history = createBrowserHistory();
 const location = history.location;
-console.log(location.pathname);
+//console.log(location.pathname);
 
 // import { withRouter } from "react-router-dom";
 

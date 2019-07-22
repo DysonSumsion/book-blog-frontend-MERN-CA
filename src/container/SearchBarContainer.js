@@ -1,7 +1,7 @@
 import React from "react";
 //import axios from "axios";
 import SearchBar from '../components/SearchBar'
-import {Redirect} from 'react-router-dom'
+//import {Redirect} from 'react-router-dom'
 
 class SearchBarContainer extends React.Component {
     state = {
@@ -17,18 +17,18 @@ class SearchBarContainer extends React.Component {
       console.log(e.target.name.value)
       const searchTerm = this.state.searchTerm
       //update match review
-      //let found = []
+      let found = []
       if (searchTerm.length > 0) {
         console.log("found")
-        // return <Redirect to={`/show/${searchTerm}`} />
+        //return <Redirect to={`/show/${searchTerm}`} />
         window.location.href =`/show/${searchTerm}`
       }
-      // if (found.length>0){
-      //   console.log("true")
-      //   this.setState({matchReviews:found})
-      // } else{
-      //   console.log("false")
-      // }
+      if (found.length>0){
+        console.log("true")
+        this.setState({matchReviews:found})
+      } else{
+        console.log("false")
+      }
     }
 
     handleInput = (e) => {
