@@ -12,8 +12,7 @@ function IntroSection(props) {
     <h1>{props.headingOne}</h1>
     <h2>{props.headingTwo}</h2>
     <h2>{props.headingThree}</h2>
-    <img src={props.imgURL} alt="Image not found"/>
-    <h2>{props.headingFive}</h2>
+    <img src={props.headingFour}/>
   </div>
   );
 }

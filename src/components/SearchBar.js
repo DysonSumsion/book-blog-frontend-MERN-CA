@@ -14,8 +14,12 @@ const SearchBar = props => {
       value={props.value}
       onChange={props.handleChange}
       placeholder={props.placeholder}
+      list="books"
       // {...props}
     />
+    <datalist id="books">
+      {props.books}
+    </datalist>
   </div>
  </>
  );

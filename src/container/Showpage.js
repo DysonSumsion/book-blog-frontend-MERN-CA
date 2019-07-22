@@ -74,12 +74,15 @@ class ShowPage extends React.Component {
       return item.title.toLowerCase().match( searchTerm );
     });
     }
-    console.log(found);
 
   this.setState({matchReviews: found });
   if(found.length > 0)
       this.setState({displayHeader:<IntroSection 
-      headingOne="Found" value={found}
+      headingOne={found[0].title} 
+      headingTwo={found[0].author.name} 
+      headingFour={found[0].url} 
+      headingThree={found[0].publisher.name} 
+      value={found[0]}
       />});
   else         this.setState({displayHeader:<IntroSection 
     headingOne="No matching books found"
@@ -109,15 +112,12 @@ class ShowPage extends React.Component {
         <>
           <div> 
             {this.state.displayHeader}            
-            <div>
-              {this.renderResult(this.state.matchReviews)}
-              </div>
           </div>
           <div>
             <SubheadSection heading="You might also like..." />
           </div>
           <div>
-            <CardDisplay result={this.renderResult(this.state.matchReviews)} /> 
+            <CardDisplay result={this.renderResult(this.state.allReviews)} /> 
           </div>
         </> 
       );
