@@ -1,7 +1,8 @@
 import React from 'react';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
-// import IntroSection from '../components/IntroSection';
+import IntroSectionAlt from '../components/IntroSectionAlt';
+import './Subscribe.css';
 
 class Subscribe extends React.Component {
   state = {
@@ -43,8 +44,12 @@ class Subscribe extends React.Component {
 
     return (
       <>
-      <div className="IntroSection">
-      <form className="form-add" onSubmit={this.handleFormSubmit}>
+      <div className="containerAlt">
+      <IntroSectionAlt headingOne="Want to join my newsletter?" 
+          headingTwo="Recieve a monthly email with highlights from the month. No spam, I promise! " />
+          <br></br>
+          <br></br>
+      <form onSubmit={this.handleFormSubmit}>
           <FormInput
             inputType={"text"}
             title={"Name"}
@@ -73,7 +78,7 @@ class Subscribe extends React.Component {
           <Button
           action={this.handleFormSubmit}
           type={"primary"}
-          title={"Submit"}
+          title={"Subscribe"}
         />{" "}
         {/*Submit */}
         <Button
@@ -82,7 +87,7 @@ class Subscribe extends React.Component {
           title={"Clear"}
         />{" "}
         </form>
-      </div>
+        </div>
       </>
     );
   } 

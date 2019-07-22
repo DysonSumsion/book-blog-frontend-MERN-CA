@@ -284,8 +284,6 @@ class FormAdd extends React.Component {
     }
   };
 
-  
-
   handleCancelForm = (e) => {
     e.preventDefault();
     console.log("hi");
@@ -295,7 +293,6 @@ class FormAdd extends React.Component {
     } else {
       this.props.history.push("/auth/adminshow");
     }
-
   }
 
   render() {

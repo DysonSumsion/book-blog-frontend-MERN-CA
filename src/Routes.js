@@ -28,6 +28,7 @@ render() {
       <Route path="/aboutme" exact component={AboutMe} />
       <Route path="/subscribe" exact component={Subscribe} />
       <Route path="/adminjaclyn" exact component={Admin} />
+
       <Route path="/auth" component={ProtectedRoutes} />
     </Switch>
   )
