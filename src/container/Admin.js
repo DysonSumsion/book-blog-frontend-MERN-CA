@@ -36,7 +36,8 @@ class Admin extends React.Component {
       const returnedToken = res.data.token   
       window.localStorage.setItem("token", returnedToken);
       console.log(window.localStorage.getItem("token"));
-      window.location.href = "/Dashboard";
+      // window.location.href = "/Dashboard";
+      this.props.history.push("/auth/adminshow");
     })
     .catch((err) => {
       console.log(err);
