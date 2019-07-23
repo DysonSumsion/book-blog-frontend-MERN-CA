@@ -1,5 +1,5 @@
 import React from 'react';
-import IntroSection from '../components/IntroSection';
+import IntroSectionShow from '../components/IntroSectionShow';
 import SubheadSection from '../components/SubheadSection';
 import CardDisplay from '../components/CardDisplay';
 import Card from "../components/Card";
@@ -12,6 +12,7 @@ class ShowPage extends React.Component {
     matchReviews: [],
     displayHeader:""
   }
+
 // Books Grid
   renderReviews = reviewList => {
     return reviewList.map((review, index) => {
@@ -33,7 +34,7 @@ class ShowPage extends React.Component {
     })
   }
 
-// Jumbotron 
+// Show one book in intro header 
   renderResult = reviewList => {
     console.log(reviewList)
     let mp = reviewList.map((review, index,reviewList) => {
@@ -45,56 +46,50 @@ class ShowPage extends React.Component {
     });
     console.log(mp)
     return mp;
-
   }
   
-  
-
   componentDidMount() {
     this.getReviews();
  }
 
- replaceSpecialCharsInURL(str) {
-  str = str.replace("%20", " ");
-  return str;
- }
+  replaceSpecialCharsInURL(str) {
+    str = str.replace("%20", " ");
+    return str;
+  }
  
- getReviews = async () => {
-   let res = await axios.get(`${process.env.REACT_APP_API_URL}/reviews`);
-   let reviewsAll = res.data.reviews
-   this.setState({ allReviews: reviewsAll});
-   //console.log(reviewsAll)
-   let found = [];
-   let searchTerm = window.location.href.split('/').pop();
-   searchTerm = this.replaceSpecialCharsInURL(searchTerm);
-   searchTerm = searchTerm.toLowerCase();
-   console.log(searchTerm)
-   if (searchTerm.length > 0) {
-    found = reviewsAll.filter(function(item) {
-      return item.title.toLowerCase().match( searchTerm );
-    });
+  getReviews = async () => {
+    let res = await axios.get(`${process.env.REACT_APP_API_URL}/reviews`);
+    let reviewsAll = res.data.reviews
+    this.setState({ allReviews: reviewsAll});
+    //console.log(reviewsAll)
+    let found = [];
+    let searchTerm = window.location.href.split('/').pop();
+    searchTerm = this.replaceSpecialCharsInURL(searchTerm);
+    searchTerm = searchTerm.toLowerCase();
+    console.log(searchTerm)
+    if (searchTerm.length > 0) {
+      found = reviewsAll.filter(function(item) {
+        return item.title.toLowerCase().match( searchTerm );
+      });
     }
-    console.log(found);
 
-  this.setState({matchReviews: found });
-  if(found.length > 0)
-      this.setState({displayHeader:<IntroSection 
-      headingOne="Found" value={found}
+    this.setState({matchReviews: found });
+    if(found.length > 0)
+      this.setState({displayHeader:<IntroSectionShow 
+      headingTitle={found[0].title} 
+      headingAuthor={found[0].author.name}
+      headingReview={found[0].review} 
+      bookImage={found[0].url} 
+      headingPublisher={found[0].publisher.name} 
+      value={found[0]}
       />});
-  else         this.setState({displayHeader:<IntroSection 
-    headingOne="No matching books found"
-    />});
+    else         
+      this.setState({displayHeader:<IntroSectionShow 
+      headingOne="No matching books found"
+      />});
+  }
 
-  console.log(this.state.matchReviews)
-  console.log(reviewsAll.length)
- }
-
- displayHeader(matchReviews) {
-
-
- }
-
- render() {
+render() {
     console.log('display reviews')
     //console.log(this.state.allReviews)
     const reviews = this.state.allReviews 
@@ -109,15 +104,12 @@ class ShowPage extends React.Component {
         <>
           <div> 
             {this.state.displayHeader}            
-            <div>
-              {this.renderResult(this.state.matchReviews)}
-              </div>
           </div>
           <div>
             <SubheadSection heading="You might also like..." />
           </div>
           <div>
-            <CardDisplay result={this.renderResult(this.state.matchReviews)} /> 
+            <CardDisplay result={this.renderResult(this.state.allReviews)} /> 
           </div>
         </> 
       );
