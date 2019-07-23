@@ -1,15 +1,12 @@
 .card {
   /* background-color: goldenrod; */
-  width: 300px;
+  width: 320px;
   height: 150px;
   display: flex;
 }
 
 .cardLeft {
-  width: 100px;
-  background-color: grey;
-  background-size: cover;
-  background-position: center;
+  width: 120px;
 }
 
 .cardRight {
@@ -29,7 +26,14 @@
   /* background-color: blue; */
 }
 
-img {
-  width: 50px;
-  /* object-fit: cover; */
+.topPickDiv {
+  display: flex;
+  /* background-color: pink; */
+  align-items: center;
+}
+
+.cardLeft img {
+  max-height: 150px;
+  max-width: 120px;
+  object-fit: contain;
 }
