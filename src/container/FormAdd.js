@@ -255,8 +255,12 @@ class FormAdd extends React.Component {
       formData.append("data", stringifyData);
       formData.append("file", file);
 
+      const token = localStorage.getItem("token");
+      console.log(token);
+      const headers = {token: token}
+
       axios
-        .put(`${process.env.REACT_APP_API_URL}/updateReview`, formData)
+        .put(`${process.env.REACT_APP_API_URL}/protected/updateReview`, formData, {headers})
         .then(res => {
           alert("review updated");
           this.props.refresh(res);
