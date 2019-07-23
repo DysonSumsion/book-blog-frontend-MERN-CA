@@ -271,8 +271,12 @@ class FormAdd extends React.Component {
       formData.append("data", stringifyData);
       formData.append("file", file);
 
+      const token = localStorage.getItem("token");
+      console.log(token);
+      const headers = {token: token}
+
       axios
-        .post(`${process.env.REACT_APP_API_URL}/createReview`, formData)
+        .post(`${process.env.REACT_APP_API_URL}/protected/createReview`, formData, {headers})
         .then(res => {
           alert("Review Saved");
           console.log(res);
