@@ -37,6 +37,7 @@ class HomePage extends React.Component {
           linkToBuy={review.linkToBuy}
           genre={review.genre.name}
           topPick={review.topPick}
+          url={review.url}
           />
         </div>
       )

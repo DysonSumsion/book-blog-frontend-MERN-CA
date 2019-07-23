@@ -3,13 +3,30 @@
   min-height: 50vh;
   width: 100vw;
   padding: 80px;
+  display: flex;
+}
+
+.IntroSectionShowLeft {
+  background-color: yellow;
+  width: 200px;
+}
+
+.IntroSectionShowLeft img {
+  /* max-height: 150px; */
+  max-width: 200px;
+  object-fit: contain;
+}
+
+.IntroSectionShowRight {
+  padding-left: 30px;
+
 }
 
 /* Media queries –––––––––––––––––––––––––––––––––––– */
 
 @media only screen and (max-width: 450px) {
 
-  .IntroSection {
+  .IntroSectionShow {
     padding: 20px;
   }
 

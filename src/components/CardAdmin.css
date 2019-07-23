@@ -12,7 +12,7 @@
 
 .cardAdminLeftTop {
   height: 200px;
-  background-color: pink;
+  /* background-color: pink; */
 }
 
 .cardAdminLeftBottom {
@@ -30,6 +30,6 @@
 }
 
 img {
-  width: 50px;
-  /* object-fit: cover; */
+  max-width: 150px;
+  object-fit: contain;
 }

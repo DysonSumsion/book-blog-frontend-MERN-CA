@@ -6,11 +6,17 @@ function IntroSectionShow(props) {
 
   return (
   <div className="IntroSectionShow">
-    <h1>{props.headingTitle}</h1>
-    <h2>{props.headingAuthor}</h2>
-    <p>{props.headingReview}</p>
-    <p>{props.headingPublisher}</p>
-    <img src={props.bookImage}/>
+    <div className="IntroSectionShowLeft">
+      <img src={props.bookImage}/>
+    </div>
+    <div className="IntroSectionShowRight">
+      <h1>{props.headingTitle}</h1>
+      <h2>{props.headingAuthor}</h2>
+      <p>{props.headingPublisher}</p>
+      <p>{props.headingReview}</p>
+    </div>
+
+ 
   </div>
   );
 }
