@@ -50,49 +50,55 @@ class SortByGenre extends React.Component {
     console.log("In sort by memoir");
     const { reviews } = this.state.data;
 
+    let description;
+    let genre;
 
+    switch (e.target.value){
+      case "Australian Fiction":
+        genre = "Australian Fiction genre"
+        description = "Australian Fiction description"
+        break;
+      case "Contemporary Fiction":
+        genre = "Contemporary Fiction"
+        description = "Contemporary Fiction description"
+        break;
+      case "Crime":
+        genre = "Crime"
+        description = "Crime description"
+        break;
+      case "Essays":
+        genre = "Essays"
+        description = "Essays description"
+        break;
+      case "Graphic Novels":
+        genre = "Graphic Novels"
+        description = "Graphic Novels description"
+        break;
+      case "In Translation":
+        genre = "In Translation"
+        description = "In Translation description"
+        break;
+      case "Memoir":
+        description = "Memoir"
+        genre = "Memoir"
+        break;
+      case "Narrative Non-Fiction":
+        genre = "Narrative Non-Fiction"
+        description = "Narrative Non-Fiction description"
+        break;
+      case "Short stories":
+        genre = "Short stories"
+        description = "Short stories description"
+        break;
+      case "Young Adult (YA)":
+        genre = "Young Adult (YA)"
+        description = "Young Adult (YA) description"
+        break;
+      default:
+          description = ""
+          genre = ""
 
-//     switch (e.target.value){
-//       case "Australian Fiction":
-//       description = "Australian Fiction",
-//       genre = "Australian Fiction";
-//       break;
-
-
-
-
-
-//     }
-//     let color;
-//   let message;
-//   switch (props.status){
-//   case 1:
-//     color = "alert box1"
-//     message = "This is a standard alert box"
-//     break;
-//   case 2:
-//     color = "alert box2"
-//     message = "This is an info box"
-//     break;
-//   case 3:
-//     color = "alert box3";
-//     message = "This is an error message box"
-//     break;
-//   case 4:
-//     color = "alert box4"
-//     message = "This is a success message box"
-//     break;
-//   default:
-//     color = "alert box0";
-//     message = "This is a status message box"
-// }
-
-
-
-
-
-    const description = "Memoir";
-    const genre = "Memoir";
+    }
     
 
     const foundData = reviews.filter(item => {
