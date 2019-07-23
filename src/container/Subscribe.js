@@ -2,27 +2,28 @@ import React from 'react';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
 import IntroSectionAlt from '../components/IntroSectionAlt';
+import axios from 'axios';
 import './Subscribe.css';
 
 class Subscribe extends React.Component {
   state = {
-      name: "",
-      email: "",
-      confirmEmail: ""
+      firstName: "",
+      lastName: "",
+      email: ""
   }
 
   handleInput = e => {
     console.log(e);
     e.preventDefault();
     //let errors = this.state.errors
+    let source = e.target.name;
     let value = e.target.value;
-    let name = e.target.name;
-    if(name === 'name') {
-      this.setState( {name : value});
-    } else if (name === 'email') {
+    if(source === 'firstName') {
+      this.setState( {firstName : value});
+    } else if (source === 'lastName') {
+      this.setState( {lastName : value});
+    } else if (source === 'email') {
       this.setState( {email : value});
-    } else if (name === 'confirmEmail') {
-      this.setState( {confirmEmail : value});
     }
   };
 
@@ -37,6 +38,17 @@ class Subscribe extends React.Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
+    const formData = {firstName:this.state.firstName, lastName:this.state.lastName,email:this.state.email};
+
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/signup`, formData)
+        .then(res => {
+          alert("Successfully Subscribed");
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err.message);
+        });
     console.log(this.state)
   }
 
@@ -49,29 +61,30 @@ class Subscribe extends React.Component {
           headingTwo="Recieve a monthly email with highlights from the month. No spam, I promise! " />
           <br></br>
           <br></br>
-      <form onSubmit={this.handleFormSubmit}>
+      <form>
           <FormInput
             inputType={"text"}
-            title={"Name"}
-            name={"name"}
-            value={this.state.name}
-            placeholder={"Enter name"}
+            title={"Firstname"}
+            name={"firstName"}
+            value={this.state.firstName}
+            placeholder={"Enter firstname"}
             handleChange={this.handleInput}
           />{" "}
+          <FormInput
+            inputType={"text"}
+            title={"Lastname"}
+            name={"lastName"}
+            value={this.state.lastName}
+            placeholder={"Enter lastname"}
+            handleChange={this.handleInput}
+          />{" "}
+
           <FormInput
             inputType={"text"}
             title={"Email"}
             name={"email"}
             value={this.state.email}
             placeholder={"Enter email"}
-            handleChange={this.handleInput}
-          />{" "}
-          <FormInput
-            inputType={"text"}
-            title={"Confirm Email"}
-            name={"confirmEmail"}
-            value={this.state.confirmEmail}
-            placeholder={"Confirm Email"}
             handleChange={this.handleInput}
           />{" "}
           {/* Clear the form */}
