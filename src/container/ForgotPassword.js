@@ -21,11 +21,12 @@ class ForgotPassword extends React.Component {
       }});
   };
 
+
   handleFormSubmit = (e) => {
     e.preventDefault();
     const email = this.state.forgotPassword.enterEmail;
     console.log(email);
-    axios.post('http://localhost:5500/auth/forgot', {
+    axios.post(`${process.env.REACT_APP_API_URL}/auth/forgot`, {
       email:email,
     })
     .then((res) => {

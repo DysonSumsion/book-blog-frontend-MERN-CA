@@ -14,15 +14,23 @@ class AdminShowPage extends React.Component {
   }
 
   async componentDidMount() {
-      try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/reviews`)
-        const data = await response.json()
-        this.setState({
-          data: data
-        })
-      } catch(err) {
-        console.log(err)
-      }
+
+    try {
+    const token = localStorage.getItem("token");
+    const headers = {token: token}
+    const response1 = await axios.get(`${process.env.REACT_APP_API_URL}/protected/reviews`, {headers})
+    const data1 = response1.data
+    
+    // const response = await fetch(`${process.env.REACT_APP_API_URL}/reviews`)
+    // console.log(response);
+    // const data = await response.json()
+
+    this.setState({
+      data: data1
+    })
+    } catch(err) {
+      console.log(err)
+    }
     }
 
   renderReviews = reviewList => {
