@@ -2,7 +2,7 @@ import React from "react";
 import './IntroSection.css';
 
 function IntroSection(props) {
-  console.log(props.value)
+  // console.log(props.value)
 
   return (
 

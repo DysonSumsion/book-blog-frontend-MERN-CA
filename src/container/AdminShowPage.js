@@ -70,7 +70,7 @@ class AdminShowPage extends React.Component {
   handleDeleteClick=(title) => { 
     const data = {data: {title}}
     try {
-    axios.delete(`${process.env.REACT_APP_API_URL}/deleteReview`, data)
+    axios.delete(`${process.env.REACT_APP_API_URL}/protected/deleteReview`, data)
           .then((res)=>{
             console.log(res);
             alert("Review Deleted")
