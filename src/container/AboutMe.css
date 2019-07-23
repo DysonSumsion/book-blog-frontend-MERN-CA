@@ -1,10 +1,9 @@
 .bioSection {
   display: flex;
   flex-direction: column;
-
 }
 
 img {
-  width: 300px;
-  height: 100%;
+  /* width: 300px; */
+  min-height: 100%;
 }

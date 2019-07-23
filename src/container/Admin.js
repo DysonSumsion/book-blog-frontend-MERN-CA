@@ -1,8 +1,10 @@
 import React from 'react';
-import FormInput from '../components/FormInput';
-import Button from '../components/Button';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+import FormInput from '../components/FormInput';
+import Button from '../components/Button';
+import IntroSectionFlexi from '../components/IntroSectionFlexi';
 
 class Admin extends React.Component {
   state = {
@@ -50,40 +52,40 @@ class Admin extends React.Component {
   render() {
 
     return (
-      <>
-      <div>
-      <form className="form-add" onSubmit={this.handleFormSubmit}>
-          <FormInput
-            inputType={"text"}
-            title={"Email"}
-            name={"email"}
-            value={this.state.email}
-            placeholder={"Email"}
-            handleChange={this.handleInput}
-          />{" "}
-          <FormInput
-            inputType={"password"}
-            title={"Password"}
-            value={this.state.password}
-            name={"password"}
-            placeholder={"Enter password"}
-            handleChange={this.handleInput}
-          />{" "}
-          {/* Clear the form */}
-          <Button
-          action={this.handleFormSubmit}
-          type={"primary"}
-          title={"Submit"}
-          style={buttonStyle}
-        />{" "}
-        <Link to="/ForgotPassword">Forgot Password</Link>
-        {/*Submit */}
-        </form>
-        <h4>{this.state.errMessage}</h4>
-      </div>
-      
-      </>
-     
+      <div className="containerSecondary" style={{ backgroundColor: '#BFE9E1'}}>
+        <IntroSectionFlexi 
+          headingOne="Admin pages, you know what to do..." />
+        <div>
+          <form className="form-add" onSubmit={this.handleFormSubmit}>
+            <FormInput
+              inputType={"text"}
+              title={"Email"}
+              name={"email"}
+              value={this.state.email}
+              placeholder={"Email"}
+              handleChange={this.handleInput}
+            />{" "}
+            <FormInput
+              inputType={"password"}
+              title={"Password"}
+              value={this.state.password}
+              name={"password"}
+              placeholder={"Enter password"}
+              handleChange={this.handleInput}
+            />{" "}
+            {/* Clear the form */}
+            <Button
+              action={this.handleFormSubmit}
+              type={"primary"}
+              title={"Submit"}
+              style={buttonStyle}
+            />{" "}
+            <Link to="/ForgotPassword">Forgot Password</Link>
+            {/*Submit */}
+          </form>
+          <h4>{this.state.errMessage}</h4>
+      </div> 
+    </div>    
     );
   } 
 }

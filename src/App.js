@@ -3,7 +3,6 @@ import Toolbar from './components/Toolbar';
 import SideDrawer from './components/SideDrawer';
 import Backdrop from './components/Backdrop';
 import Routes from './Routes';
-import Footer from './components/Footer';
 import './App.css';
 import './index.css';
 
@@ -35,7 +34,6 @@ class App extends React.Component {
         {backdrop}
         <div>
           <Routes />
-          <Footer />
         </div>
       </div>
     );
