@@ -38,6 +38,7 @@ class AdminShowPage extends React.Component {
           url={review.url}
           handleDeleteClick={this.handleDeleteClick}
           handleEditClick={this.handleEditClick}
+          reviewObject={review}
           />
         </div>
       )
