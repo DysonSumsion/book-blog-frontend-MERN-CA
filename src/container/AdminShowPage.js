@@ -3,6 +3,7 @@ import IntroSection from "../components/IntroSection";
 import CardAdmin from "../components/CardAdmin";
 import axios from "axios";
 import FormAdd from "../container/FormAdd";
+import './AdminShowPage.css';
 import {Link} from 'react-router-dom';
 
 class AdminShowPage extends React.Component {
@@ -34,7 +35,13 @@ class AdminShowPage extends React.Component {
           <CardAdmin 
           title={review.title}
           author={review.author.name}
-          review={review}
+          review={review.review}
+          publisher={review.publisher.name}
+          yearPublished={review.yearPublished}
+          isbn={review.isbn}
+          linkToBuy={review.linkToBuy}
+          genre={review.genre.name}
+          topPick={review.topPick}
           url={review.url}
           handleDeleteClick={this.handleDeleteClick}
           handleEditClick={this.handleEditClick}
@@ -46,6 +53,7 @@ class AdminShowPage extends React.Component {
 
   handleEditClick=(review) => {
     console.log(review);
+
     const id = review._id
     this.setState({ adding: true, selectedReview: review, id: id })
   }
@@ -90,7 +98,10 @@ class AdminShowPage extends React.Component {
     return (
       <>
         <div>
-          <IntroSection headingOne="Admin Show Page" />
+
+          <IntroSection headingOne="Hi Jaclyn!" 
+          headingTwo="Welcome to your dashboard, here are all of your reviews..." />
+
           {/* {result} */}
           <Link to = '/adminjaclyn' onClick={this.deleteToken}> Logout </Link>
           <Link to = '/auth/adminaddreview'> add review </Link>
@@ -115,7 +126,6 @@ class AdminShowPage extends React.Component {
             /> 
             : <div>{result}</div>
             }
-          
           </div>
         </div>
       </>

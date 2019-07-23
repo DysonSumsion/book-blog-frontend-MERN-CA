@@ -16,7 +16,7 @@ class Dashboard extends Component {
       return <Redirect to='/adminjaclyn' />
     } else {
       // debugger
-      axios.get("http://localhost:5500/private/secrets",{headers:{'token':token}})
+      axios.get(`${process.env.REACT_APP_API_URL}/private/secrets`,{headers:{'token':token}})
       .then((res) => {
           console.log("############  success");
           return <h1>My Dashboard</h1>

@@ -22,7 +22,7 @@ class ResetPassword extends React.Component {
   checkPageValidity() {
     const resetToken = window.localStorage.getItem("resetToken");
     console.log("reset Token is =>    "+resetToken);
-    axios.get("http://localhost:5500/private/secrets",{headers:{'token':resetToken}}).then(res => {
+    axios.get(`${process.env.REACT_APP_API_URL}/private/secrets`,{headers:{'token':resetToken}}).then(res => {
       console.log(res.data);
       this.setState({pageContent: <>
                 <div>
@@ -95,10 +95,10 @@ class ResetPassword extends React.Component {
     } else {
       this.setState({message:""})
       const resetToken = window.localStorage.getItem("resetToken");
-      axios.get("http://localhost:5500/private/secrets",{headers:{'token':resetToken}})
+      axios.get(`${process.env.REACT_APP_API_URL}/private/secrets`,{headers:{'token':resetToken}})
       .then((res) => {
           console.log("Rest token is valid. changine password and logging in");
-          axios.post('http://localhost:5500/auth/forgotpass', {
+          axios.post(`${process.env.REACT_APP_API_URL}/auth/forgotpass`, {
             email:email,
             newPassword:password,
           })
