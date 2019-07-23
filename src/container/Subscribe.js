@@ -64,18 +64,18 @@ class Subscribe extends React.Component {
       <form>
           <FormInput
             inputType={"text"}
-            title={"Firstname"}
+            title={"First Name"}
             name={"firstName"}
             value={this.state.firstName}
-            placeholder={"Enter firstname"}
+            placeholder={"Enter first name"}
             handleChange={this.handleInput}
           />{" "}
           <FormInput
             inputType={"text"}
-            title={"Lastname"}
+            title={"Last Name"}
             name={"lastName"}
             value={this.state.lastName}
-            placeholder={"Enter lastname"}
+            placeholder={"Enter last name"}
             handleChange={this.handleInput}
           />{" "}
 
