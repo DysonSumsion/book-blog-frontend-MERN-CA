@@ -44,7 +44,7 @@ class Subscribe extends React.Component {
         .post(`${process.env.REACT_APP_API_URL}/signup`, formData)
         .then(res => {
           alert("Successfully Subscribed");
-          console.log(res);
+          window.location.href="/home"
         })
         .catch(err => {
           console.log(err.message);
