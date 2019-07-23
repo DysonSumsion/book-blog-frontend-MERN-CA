@@ -53,7 +53,6 @@ class AdminShowPage extends React.Component {
 
   handleEditClick=(review) => {
     console.log(review);
-
     const id = review._id
     this.setState({ adding: true, selectedReview: review, id: id })
   }
