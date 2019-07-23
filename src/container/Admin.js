@@ -27,7 +27,7 @@ class Admin extends React.Component {
     e.preventDefault();
     const email = this.state.email;
     const password = this.state.password;
-    axios.post('http://localhost:5500/auth/login', {
+    axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, {
       email:email,
       password:password
     })

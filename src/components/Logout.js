@@ -8,9 +8,8 @@ class Dashboard extends Component {
     if(!token) { 
       return <Redirect to='/adminjaclyn' />
     } else {
-      axios.get("http://localhost:5500/private/secrets",{headers:{'token':token}})
+      axios.get(`${process.env.REACT_APP_API_URL}/private/secrets`,{headers:{'token':token}})
       .then((res) => {
-          console.log("############  success");
           return <h1>My Dashboard</h1>
       }).catch(err => {
         console.log(err);
