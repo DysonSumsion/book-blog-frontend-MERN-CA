@@ -21,6 +21,7 @@ class ForgotPassword extends React.Component {
       }});
   };
 
+
   handleFormSubmit = (e) => {
     e.preventDefault();
     const email = this.state.forgotPassword.enterEmail;
