@@ -44,7 +44,7 @@ class ForgotPassword extends React.Component {
 
     return (
       <>
-      <div>
+      <div className="containerSecondary" style={{ backgroundColor: '#BFE9E1'}}>
       <form className="form-add" onSubmit={this.handleFormSubmit}>
           <FormInput
             inputType={"text"}
@@ -61,11 +61,8 @@ class ForgotPassword extends React.Component {
         />{" "}
         <h4>{this.state.checkmail}</h4>
         </form>
-  
       </div>
-      
       </>
-     
     );
   } 
 }

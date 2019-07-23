@@ -3,6 +3,8 @@ import IntroSection from "../components/IntroSection";
 import SubheadSection from "../components/SubheadSection";
 import CardDisplay from "../components/CardDisplay";
 import Card from "../components/Card";
+import Footer from '../components/Footer';
+import './SortByGenre.css';
 
 class SortByGenre extends React.Component {
   state = {
@@ -39,6 +41,7 @@ class SortByGenre extends React.Component {
             linkToBuy={review.linkToBuy}
             genre={review.genre.name}
             topPick={review.topPick}
+            url={review.url}
           />
         </div>
       );
@@ -141,61 +144,57 @@ class SortByGenre extends React.Component {
     const result = this.renderReviews(reviews);
 
     return (
-      <>
         <div>
           <IntroSection
             headingOne={this.state.genre}
             headingTwo={this.state.description}
           />
-        </div>
-        <div>
-          <button onClick={this.sortByGenre} className="" value="Australian Fiction">
-            {" "}
-            Australian Fiction
-          </button>
-          <button onClick={this.sortByGenre} className="" value="Contemporary Fiction">
-            {" "}
-            Contemporary Fiction
-          </button>
-          <button onClick={this.sortByGenre} className="" value="Crime">
-            {" "}
-            Crime
-          </button>
-          <button onClick={this.sortByGenre} className="" value="Essays">
-            {" "}
-            Essays
-          </button>
-          <button onClick={this.sortByGenre} className="" value="Graphic Novels">
-            {" "}
-            Graphic Novels
-          </button>
-          <button onClick={this.sortByGenre} className="" value="In Translation">
-            {" "}
-            In Translation
-          </button>
-          <button onClick={this.sortByGenre} className="" value="Memoir">
-            {" "}
-            Memoir
-          </button>
-          <button onClick={this.sortByGenre} className="" value="Narrative Non-Fiction">
-            {" "}
-            Narrative Non-Fiction
-          </button>
-          <button onClick={this.sortByGenre} className="" value="Short stories">
-            {" "}
-            Short stories
-          </button>
-          <button onClick={this.sortByGenre} className="" value="Young Adult (YA)">
-            {" "}
-            Young Adult (YA)
-          </button>
-
+          <div className="genreButtonContainer">
+            <button onClick={this.sortByGenre} className="" value="Australian Fiction">
+              {" "}
+              Australian Fiction
+            </button>
+            <button onClick={this.sortByGenre} className="" value="Contemporary Fiction">
+              {" "}
+              Contemporary Fiction
+            </button>
+            <button onClick={this.sortByGenre} className="" value="Crime">
+              {" "}
+              Crime
+            </button>
+            <button onClick={this.sortByGenre} className="" value="Essays">
+              {" "}
+              Essays
+            </button>
+            <button onClick={this.sortByGenre} className="" value="Graphic Novels">
+              {" "}
+              Graphic Novels
+            </button>
+            <button onClick={this.sortByGenre} className="" value="In Translation">
+              {" "}
+              In Translation
+            </button>
+            <button onClick={this.sortByGenre} className="" value="Memoir">
+              {" "}
+              Memoir
+            </button>
+            <button onClick={this.sortByGenre} className="" value="Narrative Non-Fiction">
+              {" "}
+              Narrative Non-Fiction
+            </button>
+            <button onClick={this.sortByGenre} className="" value="Short stories">
+              {" "}
+              Short stories
+            </button>
+            <button onClick={this.sortByGenre} className="" value="Young Adult (YA)">
+              {" "}
+              Young Adult (YA)
+            </button>
+          </div>
           {/* <SubheadSection heading="You might also like..."  /> */}
-        </div>
-        <div>
           <CardDisplay result={result} />
-        </div>
-      </>
+          <Footer />
+      </div>
     );
   }
 }

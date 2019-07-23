@@ -1,9 +1,10 @@
 import React from 'react';
+import axios from 'axios'
 import IntroSectionShow from '../components/IntroSectionShow';
 import SubheadSection from '../components/SubheadSection';
 import CardDisplay from '../components/CardDisplay';
 import Card from "../components/Card";
-import axios from 'axios'
+import Footer from '../components/Footer';
 
 class ShowPage extends React.Component {
   bookReviews = []
@@ -30,6 +31,7 @@ class ShowPage extends React.Component {
           linkToBuy={review.linkToBuy}
           genre={review.genre.name}
           topPick={review.topPick}
+          url={review.url}
           />
         </div>
       )
@@ -94,6 +96,7 @@ class ShowPage extends React.Component {
       return <>
             {this.state.displayHeader}            
             {this.state.contentPage}
+            <Footer />
             </>
   }
 }
