@@ -59,18 +59,22 @@ class AdminShowPage extends React.Component {
     })
   }
 
-  handleDeleteClick=(title) => { 
+  handleDeleteClick= async (title) => { 
     const data = {data: {title}}
-    try {
-    axios.delete(`${process.env.REACT_APP_API_URL}/deleteReview`, data)
+    const token = localStorage.getItem("token");
+    console.log(token);
+    const headers = {token: token}
+    // const headers = {headers: {token: token}}
+
+    await axios.delete(`${process.env.REACT_APP_API_URL}/protected/deleteReview`, {data, headers})
           .then((res)=>{
             console.log(res);
             alert("Review Deleted")
             window.location.reload()
           })
-    } catch(err){
-      console.log(`Error deleting with error: ${err}`);
-    }
+          .catch((err) => {
+            console.log(err.response)
+          })
   }
 
   deleteToken= (e) => {
