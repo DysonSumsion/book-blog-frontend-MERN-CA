@@ -1,15 +1,15 @@
-.containerAlt {
-  background-color: wheat;
-  height: 100vh;
-  padding: 80px;
+.IntroSectionFlexi {
+  /* width: 100vw; */
+  margin-bottom: 130px;
 }
 
 /* Media queries –––––––––––––––––––––––––––––––––––– */
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 550px) {
 
-  .containerAlt {
+  .IntroSectionFlexi {
     padding: 20px;
+    margin-bottom: 60px;
   }
 
 }
