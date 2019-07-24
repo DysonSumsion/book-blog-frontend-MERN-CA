@@ -42,7 +42,6 @@ class Subscribe extends React.Component {
     });
   }
   validateInput = () => {
-    
     let emailValidity = emailValidator.validate(this.state.email);
     if(!emailValidity) {
       this.setState({invalidEmail:"Enter a valid email address"});
@@ -114,18 +113,20 @@ class Subscribe extends React.Component {
             placeholder={"Enter email"}
             handleChange={this.handleInput}
           />{this.state.invalidEmail}
+
           {/* Clear the form */}
           <Button
-          action={this.handleFormSubmit}
-          type={"primary"}
-          title={"Subscribe"}
-        />{" "}
-        {/*Submit */}
-        <Button
-          action={this.handleClearForm}
-          type={"secondary"}
-          title={"Clear"}
-        />{" "}
+            action={this.handleFormSubmit}
+            type={"primary"}
+            title={"Subscribe"}
+          />{" "}
+          {/*Submit */}
+          <Button
+            action={this.handleClearForm}
+            type={"secondary"}
+            title={"Clear"}
+            // style={buttonStyle}
+          />{" "}
         </form>
         </div>
       </>
@@ -134,3 +135,5 @@ class Subscribe extends React.Component {
 }
 
 export default Subscribe;
+
+{/* <button onClick={() => props.handleEditClick(props.reviewObject)} className="edit"> Edit</button> */}

@@ -94,10 +94,10 @@ class AdminShowPage extends React.Component {
           })
   }
 
-  deleteToken= (e) => {
-    // e.preventDefault();
-    window.localStorage.removeItem("token");
-  }
+  // deleteToken= (e) => {
+  //   // e.preventDefault();
+  //   window.localStorage.removeItem("token");
+  // }
 
   render() {
     // console.log(this.state);
@@ -113,10 +113,6 @@ class AdminShowPage extends React.Component {
           <IntroSectionFlexi 
             headingOne="Hi Jaclyn!" 
             headingTwo="Welcome to your dashboard, here are all of your reviews..." />
-
-          {/* {result} */}
-          <Link to = '/adminjaclyn' onClick={this.deleteToken}> Logout </Link>
-          <Link to = '/auth/adminaddreview'> add review </Link>
 
           <div className="showreviews">
           {this.state.adding ? 

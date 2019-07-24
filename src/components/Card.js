@@ -22,7 +22,7 @@ return (
 
         </div>
         <div className="cardRightBottom">
-          <Link to={'/show/' + props.review.props.children.props.title}>Read more</Link>
+          <Link className="outlineButton" to={'/show/' + props.review.props.children.props.title}>Read more</Link>
         </div>
       </div>
     </div>

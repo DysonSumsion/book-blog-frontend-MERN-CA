@@ -21,7 +21,7 @@
 .logo {
   height: 60px;
   width: 60px;
-  background-color: darkcyan;
+  /* background-color: darkcyan; */
   border-radius: 100%;
   margin-right: 30px;
   border: none;
@@ -31,24 +31,31 @@
 .navRight {
   height: 60px;
   width: 560px;
-  /* background-color: grey; */
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.toolbar_navigation {
+.navRightAdmin {
+  height: 60px;
+  width: 250px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* .toolbar_navigation {
   display: flex;
   height: 100%;
   align-items: center;
   padding: 0 1rem;
   background-color: blue;
-}
+} */
 
-.toolbar_navigation_items a:hover,
+/* .toolbar_navigation_items a:hover,
 .toolbar_navigation_items a:active {
   color: orange;
-}
+} */
 
 /* ____________ */
 

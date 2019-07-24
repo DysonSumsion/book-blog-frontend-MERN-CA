@@ -8,7 +8,7 @@ const Button = props => {
     onClick={props.action}
      style={props.style}
      className={
-       props.type === "primary" ? "btn btn-primary" : "btn btn-secondary"
+       props.type === "primary" ? "primaryButton" : "secondaryButton"
      }
    >
      {props.title}
@@ -17,3 +17,5 @@ const Button = props => {
 };
 
 export default Button;
+
+// props.type === "primary" ? "btn btn-primary" : "btn btn-secondary"
