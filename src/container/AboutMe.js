@@ -7,7 +7,7 @@ function AboutMe() {
 
   return (
     <>
-    <div className="containerSecondary" style={{ backgroundColor: '#FFFCAF' }}>
+    <div className="containerSecondary" style={{ backgroundColor: '#FFF38A' }}>
       <IntroSectionFlexi 
         headingOne="A little bit about me..." 
         headingTwo="I'm Jaclyn and I love to read new releases from all genres. "

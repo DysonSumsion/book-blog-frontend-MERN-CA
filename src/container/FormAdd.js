@@ -303,17 +303,17 @@ class FormAdd extends React.Component {
 
   render() {
     const { errors } = this.state;
-    let color;
-    if (this.props.adding === true) {
-      color = "formContainer box0"
-    }else{
-      color = "formContainer box1"
-    }
+    // let color;
+    // if (this.props.adding === true) {
+    //   color = "formContainer box0"
+    // }else{
+    //   color = "formContainer box1"
+    // }
 
     return (
       <>
         {/* <div className="formContainer" > */}
-        <div className={color} >
+        <div className="formContainer" >
 
           <form
             className="form-add"

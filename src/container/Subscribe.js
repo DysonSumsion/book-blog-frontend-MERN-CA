@@ -55,7 +55,7 @@ class Subscribe extends React.Component {
 
     return (
       <>
-      <div className="containerSecondary" style={{ backgroundColor: '#F8EE97'}}>
+      <div className="containerSecondary" style={{ backgroundColor: '#E1DEC3'}}>
         <IntroSectionFlexi
           headingOne="Want to join my newsletter?"
           headingTwo="Recieve a monthly email with highlights from the month. No spam, I promise! " />

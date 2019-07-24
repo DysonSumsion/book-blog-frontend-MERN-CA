@@ -82,7 +82,9 @@ class ShowPage extends React.Component {
       headingAuthor={found[0].author.name}
       headingReview={found[0].review} 
       bookImage={found[0].url} 
-      headingPublisher={found[0].publisher.name} 
+      headingPublisher={found[0].publisher.name}
+      headingTopPick={found[0].topPick}
+      headingLinkToBuy={found[0].linkToBuy} 
       value={found[0]}
       />});
     }

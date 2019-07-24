@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import FormAdd from './container/FormAdd';
 import AdminShowPage from './container/AdminShowPage';
+import AdminAddReview from './container/AdminAddReview';
 import Dashboard from './components/Dashboard';
 import ResetPassword from './container/ResetPassword';
 
@@ -17,7 +18,6 @@ render() {
         return <AdminShowPage {...props} />
       }} />
       <Route path="/auth/ForgotPassword" exact component={ForgotPassword}/>
-      <Route path="/auth/Dashboard" exact component={Dashboard}/>
       <Route path="/auth/ResetPassword" exact component={ResetPassword}/>
     </Switch>
   )

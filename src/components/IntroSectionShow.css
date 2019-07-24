@@ -1,25 +1,44 @@
 .IntroSectionShow {
-  background-color: pink;
+  /* background-color: pink; */
   min-height: 50vh;
   width: 100vw;
   padding: 80px;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.IntroSectionShowLeft {
+.ShowCard {
+  /* background-color: wheat; */
+  width: 800px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.ShowCardLeft {
   background-color: yellow;
   width: 200px;
 }
 
-.IntroSectionShowLeft img {
+.ShowCardRight {
+  /* background-color: dodgerblue; */
+  height: 100%;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ShowCardRightTop {
+  /* background-color: goldenrod; */
+  width: 100%;
+}
+
+.img {
   /* max-height: 150px; */
   max-width: 200px;
   object-fit: contain;
-}
-
-.IntroSectionShowRight {
-  padding-left: 30px;
-
 }
 
 /* Media queries –––––––––––––––––––––––––––––––––––– */
@@ -28,6 +47,12 @@
 
   .IntroSectionShow {
     padding: 20px;
+  }
+
+  .ShowCardRight {
+    /* background-color: dodgerblue; */
+    height: 100%;
+    display: flex;
   }
 
 }
