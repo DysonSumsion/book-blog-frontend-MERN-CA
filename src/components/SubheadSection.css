@@ -5,5 +5,15 @@
   padding-left: 80px;
   padding-right: 80px;
   display: flex;
-  /* align-items: center; */
+}
+
+/* Media queries –––––––––––––––––––––––––––––––––––– */
+
+@media only screen and (max-width: 550px) {
+
+  .SubheadSection {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
 }

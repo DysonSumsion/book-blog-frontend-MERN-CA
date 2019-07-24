@@ -11,7 +11,7 @@ function CardAdmin(props) {
           <img src={props.url} alt={props.title}  ></img>
           </div>
         <div className="cardAdminLeftBottom">
-          <button onClick={() => props.handleEditClick(props.reviewObject)} className="edit"> Edit</button>
+          <button className="genreButton" onClick={() => props.handleEditClick(props.reviewObject)} className="edit"> Edit</button>
           <button onClick={() => props.handleDeleteClick(props.title)} className="delete"> Delete</button>
         </div>
       </div>

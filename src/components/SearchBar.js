@@ -4,10 +4,12 @@ const SearchBar = props => {
   //console.log(props)
  return(
  <>
-  <div className="form-group">
+  <div className="form-group" >
     <label htmlFor={props.name} className="form-label">{props.title}</label>
     <input
       className="form-control"
+      id="searchBorder"
+      style={{ color: 'red' }}
       id={props.name}
       name={props.name}
       type={props.inputType}
@@ -26,3 +28,6 @@ const SearchBar = props => {
 };
 
 export default SearchBar;
+
+
+// style={{ backgroundColor: '#FFF38A' }}
