@@ -3,6 +3,7 @@ import FormInput from '../components/FormInput';
 import Button from '../components/Button';
 import IntroSectionFlexi from '../components/IntroSectionFlexi';
 import axios from 'axios';
+import emailValidator from 'email-validator';
 
 class Subscribe extends React.Component {
   state = {
@@ -41,8 +42,7 @@ class Subscribe extends React.Component {
     });
   }
   validateInput = () => {
-    const re1 = /^(([^<>()[]\\.,;:\s@"]+(\.[^<>()[]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    let emailValidity = re1.test(this.state.email);
+    let emailValidity = emailValidator.validate(this.state.email);
     if(!emailValidity) {
       this.setState({invalidEmail:"Enter a valid email address"});
     }
@@ -61,6 +61,7 @@ class Subscribe extends React.Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
     if (this.validateInput()) {
+      console.log("validated")
       const formData = {firstName:this.state.firstName, lastName:this.state.lastName,email:this.state.email};
 
       axios
@@ -71,6 +72,7 @@ class Subscribe extends React.Component {
         })
         .catch(err => {
           console.log(err.message);
+          alert("Unable to Subscribe");
         });
 
     }

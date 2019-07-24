@@ -33,13 +33,12 @@ class Admin extends React.Component {
       email:email,
       password:password
     })
-    .then((res) => {
-      console.log(res.data.token)  
+    .then((res) => { 
       const returnedToken = res.data.token   
       window.localStorage.setItem("token", returnedToken);
-      console.log(window.localStorage.getItem("token"));
       // window.location.href = "/Dashboard";
-      this.props.history.push("/auth/adminshow");
+      window.location.href = "/auth/adminshow"
+      // this.props.history.push("/auth/adminshow");
     })
     .catch((err) => {
       console.log(err);
