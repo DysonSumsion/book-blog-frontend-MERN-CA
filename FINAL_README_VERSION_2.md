@@ -94,7 +94,7 @@ Admin experience:
   - The admin show page displays all book reviews and has the functionality to delete or edit each review.
 
 - Create new review:
-  - This is where Jaclyn has the ability to ceate new reviews.
+  - This is where Jaclyn has the ability to create new reviews.
   - The navigation bar lets Jaclyn toggle between all reviews and create review.
 ___
 
@@ -110,7 +110,7 @@ ___
   - Framework: Express.js, Mongoose, Node.js  
   - Deployment platform: Now
 - Operating system: macOS Mojave Version 10.14.4
-- Cloud storage: GitHub, AWS
+- Cloud storage: GitHub, AWS S3
 - Database: MongoDb
 ___
 
@@ -167,15 +167,15 @@ After the first client meeting, Anna began designing the high-fidelity wireframe
 
 ## Data Flow Diagram
 
-[ Garry / Rob ]
+[ Garry]
 
 ## OO design documentation  
 
-[ Garry / Rob ]
+Object-oriented (OO) design is the process of planning a system of interacting objects for the purpose of solving a software problem. It also improves the reusability of software components - a distinctive feature of React. We have tried to make use of this reusability concept across our software design.  As seen in the figure below, we have constructed a myriad of dumb components (light blue section) and utilized these in our smart components (yellow shading).  These components are connected to user/private/protected routes which are feed into the App.js file. The App.js file then handles all routes and enables display of data into user and admin view pages. Using this convention, props were able to be passed from one component to the next component, and used in their appropriate places. 
+We have used an external component - Mailchimp - to handle newsletter subscription services.
 
-Object-oriented (OO) design is the process of planning a system of interacting objects for the purpose of solving a software problem. It also improves the reusability of software components - a distinctive feature of React. We have tried to make use of this reusability concept across our software design. OO design expresses relationships between different classes.  
-Our document database has a main collection called Reviews, and interacts with Author, Publisher and Genre collections. These were involved with displaying the reviews to the user and to admin.  
-Our Second main collection was called Admin and this was involved with authorization and authentication.  
+
+![oo_design](https://user-images.githubusercontent.com/47741682/61788144-b6456d80-ae54-11e9-9008-c4587c261c37.jpg)
 
 
 ___
@@ -192,9 +192,42 @@ When we first started working as a team, our initial discussion was about what o
 
 We also decided on our working style, and agreed that we'd prefer to work together as a team and do as much pair-programming as possible. Working alongside each other allows for clear communication and easier troubleshooting. When it was not possible to pair-program (due to lack of time) we decided to regularly check-in with other – in person, and checking code – so we all knew what we were all doing at any given time. 
 
-We set up our Trello board and spent the first few days planning. Rob and Garry kept busy with preparation while Anna met with the client and got the go-ahead for the project. 
+We set up our Trello boards(see figures below) and spent the first few days planning. Rob and Garry kept busy with preparation while Anna met with the client and got the go-ahead for the project. 
 
-We agreed to meet everyday at 9.30 to discuss where we were at with our tasks and reassess the scope for that day's work and what to share for our daily stand-up. As well as having a daily check-in, we were all clear on what our expectations were for each week and what we were working towards. This allowed us to monitor progress and adjust our expectations if necessary. 
+## Use Agile development methodologies
+We agreed to meet everyday at 9.30 to discuss where we were at with our tasks and reassess the scope for that day's work and what to share for our daily stand-up. As well as having a daily check-in, we were all clear on what our expectations were for each week and what we were working towards. This allowed us to monitor progress and adjust our expectations if necessary.  
+In addiiton we participated in the 10.00am stand-up, part of the Agile development methodologies to describe completed work, any blockers and work-to-do.
+
+
+## GitHub - Demonstrate use of frequent commits, feature branches (based on user stories), pull requests and merges
+As of Thursday 24 July our team committed 153 to the backend and 93 times to the backend. 
+
+![Github_commit-frontend](https://user-images.githubusercontent.com/47741682/61792256-abdca100-ae5f-11e9-92e2-6eff3916a37c.png)
+
+![Github_commit_backend](https://user-images.githubusercontent.com/47741682/61792346-dfb7c680-ae5f-11e9-903f-a8582f1b4bf0.png)
+
+Although difficult to demonstrate evidence of branch names (best practice is to delete branches after committing!! ), a snap shop below show the description of several committed messages;  
+"Merge branch 'master' into working-on-links-in-toolbar"  
+"finalise style, showpage card, colors"  
+"admin functionality toolbar made, clear functions working"   
+"fixed forgotpassword link"  
+" subscribe.js bug fixed"  
+
+![Github_featyre_branches](https://user-images.githubusercontent.com/47741682/61793097-a1bba200-ae61-11e9-83ce-7c2b5f03b9b9.png)
+
+
+## Code review - Demonstrate that you have had your code reviewed by other students and that you have provided a code review for others
+
+See figures below showing a request for a code review and the approval.
+
+<img width="780" alt="Github_rob_to_anna" src="https://user-images.githubusercontent.com/47741682/61793364-5229a600-ae62-11e9-889e-2e3e018f904f.png">
+
+![Github_anna_to_rob2](https://user-images.githubusercontent.com/47741682/61793497-9fa61300-ae62-11e9-8eb5-a34c5d70221e.png)
+
+## Show evidence of client communication, e.g. meeting minutes, emails, or other communication tools
+see below
+
+
 
 ## Project plan & timeline
 
@@ -326,8 +359,7 @@ ___
 
 Front-end Client  
 - axios. version: 0.19.0 => Promise based HTTP client for the browser and node.js
-- otenv. version: 8.0.0 => Loads environment variables from a .env file into process.env
-- bootstrap. version: 4.3.1 => 
+- dotenv. version: 8.0.0 => Loads environment variables from a .env file into process.env
 - history. version: 4.9.0 => manages session history and re-directs
 - react. version: 16.8.6 => defines React components
 - react-bootstrap. version: 1.0.0-beta.9 => 
@@ -335,12 +367,12 @@ Front-end Client
 - react-router-dom. version: 5.0.1 => To load components in different routes
 - react-scripts:. version: 0.1 => To configure scripts for create-react-app.  
 devDependencies
-- case-sensitive-paths-webpack-plugin. version 2.2.0 =>
-- enzyme. version 3.10.0 =>
-- enzyme-adapter-react-16. version 1.14.0 =>
-- enzyme-to-json. version 3.3.5 =>
-- react-test-renderer. version 16.8.6 =>
-- sinon. version 7.3.2 =>
+  - case-sensitive-paths-webpack-plugin. version 2.2.0 => enforces the entire path of all required modules match the exact case of the actual path on disk
+  - enzyme. version 3.10.0 => JavaScript Testing utility for React 
+  - enzyme-adapter-react-16. version 1.14.0 => JavaScript Testing utility for React 
+  - enzyme-to-json. version 3.3.5 => Convert Enzyme wrappers to a format compatible with Jest snapshot testing
+  - react-test-renderer. version 16.8.6 => Grabs a snapshot of the "DOM tree"
+  - sinon. version 7.3.2 => Test framework using spies, stubs and mocks
 
 Back-end Client  
 - aws-sdk. version: 2.494.0 =>  AWS S3 File Upload
@@ -354,39 +386,59 @@ Back-end Client
 - multer. version: 1.4.2 => Adds a body object and a file or files object to the request object.
 - nodemailer. version: 6.3.0 => Enables e-mail sending
 - nodemon. version: 1.19.1 => Automatically restarts the node application when file changes in the directory are detected.
-- request. version: 2.88.0 => Makes http calls.
+- request. version: 2.88.0 => Makes http calls.  
+devDependencies
+  - jest. version: 24.8.0 => JavaScript testing solution
+  - now. version: 15.7.0 => To deploy the server in now.sh
+  - supertest. version: 4.0.2 => High-level abstraction for testing HTTP
+  - dotenv. version: 8.0.0 => Loads environment variables from a .env file into process.env
 
-
-
-Answer to come
 ___
 
-## c. A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
+## c. A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?  
 
-- project management
-- communication
-- time management
-- people management
+In order to develop a website for a small business, a team would require the following knowledge and skills;
+- project management skills
+- communication and negotiation skills
+- time management skills
+- people management skills
 - software development knowledge (web development, deployment)
-- negotiation skills
+- problem solving skills
+- marketing, sales and customer knowledge of the product
 ___
 
 ## d. Within your own project what knowledge or skills were required to complete your project, and overcome challenges?
 
-- project management
-- communication
-- time management
+During the project knowledge and skills required can be separated into (i) project management and (ii) technical knowledge.  
+First and foremost project management skills and knowledge were required to complete the projects. These included;
+- communication and negotiation skills: being able to prioritize and distribute workload, not only with fellow students but with the client and educators.
+- time management skills. The use of Trello helped with this aspect.
+- project management knowledge and skills. 
+- problem solving and perseverance.
 
+Second and just as important are the technical skills needed to complete the project. Including knowledge of and experience with;
+- the MERN Stack 
+  - Mongo Database/Mongoose
+  - Express API/Server
+  - React.js
+  - Node.js
+- Vanilla Javascript
+- GitHub
+- HTML5, CSS
+- Figma
+- Deployment: Netlify/Now
+- Testing
+- VS Code
+- Slack
+- npn and npm libraries
 
-What libraries are being used in the app and why?
-A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
-Within your own project what knowledge or skills were required to complete your project, and overcome challenges?
-Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
 ___
 
 ## e. Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
 
-Answer to come...
+Overall, our team had an even distribution of skills and knowledge needed for completion of the project. Anna was strong with project management, UI and UX. Rob was able to help with all aspects of the project but focused on React and Express coding. Gary had a good handle on the express coding but also helped with react coding.  
+Like all projects, we faced many challenges. Anna worked her way through nested props in react; Rob had difficulty with sorting arrays with based on nested data, while Gary spent some time on the authorization. Overall, the knowledge and skills of our team was enough to achieve MVP. In addition, the support of mentors(educators) helped us achieve our goals.   
+
 
 
 ___
