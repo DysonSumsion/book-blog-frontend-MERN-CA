@@ -76,7 +76,7 @@ class Admin extends React.Component {
           title={"Submit"}
           style={buttonStyle}
         />{" "}
-        <Link to="/ForgotPassword">Forgot Password</Link>
+        <Link to="/auth/ForgotPassword">Forgot Password</Link>
         {/*Submit */}
         </form>
         <h4>{this.state.errMessage}</h4>
