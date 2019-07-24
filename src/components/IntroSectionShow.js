@@ -6,17 +6,27 @@ function IntroSectionShow(props) {
 
   return (
   <div className="IntroSectionShow">
-    <div className="IntroSectionShowLeft">
-      <img src={props.bookImage}/>
+    <div className="ShowCard">
+      <div className="ShowCardLeft">
+        <img src={props.bookImage}/>
+      </div>
+      <div className="ShowCardRight">
+        <div className="ShowCardRightTop">
+          <h2>{props.headingTitle}</h2>
+          <h2>{props.headingAuthor}</h2>
+          <p>{props.headingPublisher}</p>
+          <p>{props.headingReview}</p>
+        </div>
+        { props.headingTopPick === true && 
+              <span className="topPickDiv">
+                <i className="star icon"></i><p>Top Pick</p>
+              </span>
+            }
+        <div className="ShowCardRightBottom">
+          <a href={props.headingLinkToBuy}>Buy Book</a>
+        </div>
+      </div>
     </div>
-    <div className="IntroSectionShowRight">
-      <h1>{props.headingTitle}</h1>
-      <h2>{props.headingAuthor}</h2>
-      <p>{props.headingPublisher}</p>
-      <p>{props.headingReview}</p>
-    </div>
-
- 
   </div>
   );
 }
