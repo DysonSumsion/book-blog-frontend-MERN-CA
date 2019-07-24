@@ -9,13 +9,12 @@ import AboutMe from './container/AboutMe';
 import Subscribe from './container/Subscribe';
 import Admin from './container/Admin';
 import ProtectedRoutes from './ProtectedRoutes'
+import ForgotPassword from './container/ForgotPassword'
+
 
 class Routes extends React.Component {
 
 render() {
-  // console.log('routes rendering')
-  // const data  = this.props
-  // console.log(data)
 
   return (
     <Switch>
@@ -28,6 +27,7 @@ render() {
       <Route path="/aboutme" exact component={AboutMe} />
       <Route path="/subscribe" exact component={Subscribe} />
       <Route path="/adminjaclyn" exact component={Admin} />
+      <Route path="/ForgotPassword" exact component={ForgotPassword}/>
       <Route path="/auth" component={ProtectedRoutes} />
     </Switch>
   )

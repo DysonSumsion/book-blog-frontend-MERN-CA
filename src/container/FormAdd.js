@@ -6,10 +6,10 @@ import FormCheckbox from "../components/FormCheckbox";
 import Button from "../components/Button";
 import "../container/FormAdd.css";
 // import history from '../history';
-import { createBrowserHistory } from 'history';
+// import { createBrowserHistory } from 'history';
 
-const history = createBrowserHistory();
-const location = history.location;
+// const history = createBrowserHistory();
+// const location = history.location;
 //console.log(location.pathname);
 
 // import { withRouter } from "react-router-dom";
@@ -293,15 +293,11 @@ class FormAdd extends React.Component {
   };
 
   handleCancelForm = (e) => {
-    // e.preventDefault();
-    console.log("hi");
-    console.log(this.props);
-    console.log(location);
-    if (location.pathname === "/auth/adminshow"){
+    e.preventDefault();
+    if (window.location.pathname === "/auth/adminshow"){
       return window.location.reload()
     } else {
-      return window.location.href="/auth/adminshow"
-      // return this.props.history.push("/auth/adminshow");
+      return this.props.history.push("/auth/adminshow");
     }
   }
 
@@ -321,7 +317,6 @@ class FormAdd extends React.Component {
 
           <form
             className="form-add"
-            onSubmit={this.handleFormSubmit}
             encType="multipart/form-data"
           >
             <FormInput
@@ -450,7 +445,7 @@ class FormAdd extends React.Component {
               action={this.handleFormSubmit}
               type={"primary"}
               title={"Submit"}
-              // style={buttonStyle}
+              
             />{" "}
             {/*Submit */}
             <Button

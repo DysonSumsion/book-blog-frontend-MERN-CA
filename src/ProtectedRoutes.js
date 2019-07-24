@@ -9,7 +9,7 @@ class ProtectedRoutes extends React.Component {
 
   render() {
     if (this.isAuthenticated()) {
-      return <Private />;
+      return <Private {...this.props} />;
     } else {
       return <Redirect to="/" />;
     }
