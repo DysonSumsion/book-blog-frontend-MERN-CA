@@ -1,6 +1,5 @@
 import React from "react";
-import IntroSection from "../components/IntroSection";
-import SubheadSection from "../components/SubheadSection";
+import IntroSectionFlexi from "../components/IntroSectionFlexi";
 import CardDisplay from "../components/CardDisplay";
 import Card from "../components/Card";
 import Footer from '../components/Footer';
@@ -11,8 +10,8 @@ class SortByGenre extends React.Component {
     data: "",
     adding: false,
     selectedReview: null,
-    description: "Lotus ipsm",
-    genre: "Welocme to Genre Page"
+    // description: "Lotus ipsm",
+    genre: "If you'd like to see my reviews by genre, you've come to the right place..."
   };
 
   async componentDidMount() {
@@ -58,20 +57,20 @@ class SortByGenre extends React.Component {
 
     switch (e.target.value){
       case "Australian Fiction":
-        genre = "Australian Fiction genre"
-        description = "Australian Fiction description"
+        genre = "My Australian Fiction reviews..."
+        // description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
         break;
       case "Contemporary Fiction":
         genre = "Contemporary Fiction"
-        description = "Contemporary Fiction description"
+        description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
         break;
       case "Crime":
         genre = "Crime"
-        description = "Crime description"
+        description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
         break;
       case "Essays":
         genre = "Essays"
-        description = "Essays description"
+        description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
         break;
       case "Graphic Novels":
         genre = "Graphic Novels"
@@ -126,9 +125,6 @@ class SortByGenre extends React.Component {
     this.setState({ description: description, genre: genre, foundData: {reviews: foundData}});
   };
 
-
-
-
   render() {
     // console.log(this.state.data);
     const { data, foundData } = this.state;
@@ -145,12 +141,12 @@ class SortByGenre extends React.Component {
 
     return (
         <div>
-          <IntroSection
+          <IntroSectionFlexi
             headingOne={this.state.genre}
-            headingTwo={this.state.description}
+            // headingTwo={this.state.description}
           />
           <div className="genreButtonContainer">
-            <button onClick={this.sortByGenre} className="" value="Australian Fiction">
+            <button onClick={this.sortByGenre} className="genreButton" value="Australian Fiction">
               {" "}
               Australian Fiction
             </button>
@@ -191,7 +187,6 @@ class SortByGenre extends React.Component {
               Young Adult (YA)
             </button>
           </div>
-          {/* <SubheadSection heading="You might also like..."  /> */}
           <CardDisplay result={result} />
           <Footer />
       </div>
