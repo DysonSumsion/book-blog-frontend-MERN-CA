@@ -1,9 +1,8 @@
 import React from 'react';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
-import IntroSectionAlt from '../components/IntroSectionAlt';
+import IntroSectionFlexi from '../components/IntroSectionFlexi';
 import axios from 'axios';
-import './Subscribe.css';
 
 class Subscribe extends React.Component {
   state = {
@@ -64,18 +63,18 @@ class Subscribe extends React.Component {
       <form>
           <FormInput
             inputType={"text"}
-            title={"Firstname"}
+            title={"First Name"}
             name={"firstName"}
             value={this.state.firstName}
-            placeholder={"Enter firstname"}
+            placeholder={"Enter first name"}
             handleChange={this.handleInput}
           />{" "}
           <FormInput
             inputType={"text"}
-            title={"Lastname"}
+            title={"Last Name"}
             name={"lastName"}
             value={this.state.lastName}
-            placeholder={"Enter lastname"}
+            placeholder={"Enter last name"}
             handleChange={this.handleInput}
           />{" "}
 

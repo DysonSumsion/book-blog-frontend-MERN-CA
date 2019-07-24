@@ -3,6 +3,7 @@ import IntroSection from '../components/IntroSection';
 import SubheadSection from '../components/SubheadSection';
 import CardDisplay from '../components/CardDisplay';
 import Card from "../components/Card";
+import Footer from '../components/Footer';
 
 class TopPicks extends React.Component {
   state = {
@@ -79,20 +80,15 @@ class TopPicks extends React.Component {
   // const result = this.filterReviews(reviews)
 
     return (
-      <>
-        <div>
-          <IntroSection 
+      <div>
+        <IntroSection 
           headingOne="Wahoo, here are my Top Picks!" 
           headingTwo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duislectus quam, vestibulum nec cursus non, sagittis nec tortor. Fusce lacinia mi nisi."
-          />
-        </div>
-        <div>
-          <SubheadSection heading="The wait is over, here they are..." />
-        </div>
-        <div>
-          <CardDisplay result={result} /> 
-        </div>
-      </> 
+        />
+        <SubheadSection heading="The wait is over, here they are..." />
+        <CardDisplay result={result} /> 
+        <Footer />
+      </div>
     );
   }
 }

@@ -18,7 +18,6 @@ class ResetPassword extends React.Component {
     }
   }
   
-
   checkPageValidity() {
     const resetToken = window.localStorage.getItem("resetToken");
     console.log("reset Token is =>    "+resetToken);

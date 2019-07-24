@@ -3,6 +3,7 @@ import IntroSection from '../components/IntroSection';
 import SubheadSection from '../components/SubheadSection';
 import CardDisplay from '../components/CardDisplay';
 import Card from "../components/Card";
+import Footer from '../components/Footer';
 
 class HomePage extends React.Component {
   state = {
@@ -52,20 +53,15 @@ class HomePage extends React.Component {
   const result = this.renderReviews(reviews)
 
     return (
-      <>
-        <div>
-          <IntroSection 
+      <div>
+        <IntroSection 
           headingOne="Hi, I’m Jaclyn and I love to read... a lot." 
           headingTwo="My friends joke that I can read two books at the same time, one with each eye!  I promise I can’t. Join me here to something something, call to action."
-          />
-        </div>
-        <div>
-          <SubheadSection heading="My most recent reviews..." />
-        </div>
-        <div>
-          <CardDisplay result={result} /> 
-        </div>
-      </> 
+        />
+        <SubheadSection heading="My most recent reviews..." />
+        <CardDisplay result={result} /> 
+        <Footer />
+      </div> 
     );
   }
 }

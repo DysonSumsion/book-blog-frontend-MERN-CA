@@ -1,10 +1,9 @@
 import React from "react";
-import IntroSection from "../components/IntroSection";
-import CardAdmin from "../components/CardAdmin";
-import axios from "axios";
-import FormAdd from "../container/FormAdd";
-import './AdminShowPage.css';
 import {Link} from 'react-router-dom';
+import axios from "axios";
+import IntroSectionFlexi from "../components/IntroSectionFlexi";
+import CardAdmin from "../components/CardAdmin";
+import FormAdd from "../container/FormAdd";
 
 class AdminShowPage extends React.Component {
   state = {
@@ -109,10 +108,10 @@ class AdminShowPage extends React.Component {
 
     return (
       <>
-        <div>
-
-          <IntroSection headingOne="Hi Jaclyn!" 
-          headingTwo="Welcome to your dashboard, here are all of your reviews..." />
+        <div className="containerSecondary" style={{ backgroundColor: '#BFE9E1'}}>
+          <IntroSectionFlexi 
+            headingOne="Hi Jaclyn!" 
+            headingTwo="Welcome to your dashboard, here are all of your reviews..." />
 
           {/* {result} */}
           <Link to = '/adminjaclyn' onClick={this.deleteToken}> Logout </Link>

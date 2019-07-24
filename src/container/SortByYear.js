@@ -3,6 +3,7 @@ import IntroSection from '../components/IntroSection';
 import SubheadSection from '../components/SubheadSection';
 import CardDisplay from '../components/CardDisplay';
 import Card from "../components/Card";
+import Footer from '../components/Footer';
 
 class SortByYear extends React.Component {
   state = {
@@ -37,6 +38,7 @@ class SortByYear extends React.Component {
           linkToBuy={review.linkToBuy}
           genre={review.genre.name}
           topPick={review.topPick}
+          url={review.url}
           />
         </div>
       )
@@ -52,20 +54,15 @@ class SortByYear extends React.Component {
   const result = this.renderReviews(reviews)
 
     return (
-      <>
         <div>
           <IntroSection 
-          headingOne="{Year}, what a year!" 
-          headingTwo="Year {secondary paragraph}"
+            headingOne="{Year}, what a year!" 
+            headingTwo="Year {secondary paragraph}"
           />
-        </div>
-        <div>
           <SubheadSection heading="You might also like..." />
-        </div>
-        <div>
           <CardDisplay result={result} /> 
+          <Footer />
         </div>
-      </> 
     );
   }
 }

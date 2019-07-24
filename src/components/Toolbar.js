@@ -15,10 +15,10 @@ const toolbar = props => (
         <DrawerToggleButton click={props.drawerClickHandler}/>
     </div>
     <div className="navRight">
-      <Link to="/aboutme">About me</Link>
+      <Link to="/toppicks">Top Picks</Link>
       <Link to="/sortbygenre">Reviews by Genre</Link>
       <Link to="/sortbyyear">Reviews by year</Link>
-      <Link to="/toppicks">Top Picks</Link>
+      <Link to="/aboutme">About me</Link>
       <Link to="/subscribe">Subscribe</Link>
     </div>
 
