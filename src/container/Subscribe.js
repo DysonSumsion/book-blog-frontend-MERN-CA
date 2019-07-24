@@ -55,48 +55,50 @@ class Subscribe extends React.Component {
 
     return (
       <>
-        <div className="containerSecondary" style={{ backgroundColor: '#F8EE97'}}>
-          <IntroSectionFlexi 
-            headingOne="Want to join my newsletter?" 
-            headingTwo="Recieve a monthly email with highlights from the month. No spam, I promise! " />
-          <form>
-            <FormInput
-              inputType={"text"}
-              title={"Firstname"}
-              name={"firstName"}
-              value={this.state.firstName}
-              placeholder={"Enter firstname"}
-              handleChange={this.handleInput}
-            />{" "}
-            <FormInput
-              inputType={"text"}
-              title={"Lastname"}
-              name={"lastName"}
-              value={this.state.lastName}
-              placeholder={"Enter lastname"}
-              handleChange={this.handleInput}
-            />{" "}
-            <FormInput
-              inputType={"text"}
-              title={"Email"}
-              name={"email"}
-              value={this.state.email}
-              placeholder={"Enter email"}
-              handleChange={this.handleInput}
-            />{" "}
-            {/* Clear the form */}
-            <Button
-              action={this.handleFormSubmit}
-              type={"primary"}
-              title={"Subscribe"}
-            />{" "}
-            {/*Submit */}
-            <Button
-              action={this.handleClearForm}
-              type={"secondary"}
-              title={"Clear"}
-            />{" "}
-          </form>
+      <div className="containerAlt">
+      <IntroSectionAlt headingOne="Want to join my newsletter?" 
+          headingTwo="Recieve a monthly email with highlights from the month. No spam, I promise! " />
+          <br></br>
+          <br></br>
+      <form>
+          <FormInput
+            inputType={"text"}
+            title={"First Name"}
+            name={"firstName"}
+            value={this.state.firstName}
+            placeholder={"Enter first name"}
+            handleChange={this.handleInput}
+          />{" "}
+          <FormInput
+            inputType={"text"}
+            title={"Last Name"}
+            name={"lastName"}
+            value={this.state.lastName}
+            placeholder={"Enter last name"}
+            handleChange={this.handleInput}
+          />{" "}
+
+          <FormInput
+            inputType={"text"}
+            title={"Email"}
+            name={"email"}
+            value={this.state.email}
+            placeholder={"Enter email"}
+            handleChange={this.handleInput}
+          />{" "}
+          {/* Clear the form */}
+          <Button
+          action={this.handleFormSubmit}
+          type={"primary"}
+          title={"Subscribe"}
+        />{" "}
+        {/*Submit */}
+        <Button
+          action={this.handleClearForm}
+          type={"secondary"}
+          title={"Clear"}
+        />{" "}
+        </form>
         </div>
       </>
     );
