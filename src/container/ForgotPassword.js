@@ -2,6 +2,8 @@ import React from 'react';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
 import axios from 'axios';
+import emailValidator from 'email-validator';
+
 
 
 class ForgotPassword extends React.Component {
@@ -21,9 +23,23 @@ class ForgotPassword extends React.Component {
       }});
   };
 
+  validateInput = () => {
+    
+    let emailValidity = emailValidator.validate(this.state.email);
+    if(!emailValidity) {
+      this.setState({invalidEmail:"Enter a valid email address"});
+    }
+    return emailValidity
+  }
+
 
   handleFormSubmit = (e) => {
     e.preventDefault();
+    if (this.validateInput()) {
+      console.log("validated")
+      const formData = {email:this.state.email};
+
+   }
     const email = this.state.forgotPassword.enterEmail;
     console.log(email);
     axios.post(`${process.env.REACT_APP_API_URL}/auth/forgot`, {

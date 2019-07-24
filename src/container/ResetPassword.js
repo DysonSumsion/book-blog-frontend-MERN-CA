@@ -2,7 +2,7 @@ import React from 'react';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 
 class ResetPassword extends React.Component {
