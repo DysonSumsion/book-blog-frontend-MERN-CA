@@ -10,7 +10,8 @@ class AdminAddReview extends React.Component {
       <div className="containerSecondary" style={{ backgroundColor: '#E7FBAD' }}>
         <IntroSectionFlexi
           headingOne="Time to create a new review..." />
-        <FormAdd />
+          
+        <FormAdd {...this.props}/>
       </div>
     );
   }
