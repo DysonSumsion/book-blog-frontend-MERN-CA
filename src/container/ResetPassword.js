@@ -104,7 +104,7 @@ class ResetPassword extends React.Component {
           .then((res) => {
             const returnedToken = res.data.token 
             window.localStorage.setItem("token", returnedToken);
-            window.location.href = "/Dashboard";
+            window.location.href = "/auth/adminshow";
           })
           .catch((err) => {
             console.log(err)

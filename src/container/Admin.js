@@ -52,6 +52,7 @@ class Admin extends React.Component {
   render() {
 
     return (
+
       <div className="containerSecondary" style={{ backgroundColor: '#BFE9E1'}}>
         <IntroSectionFlexi 
           headingOne="Admin pages, you know what to do..." />
@@ -80,7 +81,7 @@ class Admin extends React.Component {
               title={"Submit"}
               style={buttonStyle}
             />{" "}
-            <Link to="/ForgotPassword">Forgot Password</Link>
+            <Link to="/auth/ForgotPassword">Forgot Password</Link>
             {/*Submit */}
           </form>
           <h4>{this.state.errMessage}</h4>

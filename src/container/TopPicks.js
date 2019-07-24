@@ -16,11 +16,16 @@ class TopPicks extends React.Component {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/reviews`)
       const data = await response.json()
+      const { reviews } = data
+      const topPicks = reviews.filter((review) => {
+          if (review.topPick === true) {
+            return review
+          }})
       this.setState({
-        data: data
+        data: {reviews: topPicks}
       })
     } catch(err) {
-      console.log(err)
+      console.log(err.message)
     }
   }
 
@@ -68,7 +73,6 @@ class TopPicks extends React.Component {
 
   render() {
   const { reviews } = this.state.data
-  console.log(reviews)
   if (!reviews) {
     return <h2>Loading.......</h2>
   } 

@@ -293,13 +293,15 @@ class FormAdd extends React.Component {
   };
 
   handleCancelForm = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log("hi");
     console.log(this.props);
+    console.log(location);
     if (location.pathname === "/auth/adminshow"){
-      window.location.reload()
+      return window.location.reload()
     } else {
-      this.props.history.push("/auth/adminshow");
+      return window.location.href="/auth/adminshow"
+      // return this.props.history.push("/auth/adminshow");
     }
   }
 

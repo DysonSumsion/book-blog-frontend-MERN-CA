@@ -173,23 +173,28 @@ After the first client meeting, Anna began designing the high-fidelity wireframe
 
 [ Garry / Rob ]
 
+Object-oriented (OO) design is the process of planning a system of interacting objects for the purpose of solving a software problem. It also improves the reusability of software components - a distinctive feature of React. We have tried to make use of this reusability concept across our software design. OO design expresses relationships between different classes.  
+Our document database has a main collection called Reviews, and interacts with Author, Publisher and Genre collections. These were involved with displaying the reviews to the user and to admin.  
+Our Second main collection was called Admin and this was involved with authorization and authentication.  
+
+
 ___
 
 # Details of Project Management & Planning process:
 
 ## Demonstrate your project management skills:
 
-When we first started working as a team, our initial discussion was about what our stengths and weaknesses were, reflecting on our previous project – what went well and what we'd like to do differently. Based on this discussion we determined roughly what our roles would be for the duration of the project:
+When we first started working as a team, our initial discussion was about what our strengths and weaknesses were, reflecting on our previous project – what went well and what we'd like to do differently. Based on this discussion we determined roughly what our roles would be for the duration of the project:
 
 - Anna: Project management / design / front-end
 - Rob: Generalist - across it all
 - Garry: Back-end / Testing
 
-We also decided on our working style, and agreed that we'd prefer to work togther as a team and do as much pair-programming as possible. Working alongside each other allows for clear communication and easier troubleshooting. When it was not possible to pair-program (due to lack of time) we decided to regularly check-in with other – in person, and checking code – so we all knew what we were all doing at any given time. 
+We also decided on our working style, and agreed that we'd prefer to work together as a team and do as much pair-programming as possible. Working alongside each other allows for clear communication and easier troubleshooting. When it was not possible to pair-program (due to lack of time) we decided to regularly check-in with other – in person, and checking code – so we all knew what we were all doing at any given time. 
 
 We set up our Trello board and spent the first few days planning. Rob and Garry kept busy with preparation while Anna met with the client and got the go-ahead for the project. 
 
-We agreed to meet everyday at 9.30 to discuss where we were at with our tasks and reassess the scope for that day's work and what to share for our daily stand-up. As well as having a daily check-in, we were all clear on what our expectations were for each week and what we were working towards. This allowed us to monitor progess and adjust our expectations if necessary. 
+We agreed to meet everyday at 9.30 to discuss where we were at with our tasks and reassess the scope for that day's work and what to share for our daily stand-up. As well as having a daily check-in, we were all clear on what our expectations were for each week and what we were working towards. This allowed us to monitor progress and adjust our expectations if necessary. 
 
 ## Project plan & timeline
 
@@ -228,7 +233,7 @@ We agreed to meet everyday at 9.30 to discuss where we were at with our tasks an
     - Deploy
     - Readme
     - Prepare presentation
-    - Preapre handover documents
+    - Prepare handover documents
     - Create client questionnaire
     - Post project review
 
@@ -317,7 +322,41 @@ Testability shows how well the system allows performing tests, according to pred
 Overall, quality software is a well-defined process for creating a useful product that adds value for both the consumer and the manufacturer.
 ___
 
-## b. What libraries are being used in the app and why?  
+## b. What libraries are being used in the app and why?    
+
+Front-end Client  
+- axios. version: 0.19.0 => Promise based HTTP client for the browser and node.js
+- otenv. version: 8.0.0 => Loads environment variables from a .env file into process.env
+- bootstrap. version: 4.3.1 => 
+- history. version: 4.9.0 => manages session history and re-directs
+- react. version: 16.8.6 => defines React components
+- react-bootstrap. version: 1.0.0-beta.9 => 
+- react-dom. version: 16.8.6 => Serves as the entry point to the DOM and server renderers for React
+- react-router-dom. version: 5.0.1 => To load components in different routes
+- react-scripts:. version: 0.1 => To configure scripts for create-react-app.  
+devDependencies
+- case-sensitive-paths-webpack-plugin. version 2.2.0 =>
+- enzyme. version 3.10.0 =>
+- enzyme-adapter-react-16. version 1.14.0 =>
+- enzyme-to-json. version 3.3.5 =>
+- react-test-renderer. version 16.8.6 =>
+- sinon. version 7.3.2 =>
+
+Back-end Client  
+- aws-sdk. version: 2.494.0 =>  AWS S3 File Upload
+- bcrypt. version: 3.0.6 => Hash passwords
+- cors. version: 2.8.5 => Provides a Connect/Express middleware that can be used to enable CORS with various options.
+- dotenv. version: 8.0.0 => Loads environment variables from a .env file into process.env
+- express. version: 4.17.1 => To configure and develop the app API.
+- joi. version: 14.3.1 =>
+- jsonwebtoken. version: 8.5.1 => A method for representing claims securely between two parties.
+- mongoose. version: 5.6.4 => A MongoDB object modeling tool designed to work in an asynchronous environment.
+- multer. version: 1.4.2 => Adds a body object and a file or files object to the request object.
+- nodemailer. version: 6.3.0 => Enables e-mail sending
+- nodemon. version: 1.19.1 => Automatically restarts the node application when file changes in the directory are detected.
+- request. version: 2.88.0 => Makes http calls.
+
+
 
 Answer to come
 ___
