@@ -42,7 +42,6 @@ class Subscribe extends React.Component {
     });
   }
   validateInput = () => {
-    
     let emailValidity = emailValidator.validate(this.state.email);
     if(!emailValidity) {
       this.setState({invalidEmail:"Enter a valid email address"});
