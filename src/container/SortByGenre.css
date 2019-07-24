@@ -1,3 +1,38 @@
 .genreButtonContainer {
+  height: 10vh;
+  padding-left: 80px;
+  padding-right: 80px;
   display: flex;
+  background-color: yellow;
+}
+
+button.genreButton {
+  /* background-color: pink; */
+  border: none;
+  color: #4F4F4F;
+  font-family: 'Noto Serif JP', serif; 
+  font-weight: 400; 
+  font-size: 22pt;
+  max-width: 1000px;
+  margin-bottom: 10px;
+}
+
+.button.genreButton a {
+  color: blue;
+  text-decoration: none;
+}
+
+.button.genreButton a:hover,
+.button.genreButton a:active {
+  color: orange;
+}
+
+/* Media queries –––––––––––––––––––––––––––––––––––– */
+
+@media only screen and (max-width: 550px) {
+
+  .genreButtonContainer{
+    flex-direction: column;
+  }
+
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import AdminShowPage from './container/AdminShowPage';
-import AdminAddReview from './container/AdminAddReview'
+import AdminAddReview from './container/AdminAddReview';
 import ResetPassword from './container/ResetPassword';
 
 class Private extends React.Component {
