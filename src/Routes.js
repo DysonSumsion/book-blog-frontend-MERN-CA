@@ -13,9 +13,6 @@ import ProtectedRoutes from './ProtectedRoutes'
 class Routes extends React.Component {
 
 render() {
-  // console.log('routes rendering')
-  // const data  = this.props
-  // console.log(data)
 
   return (
     <Switch>
@@ -28,7 +25,6 @@ render() {
       <Route path="/aboutme" exact component={AboutMe} />
       <Route path="/subscribe" exact component={Subscribe} />
       <Route path="/adminjaclyn" exact component={Admin} />
-      {/* <Route path="/admincreatereview" exact component={AdminCreateReview} /> */}
       <Route path="/auth" component={ProtectedRoutes} />
     </Switch>
   )

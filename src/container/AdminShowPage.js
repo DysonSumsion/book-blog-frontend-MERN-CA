@@ -36,6 +36,7 @@ class AdminShowPage extends React.Component {
   renderReviews = reviewList => {
     console.log("in render reviews");
     // console.log(reviewList);
+
     return reviewList.map((review, index) => {
       return (
         < div className="reviewList" key={index}>
@@ -134,6 +135,7 @@ class AdminShowPage extends React.Component {
             id={this.state.id}
             refresh={this.refresh}
             adding={this.state.adding}
+            history={this.props.history}
             /> 
             : <div>{result}</div>
             }
