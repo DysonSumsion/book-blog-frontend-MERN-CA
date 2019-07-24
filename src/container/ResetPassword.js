@@ -20,7 +20,6 @@ class ResetPassword extends React.Component {
   
   checkPageValidity() {
     const resetToken = window.localStorage.getItem("resetToken");
-    console.log("reset Token is =>    "+resetToken);
     axios.get(`${process.env.REACT_APP_API_URL}/private/secrets`,{headers:{'token':resetToken}}).then(res => {
       console.log(res.data);
       this.setState({pageContent: <>
@@ -31,7 +30,6 @@ class ResetPassword extends React.Component {
               inputType={"text"}
               title={"Email"}
               name={"email"}
-              value={this.state.email}
               placeholder={"Email"}
               handleChange={this.handleInput}
             />{" "}
@@ -115,9 +113,12 @@ class ResetPassword extends React.Component {
       }); 
     }
   }
+
+  componentDidMount = () => {
+    this.checkPageValidity();
+  }
   
   render() {
-    this.checkPageValidity();
     return(
       <div>
         {this.state.pageContent}
