@@ -1,38 +1,40 @@
-.genreButtonContainer {
-  height: 10vh;
+.containerGenre {
+  /* background-color: lightblue; */
+  padding-top: 80px;
   padding-left: 80px;
-  padding-right: 80px;
+  min-height: 25vh;
+}
+
+.genreButtonContainer {
+  /* background-color: wheat; */
+  padding-left: 80px;
+  min-height: 25vh;
   display: flex;
-  background-color: yellow;
+  /* flex-direction: column; */
 }
 
-button.genreButton {
+.genreButtonContainerLeft {
   /* background-color: pink; */
-  border: none;
-  color: #4F4F4F;
-  font-family: 'Noto Serif JP', serif; 
-  font-weight: 400; 
-  font-size: 22pt;
-  max-width: 1000px;
-  margin-bottom: 10px;
+  padding-right: 60px;
 }
 
-.button.genreButton a {
-  color: blue;
-  text-decoration: none;
-}
-
-.button.genreButton a:hover,
-.button.genreButton a:active {
-  color: orange;
+.genreButtonContainerRight {
+  /* background-color: yellow; */
+  padding-right: 60px;
 }
 
 /* Media queries –––––––––––––––––––––––––––––––––––– */
 
 @media only screen and (max-width: 550px) {
 
+  .containerGenre {
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+
   .genreButtonContainer{
     flex-direction: column;
+    padding-left: 20px;
   }
 
 }

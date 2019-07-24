@@ -1,5 +1,22 @@
-.primary {
+.primaryButton {
   margin: 20px 20px 20px 20px;
-  color: green;
+  background-color: green;
+  width: 100px;
 };
 
+.secondaryButton {
+  margin: 20px 20px 20px 20px;
+  background-color: pink;
+};
+
+.btn {
+  background-color: lavender;
+}
+
+style {
+  background-color: lightgreen;
+}
+
+.buttonStyle {
+  background-color: slateblue;
+}

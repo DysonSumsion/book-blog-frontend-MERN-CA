@@ -12,7 +12,7 @@ function IntroSectionShow(props) {
       </div>
       <div className="ShowCardRight">
         <div className="ShowCardRightTop">
-          <h2>{props.headingTitle}</h2>
+          <h1>{props.headingTitle}</h1>
           <h2>{props.headingAuthor}</h2>
           <p>{props.headingPublisher}</p>
           <p>{props.headingReview}</p>

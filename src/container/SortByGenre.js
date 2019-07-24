@@ -1,5 +1,6 @@
 import React from "react";
 import IntroSectionFlexi from "../components/IntroSectionFlexi";
+import SubheadSection from "../components/SubheadSection";
 import CardDisplay from "../components/CardDisplay";
 import Card from "../components/Card";
 import Footer from '../components/Footer';
@@ -10,8 +11,8 @@ class SortByGenre extends React.Component {
     data: "",
     adding: false,
     selectedReview: null,
-    // description: "Lotus ipsm",
-    genre: "If you'd like to see my reviews by genre, you've come to the right place..."
+    description: "Select from the list below to see my reviews by genre.",
+    genre: "By Genre! You've come to the right place..."
   };
 
   async componentDidMount() {
@@ -61,48 +62,46 @@ class SortByGenre extends React.Component {
         // description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
         break;
       case "Contemporary Fiction":
-        genre = "Contemporary Fiction"
-        description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
+        genre = "My Contemporary Fiction reviews..."
+        // description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
         break;
       case "Crime":
-        genre = "Crime"
-        description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
+        genre = "My Crime reviews..."
+        // description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
         break;
       case "Essays":
-        genre = "Essays"
-        description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
+        genre = "My Essay reviews..."
+        // description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
         break;
       case "Graphic Novels":
-        genre = "Graphic Novels"
-        description = "Graphic Novels description"
+        genre = "My Graphic Novel reviews..."
+        // description = "Graphic Novels description"
         break;
       case "In Translation":
-        genre = "In Translation"
-        description = "In Translation description"
+        genre = "My In Translation reviews..."
+        // description = "In Translation description"
         break;
       case "Memoir":
         description = "Memoir"
-        genre = "Memoir"
+        genre = "My Memoir reviews..."
         break;
       case "Narrative Non-Fiction":
-        genre = "Narrative Non-Fiction"
-        description = "Narrative Non-Fiction description"
+        genre = "My Narrative Non-Fiction reviews..."
+        // description = "Narrative Non-Fiction description"
         break;
       case "Short stories":
-        genre = "Short stories"
-        description = "Short stories description"
+        genre = "My Short Story reviews..."
+        // description = "Short stories description"
         break;
       case "Young Adult (YA)":
-        genre = "Young Adult (YA)"
-        description = "Young Adult (YA) description"
+        genre = "My Young Adult (YA) reviews..."
+        // description = "Young Adult (YA) description"
         break;
       default:
           description = ""
           genre = ""
-
     }
     
-
     const foundData = reviews.filter(item => {
       const review = item.genre;
       let reviewArray = [];
@@ -140,56 +139,63 @@ class SortByGenre extends React.Component {
     const result = this.renderReviews(reviews);
 
     return (
-        <div>
+      <>
+        <div className="containerGenre" >
           <IntroSectionFlexi
             headingOne={this.state.genre}
-            // headingTwo={this.state.description}
+            headingTwo={this.state.description}
           />
-          <div className="genreButtonContainer">
-            <button onClick={this.sortByGenre} className="genreButton" value="Australian Fiction">
+        </div>
+        <div className="genreButtonContainer">
+          <div className="genreButtonContainerLeft">
+            <button onClick={this.sortByGenre} className="genreButton" value="Australian Fiction" textStyle={{ fontSize: 15, textAlign: 'center', paddingLeft:35, fontWeight:'500', fontFamily:'Lato' }}>
               {" "}
               Australian Fiction
             </button>
-            <button onClick={this.sortByGenre} className="" value="Contemporary Fiction">
+            <button onClick={this.sortByGenre} className="genreButton" value="Contemporary Fiction">
               {" "}
               Contemporary Fiction
             </button>
-            <button onClick={this.sortByGenre} className="" value="Crime">
+            <button onClick={this.sortByGenre} className="genreButton" value="Crime">
               {" "}
               Crime
             </button>
-            <button onClick={this.sortByGenre} className="" value="Essays">
+            <button onClick={this.sortByGenre} className="genreButton" value="Essays">
               {" "}
               Essays
             </button>
-            <button onClick={this.sortByGenre} className="" value="Graphic Novels">
+            <button onClick={this.sortByGenre} className="genreButton" value="Graphic Novels">
               {" "}
               Graphic Novels
             </button>
-            <button onClick={this.sortByGenre} className="" value="In Translation">
+          </div>
+          <div className="genreButtonContainerRight">
+            <button onClick={this.sortByGenre} className="genreButton" value="In Translation">
               {" "}
               In Translation
             </button>
-            <button onClick={this.sortByGenre} className="" value="Memoir">
+            <button onClick={this.sortByGenre} className="genreButton" value="Memoir">
               {" "}
               Memoir
             </button>
-            <button onClick={this.sortByGenre} className="" value="Narrative Non-Fiction">
+            <button onClick={this.sortByGenre} className="genreButton" value="Narrative Non-Fiction">
               {" "}
               Narrative Non-Fiction
             </button>
-            <button onClick={this.sortByGenre} className="" value="Short stories">
+            <button onClick={this.sortByGenre} className="genreButton" value="Short stories">
               {" "}
               Short stories
             </button>
-            <button onClick={this.sortByGenre} className="" value="Young Adult (YA)">
+            <button onClick={this.sortByGenre} className="genreButton" value="Young Adult (YA)">
               {" "}
               Young Adult (YA)
             </button>
           </div>
+        </div>
+          <SubheadSection />
           <CardDisplay result={result} />
           <Footer />
-      </div>
+      </>
     );
   }
 }
