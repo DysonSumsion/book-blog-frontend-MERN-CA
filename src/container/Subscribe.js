@@ -55,11 +55,10 @@ class Subscribe extends React.Component {
 
     return (
       <>
-      <div className="containerAlt">
-      <IntroSectionAlt headingOne="Want to join my newsletter?" 
+      <div className="containerSecondary" style={{ backgroundColor: '#F8EE97'}}>
+        <IntroSectionFlexi
+          headingOne="Want to join my newsletter?"
           headingTwo="Recieve a monthly email with highlights from the month. No spam, I promise! " />
-          <br></br>
-          <br></br>
       <form>
           <FormInput
             inputType={"text"}
