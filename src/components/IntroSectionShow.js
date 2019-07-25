@@ -8,13 +8,14 @@ function IntroSectionShow(props) {
   <div className="IntroSectionShow">
     <div className="ShowCard">
       <div className="ShowCardLeft">
-        <img src={props.bookImage}/>
+        <img src={props.bookImage} alt="book cover"/>
       </div>
       <div className="ShowCardRight">
         <div className="ShowCardRightTop">
-          <h2>{props.headingTitle}</h2>
+          <h1>{props.headingTitle}</h1>
           <h2>{props.headingAuthor}</h2>
           <p>{props.headingPublisher}</p>
+          <br></br>
           <p>{props.headingReview}</p>
         </div>
         { props.headingTopPick === true && 
@@ -23,7 +24,7 @@ function IntroSectionShow(props) {
               </span>
             }
         <div className="ShowCardRightBottom">
-          <a href={props.headingLinkToBuy}>Buy Book</a>
+          <a className="outlineButton" href={props.headingLinkToBuy}>Buy Book</a>
         </div>
       </div>
     </div>

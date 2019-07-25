@@ -56,8 +56,8 @@ class SortByYear extends React.Component {
     return (
         <div>
           <IntroSection 
-            headingOne="{Year}, what a year!" 
-            headingTwo="Year {secondary paragraph}"
+            headingOne="2019, what a year for new releases!" 
+            headingTwo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duislectus quam, vestibulum nec cursus non, sagittis nec tortor. Fusce lacinia mi nisi."
           />
           <SubheadSection heading="You might also like..." />
           <CardDisplay result={result} /> 

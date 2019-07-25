@@ -1,13 +1,13 @@
 import React from "react";
+import './FormInput.css';
 
 const SearchBar = props => {
-  //console.log(props)
  return(
  <>
-  <div className="form-group">
+  <div className="form-group" >
     <label htmlFor={props.name} className="form-label">{props.title}</label>
     <input
-      className="form-control"
+      class="searchBorder"
       id={props.name}
       name={props.name}
       type={props.inputType}
@@ -15,7 +15,6 @@ const SearchBar = props => {
       onChange={props.handleChange}
       placeholder={props.placeholder}
       list="books"
-      // {...props}
     />
     <datalist id="books">
       {props.books}

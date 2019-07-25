@@ -10,21 +10,24 @@
 
 .ShowCard {
   /* background-color: wheat; */
-  width: 800px;
-  height: 300px;
+  width: 75%;
+  height: 400px;
   display: flex;
   align-items: center;
 }
 
 .ShowCardLeft {
-  background-color: yellow;
-  width: 200px;
+  /* background-color: yellow; */
+  width: 400px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .ShowCardRight {
   /* background-color: dodgerblue; */
   height: 100%;
-  padding-left: 20px;
+  padding-left: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -35,10 +38,15 @@
   width: 100%;
 }
 
-.img {
-  /* max-height: 150px; */
-  max-width: 200px;
-  object-fit: contain;
+.ShowCardRightBottom {
+  /* background-color: goldenrod; */
+  width: 87px;
+}
+
+div.ShowCardLeft > img {
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: -20px -20px #BFE9E1;
 }
 
 /* Media queries –––––––––––––––––––––––––––––––––––– */
@@ -47,6 +55,10 @@
 
   .IntroSectionShow {
     padding: 20px;
+  }
+
+  .ShowCard {
+    flex-direction: column;
   }
 
   .ShowCardRight {

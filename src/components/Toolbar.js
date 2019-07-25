@@ -3,14 +3,12 @@ import {Link} from 'react-router-dom';
 import DrawerToggleButton from './DrawerToggleButton';
 import SearchBarContainer from '../container/SearchBarContainer';
 import './Toolbar.css';
+import Jicon from '../Jicon.png';
 
 
 const deleteToken= (e) => {
-  // e.preventDefault();
   window.localStorage.removeItem("token");
-  
 }
-
 
 const toolbar = props => {
   const url = window.location.href
@@ -21,15 +19,15 @@ const toolbar = props => {
       <header className="toolbar">
       
       <div className="navLeft">
-        <button className="logo"><Link to="/home">HOME</Link></button>
+      <div className="logo"><Link to="/home"><img src={Jicon} alt="logo"></img></Link></div>
         {/* <SearchBarContainer />  */}
       </div>
       <div className="toolbar_toggle_button">
           <DrawerToggleButton click={props.drawerClickHandler}/>
       </div>
-      <div className="navRight">
+      <div className="navRightAdmin">
         <Link to="/auth/adminaddreview">Create Review</Link>
-        <Link to = '/adminjaclyn' onClick={deleteToken}> Logout </Link>
+        <Link className="outlineButton" to='/adminjaclyn' onClick={deleteToken}> Logout </Link>
       </div>
   
     </header>
@@ -39,7 +37,7 @@ const toolbar = props => {
       <header className="toolbar">
       
       <div className="navLeft">
-        <button className="logo"><Link to="/home">HOME</Link></button>
+        <div className="logo"><Link to="/home"><img src={Jicon} alt="icon"></img></Link></div>
         <SearchBarContainer /> 
       </div>
       <div className="toolbar_toggle_button">
@@ -50,7 +48,7 @@ const toolbar = props => {
         <Link to="/sortbygenre">Reviews by Genre</Link>
         <Link to="/sortbyyear">Reviews by year</Link>
         <Link to="/aboutme">About me</Link>
-        <Link to="/subscribe">Subscribe</Link>
+        <Link className="outlineButton" to="/subscribe">Subscribe</Link>
       </div>
   
     </header>
