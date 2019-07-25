@@ -7,7 +7,6 @@ import Jicon from '../Jicon.png';
 
 
 const deleteToken= (e) => {
-  // e.preventDefault();
   window.localStorage.removeItem("token");
 }
 
@@ -21,7 +20,6 @@ const toolbar = props => {
       
       <div className="navLeft">
       <div className="logo"><Link to="/home"><img src={Jicon}></img></Link></div>
-        {/* <SearchBarContainer />  */}
       </div>
       <div className="toolbar_toggle_button">
           <DrawerToggleButton click={props.drawerClickHandler}/>
@@ -59,8 +57,4 @@ const toolbar = props => {
 
 export default toolbar;
 
-
-{/* <li><a href='https://arizonaatwork.com'><img src='https://i.imgur.com/fe0T4nw.png'/></a></li>
-
-<img className="img-responsive" src={"../../public/assets/image/img/footer-logo.jpg"} alt="logo"/> */}
 

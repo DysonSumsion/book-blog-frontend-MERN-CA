@@ -75,7 +75,6 @@ class FormAdd extends React.Component {
   };
 
   handleInput = e => {
-    // console.log(e);
     e.preventDefault();
     let errors = this.state.errors;
     let value = e.target.value;
@@ -120,12 +119,9 @@ class FormAdd extends React.Component {
   };
 
   handleInputSeo = e => {
-    // console.log(e);
     let value = e.target.value;
     let name = e.target.name;
-    console.log(value);
     const split = value.split(",");
-    console.log(split[0]);
 
     this.setState(
       prevState => ({
@@ -219,7 +215,6 @@ class FormAdd extends React.Component {
   validateForm = errors => {
     let valid = true;
     Object.values(errors).forEach(
-      // if we have an error string set valid to false
       val => val.length > 0 && (valid = false)
     );
     return valid;
@@ -227,9 +222,7 @@ class FormAdd extends React.Component {
 
   handleUploadImage = e => {
     e.preventDefault();
-    console.log("in image");
     const file = e.target.parentNode.childNodes[10].files[0];
-    console.log(file);
     this.setState({ image: file });
   };
 
@@ -237,18 +230,14 @@ class FormAdd extends React.Component {
     e.preventDefault();
     
     if (this.validateForm(this.state.errors)) {
-      console.info("Valid Form");
     } else {
-      console.error("Invalid Form");
     }
     const newReview = this.state.newReview;
-    // const updatedReview = this.state.newReview;
     const file = this.state.image;
     const id = this.props.id;
     const data = { id: id, newReview: newReview };
 
     if (window.location.pathname.split("/").pop() === "adminshow") {
-      console.log("in adminshow");
 
       const stringifyData = JSON.stringify(data);
       const formData = new FormData();
@@ -256,7 +245,6 @@ class FormAdd extends React.Component {
       formData.append("file", file);
 
       const token = localStorage.getItem("token");
-      console.log(token);
       const headers = {token: token}
 
       axios
@@ -266,28 +254,23 @@ class FormAdd extends React.Component {
           this.props.refresh(res);
         })
         .catch(err => {
-          console.log(`update review error with error: ${err}`);
         });
     } else {
-      console.log("in addreview");
       const stringifyData = JSON.stringify(newReview);
       const formData = new FormData();
       formData.append("data", stringifyData);
       formData.append("file", file);
 
       const token = localStorage.getItem("token");
-      console.log(token);
       const headers = {token: token}
 
       axios
         .post(`${process.env.REACT_APP_API_URL}/protected/createReview`, formData, {headers})
         .then(res => {
           alert("Review Saved");
-          console.log(res);
           this.props.history.push("/auth/adminshow");
         })
         .catch(err => {
-          console.log(err.message);
         });
     }
   };
@@ -303,16 +286,9 @@ class FormAdd extends React.Component {
 
   render() {
     const { errors } = this.state;
-    // let color;
-    // if (this.props.adding === true) {
-    //   color = "formContainer box0"
-    // }else{
-    //   color = "formContainer box1"
-    // }
 
     return (
       <>
-        {/* <div className="formContainer" > */}
         <div className="formContainer" >
 
           <form

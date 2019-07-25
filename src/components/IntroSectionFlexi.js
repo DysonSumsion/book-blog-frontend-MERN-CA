@@ -2,7 +2,6 @@ import React from "react";
 import './IntroSectionFlexi.css';
 
 function IntroSectionFlexi(props) {
-  // console.log(props.value)
 
   return (
 

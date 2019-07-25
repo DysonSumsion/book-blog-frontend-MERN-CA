@@ -2,7 +2,6 @@ import React from 'react';
 import './FormInput.css';
 
 const FormInput = props => {
-  // console.log(props.value);
   return (
     <>
     
@@ -18,7 +17,6 @@ const FormInput = props => {
         placeholder={props.placeholder}
         min='1999'
         noValidate
-        // {...props}
       />
     </div>
     </>

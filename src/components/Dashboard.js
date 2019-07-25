@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom'
 class Dashboard extends Component {
 
   deleteToken= (e) => {
-    // e.preventDefault();
     window.localStorage.removeItem("token");
   }
 
@@ -18,7 +17,6 @@ class Dashboard extends Component {
       // debugger
       axios.get(`${process.env.REACT_APP_API_URL}/private/secrets`,{headers:{'token':token}})
       .then((res) => {
-          console.log("############  success");
           return <h1>My Dashboard</h1>
       }).catch(err => {
         console.log(err);
