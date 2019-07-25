@@ -147,8 +147,7 @@ In this section I will describe how to setup a local deployment of our app.
   ACCESSKEYID=  
   SECRETACCESSKEY=  
   *Set url for local host for React (front end)*  
-  REACT_APP_API_URL=  
-  MAILER_SERVICE_PROVIDER??? -GARY to advise
+  REACT_APP_API_URL=
 
     **For production environment**  
     Create an account with  
