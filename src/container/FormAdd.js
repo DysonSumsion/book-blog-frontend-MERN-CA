@@ -52,9 +52,9 @@ class FormAdd extends React.Component {
       isbn: "",
       linkToBuy: "",
       review: "",
-      genre: ""
-    }
-  };
+      genre: "",
+  }
+}
 
   handleTextArea = e => {
     e.preventDefault();
