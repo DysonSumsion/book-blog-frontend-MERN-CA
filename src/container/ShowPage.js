@@ -41,7 +41,6 @@ class ShowPage extends React.Component {
   async componentDidMount() {
     let res = await axios.get(`${process.env.REACT_APP_API_URL}/reviews`);
     this.bookReviews = res.data.reviews
-    console.log(this.bookReviews);
     this.setState({ allReviews: this.renderReviews(this.bookReviews)});
     this.getRevDisplay();
     this.getReviews();

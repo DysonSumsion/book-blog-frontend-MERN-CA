@@ -3,7 +3,6 @@ import Enzyme, { shallow, render, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { createSerializer } from "enzyme-to-json";
 import sinon from "sinon";
-// // import FormAdd from './FormAdd'
 import AdminShowPage from "./AdminShowPage";
 import CardAdmin from '../components/CardAdmin'
 
