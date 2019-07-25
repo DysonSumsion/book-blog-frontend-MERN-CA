@@ -117,7 +117,7 @@ ___
   - Deployment platform: Now
 - Operating system: macOS Mojave Version 10.14.4
 - Cloud storage: GitHub, AWS S3
-- Database: MongoDb
+- Database: MongoDb Atlas
 ___
 
 ## Instructions on how to setup, configure, deploy and use your App
