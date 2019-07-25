@@ -395,7 +395,17 @@ Trello boards:
 ## Unit testing for front and back-end  
 *Front-end*  
 Enzyme and sinon was used for front-end testing.  
-Tests were limited to components rendering and fields correctly displaying due to the complexity of the component structure in our application. When the snapshots were created, a visual check was made to check for accuracy. Unfortunately, I had run out of time and lacked experience to complete an extensive suite of front end tests.
+Tests were limited to components rendering and fields correctly displaying due to the complexity of the component structure in our application. When the snapshots were created, a visual check was made to check for accuracy. Unfortunately, I had run out of time and lacked experience to complete an extensive suite of front end tests.  
+  
+*Back-end*  
+Jest and SuperTest were used for beckend testing.  
+Connected to backend routes was tested and if the database contained at least one review.  
+In addiiton, a test for exisiting users was also completed. 
+
+
+
+<img width="1590" alt="Screen Shot 2019-07-25 at 6 02 31 pm" src="https://user-images.githubusercontent.com/47741682/61857145-e51c1c00-af06-11e9-9669-f4bcf68dd291.png">
+
 
 ## Deliverables
 
