@@ -5,14 +5,6 @@ import FormTextArea from "../components/FormTextArea";
 import FormCheckbox from "../components/FormCheckbox";
 import Button from "../components/Button";
 import "../container/FormAdd.css";
-// import history from '../history';
-// import { createBrowserHistory } from 'history';
-
-// const history = createBrowserHistory();
-// const location = history.location;
-//console.log(location.pathname);
-
-// import { withRouter } from "react-router-dom";
 
 class FormAdd extends React.Component {
   state = {
@@ -52,9 +44,9 @@ class FormAdd extends React.Component {
       isbn: "",
       linkToBuy: "",
       review: "",
-      genre: ""
-    }
-  };
+      genre: "",
+  }
+}
 
   handleTextArea = e => {
     e.preventDefault();
@@ -63,15 +55,12 @@ class FormAdd extends React.Component {
 
     errors.review = value.length < 2 ? "Must enter a review" : "";
 
-    this.setState(
-      prevState => ({
-        newReview: {
-          ...prevState.newReview,
-          review: value
-        }
-      }),
-      () => console.log(this.state.newReview)
-    );
+    this.setState(prevState => ({
+      newReview: {
+        ...prevState.newReview,
+        review: value
+      }
+    }));
   };
 
   handleInput = e => {
@@ -103,19 +92,14 @@ class FormAdd extends React.Component {
         break;
     }
 
-    this.setState({ errors, [name]: value }, () => {
-      console.log(errors);
-    });
+    this.setState({ errors, [name]: value }, () => {});
 
-    this.setState(
-      prevState => ({
-        newReview: {
-          ...prevState.newReview,
-          [name]: value
-        }
-      }),
-      () => console.log(this.state.newReview)
-    );
+    this.setState(prevState => ({
+      newReview: {
+        ...prevState.newReview,
+        [name]: value
+      }
+    }));
   };
 
   handleInputSeo = e => {
@@ -123,15 +107,12 @@ class FormAdd extends React.Component {
     let name = e.target.name;
     const split = value.split(",");
 
-    this.setState(
-      prevState => ({
-        newReview: {
-          ...prevState.newReview,
-          [name]: split
-        }
-      }),
-      () => console.log(this.state.newReview)
-    );
+    this.setState(prevState => ({
+      newReview: {
+        ...prevState.newReview,
+        [name]: split
+      }
+    }));
   };
 
   handleCheckBox = e => {
@@ -149,49 +130,37 @@ class FormAdd extends React.Component {
     let errors = this.state.errors;
     errors.genre = newSelectionArray.length < 1 ? "Must enter a genre" : "";
 
-    this.setState(
-      prevState => ({
-        newReview: { ...prevState.newReview, genre: newSelectionArray }
-      }),
-      () => console.log(this.state.newReview)
-    );
+    this.setState(prevState => ({
+      newReview: { ...prevState.newReview, genre: newSelectionArray }
+    }));
   };
 
   handleCheckbox = e => {
     if (e.target.checked === true) {
-      this.setState(
-        prevState => ({
-          newReview: {
-            ...prevState.newReview,
-            topPick: true
-          }
-        }),
-        () => console.log(this.state.newReview)
-      );
+      this.setState(prevState => ({
+        newReview: {
+          ...prevState.newReview,
+          topPick: true
+        }
+      }));
     } else {
-      this.setState(
-        prevState => ({
-          newReview: {
-            ...prevState.newReview,
-            topPick: false
-          }
-        }),
-        () => console.log(this.state.newReview)
-      );
+      this.setState(prevState => ({
+        newReview: {
+          ...prevState.newReview,
+          topPick: false
+        }
+      }));
     }
   };
 
   handleYear = e => {
     let value = e.target.value;
-    this.setState(
-      prevState => ({
-        newReview: {
-          ...prevState.newReview,
-          yearPublished: value
-        }
-      }),
-      () => console.log(this.state.newReview)
-    );
+    this.setState(prevState => ({
+      newReview: {
+        ...prevState.newReview,
+        yearPublished: value
+      }
+    }));
   };
 
   handleClearForm = e => {
@@ -214,9 +183,7 @@ class FormAdd extends React.Component {
 
   validateForm = errors => {
     let valid = true;
-    Object.values(errors).forEach(
-      val => val.length > 0 && (valid = false)
-    );
+    Object.values(errors).forEach(val => val.length > 0 && (valid = false));
     return valid;
   };
 
@@ -226,9 +193,9 @@ class FormAdd extends React.Component {
     this.setState({ image: file });
   };
 
-  handleFormSubmit = (e) => {
+  handleFormSubmit = e => {
     e.preventDefault();
-    
+
     if (this.validateForm(this.state.errors)) {
     } else {
     }
@@ -238,23 +205,25 @@ class FormAdd extends React.Component {
     const data = { id: id, newReview: newReview };
 
     if (window.location.pathname.split("/").pop() === "adminshow") {
-
       const stringifyData = JSON.stringify(data);
       const formData = new FormData();
       formData.append("data", stringifyData);
       formData.append("file", file);
 
       const token = localStorage.getItem("token");
-      const headers = {token: token}
+      const headers = { token: token };
 
       axios
-        .put(`${process.env.REACT_APP_API_URL}/protected/updateReview`, formData, {headers})
+        .put(
+          `${process.env.REACT_APP_API_URL}/protected/updateReview`,
+          formData,
+          { headers }
+        )
         .then(res => {
           alert("review updated");
           this.props.refresh(res);
         })
-        .catch(err => {
-        });
+        .catch(err => {});
     } else {
       const stringifyData = JSON.stringify(newReview);
       const formData = new FormData();
@@ -262,39 +231,38 @@ class FormAdd extends React.Component {
       formData.append("file", file);
 
       const token = localStorage.getItem("token");
-      const headers = {token: token}
+      const headers = { token: token };
 
       axios
-        .post(`${process.env.REACT_APP_API_URL}/protected/createReview`, formData, {headers})
+        .post(
+          `${process.env.REACT_APP_API_URL}/protected/createReview`,
+          formData,
+          { headers }
+        )
         .then(res => {
           alert("Review Saved");
           this.props.history.push("/auth/adminshow");
         })
-        .catch(err => {
-        });
+        .catch(err => {});
     }
   };
 
-  handleCancelForm = (e) => {
+  handleCancelForm = e => {
     e.preventDefault();
-    if (window.location.pathname === "/auth/adminshow"){
-      return window.location.reload()
+    if (window.location.pathname === "/auth/adminshow") {
+      return window.location.reload();
     } else {
       return this.props.history.push("/auth/adminshow");
     }
-  }
+  };
 
   render() {
     const { errors } = this.state;
 
     return (
       <>
-        <div className="formContainer" >
-
-          <form
-            className="form-add"
-            encType="multipart/form-data"
-          >
+        <div className="formContainer">
+          <form className="form-add" encType="multipart/form-data">
             <FormInput
               inputType={"text"}
               title={"Book Title"}
@@ -421,7 +389,6 @@ class FormAdd extends React.Component {
               action={this.handleFormSubmit}
               type={"primary"}
               title={"Submit"}
-              
             />{" "}
             {/*Submit */}
             <Button
@@ -434,7 +401,7 @@ class FormAdd extends React.Component {
               action={this.handleCancelForm}
               type={"secondary"}
               title={"Cancel"}
-            />{" "} 
+            />{" "}
           </form>
         </div>
       </>
