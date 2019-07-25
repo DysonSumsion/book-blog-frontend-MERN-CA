@@ -114,8 +114,80 @@ ___
 - Database: MongoDb
 ___
 
-## Instructions on how to setup, configure, deploy and use your App  
-[ Garry / Rob ]
+## Instructions on how to setup, configure, deploy and use your App
+In this section I will describe how to setup a local deployment of our app.  
+1. Fork the GitHub application  
+ You will require to fork both front and backends.  
+ Obtain links from:  
+ Front end: https://github.com/rdematteo/book-blog-frontend-MERN-CA  
+ Back end: https://github.com/rdematteo/book-blog-backend-MERN-CA
+
+2. Create a new directory  
+ Git clone both links above in this new directory  
+
+3. Setup Backend 
+ - After step 2 run: `npm i` to install dependencies  
+ **For local environment**  
+  Create a .env file and include your own variable for the following keys:  
+  *Set url to connect to mongo database*  
+  DB_URL=  
+  *Set a JWT secret*  
+  JWT_SECRET=  
+  *Provide MailChimp variables and valid email and password for email client*  
+  MAILCHIMP_KEY=  
+  MAILER_EMAIL_ID=
+  MAILER_PASSWORD=  
+  *Set access varibales fro AWS S3*  
+  ACCESSKEYID=  
+  SECRETACCESSKEY=  
+  *Set url for local host for React (front end)*  
+  REACT_APP_API_URL=  
+  MAILER_SERVICE_PROVIDER??? -GARY to advise
+
+    **For production environment**  
+    Create an account with  
+    - Now (https://zeit.co/now). Now is used to deploy production environment but you could use your own deployment service.  
+    - MongoDB Atlas (https://www.mongodb.com/cloud/atlas)    
+    *If you use now, create and setup now.json file in root directory*   
+    Set the same variables as above.   
+    *In addition you will require to add the following variable to the now.json file*  
+     MAILER_SERVICE_PROVIDER=
+     
+  - start the mongo server, and the express server  
+  
+
+
+  4. Setup Frontend 
+ - After step 2 run: `npm i` to install dependencies  
+**For local environment**  
+  Create a .env.development file and include your own variable for the following keys:  
+  *Set url for local host for React (front end)*  
+  REACT_APP_API_URL=  
+
+
+    **For production environment**  
+    Create an account with  
+    - Netlify (https://zeit.co/now). Netlify is used to deploy production environment but you could use your own deployment service.  
+  - start the react server  
+
+5. App usage   
+  
+    **For users**
+    Home page: navigate to https://jaclyn.netlify.com/home  
+    Here you can view recent book reviews and search for a recent review in the search bar.  
+    Users can also sort reviews by Genre, Year and Top Pick on the same webpage.  
+    Users can also subscribe to a newsletter. 
+    If a user is interested in a certain book, a link is available to but the book for the client's bookstore.  
+  
+      **For Admin users**
+      Home page: navigate to https://jaclyn.netlify.com/adminjaclyn 
+      Enter username and password for access to protected admin dashboard.  
+      Admin user can reset password if forgotten from this webpage  
+      When the username and password have been authenticated, the admin user has access to the admin dashboard.  
+      In the admin dashboard, admin can view all the reviews in the same view and easy access to edit and delete.  
+      In the toolbar, admin can create a new review.  
+      The admin can also logout for the toolbar. Admin will be re-directed to https://jaclyn.netlify.com/adminjaclyn 
+
 ___
 
 # Design documentation:
@@ -124,7 +196,7 @@ ___
   
 The books that Jaclyn reviews are all new releases and quite literary. It was important to create a sophisticated design but still maintain a fun and welcoming look and feel.
 
-It was important to capture Jaclyn's presonality in the branding of the App. While she has sophisticated taste in literature she is also a colourful and fun personality, excited to chat to anyone about the books she loves.
+It was important to capture Jaclyn's personality in the branding of the App. While she has sophisticated taste in literature she is also a colourful and fun personality, excited to chat to anyone about the books she loves.
 
 The visual branding of the App is a simple dark grey on white with the use of a serif font to replicate the feeling of reading a printed book. Color was added throughout in the display reviews grid to distinguish the individual items in the grid but also to add visual interest. 
 
@@ -362,7 +434,6 @@ Front-end Client
 - dotenv. version: 8.0.0 => Loads environment variables from a .env file into process.env
 - history. version: 4.9.0 => manages session history and re-directs
 - react. version: 16.8.6 => defines React components
-- react-bootstrap. version: 1.0.0-beta.9 => 
 - react-dom. version: 16.8.6 => Serves as the entry point to the DOM and server renderers for React
 - react-router-dom. version: 5.0.1 => To load components in different routes
 - react-scripts:. version: 0.1 => To configure scripts for create-react-app.  

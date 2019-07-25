@@ -7,7 +7,6 @@ import Jicon from '../Jicon.png';
 
 
 const deleteToken= (e) => {
-  // e.preventDefault();
   window.localStorage.removeItem("token");
 }
 

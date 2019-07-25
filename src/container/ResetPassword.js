@@ -21,7 +21,6 @@ class ResetPassword extends React.Component {
   checkPageValidity() {
     const resetToken = window.localStorage.getItem("resetToken");
     axios.get(`${process.env.REACT_APP_API_URL}/private/secrets`,{headers:{'token':resetToken}}).then(res => {
-      console.log(res.data);
       this.setState({pageContent: <>
                 <div>
           <h1>Reset Password</h1>
@@ -61,16 +60,13 @@ class ResetPassword extends React.Component {
         </div>
         </>});
   }).catch(err => {
-      console.log(err);
       alert("Password reset link is invalid. Redirecting to login page");
       this.setState({pageContent:<Redirect to="/adminjaclyn"/>});
     });
   }
   
   handleInput = e => {
-    console.log(e.target.name);
     e.preventDefault();
-    //let errors = this.state.errors
     let value = e.target.value;
     let name = e.target.name;
     if(name === 'email') {
@@ -94,7 +90,6 @@ class ResetPassword extends React.Component {
       const resetToken = window.localStorage.getItem("resetToken");
       axios.get(`${process.env.REACT_APP_API_URL}/private/secrets`,{headers:{'token':resetToken}})
       .then((res) => {
-          console.log("Rest token is valid. changine password and logging in");
           axios.post(`${process.env.REACT_APP_API_URL}/auth/forgotpass`, {
             email:email,
             newPassword:password,
@@ -105,7 +100,6 @@ class ResetPassword extends React.Component {
             window.location.href = "/auth/adminshow";
           })
           .catch((err) => {
-            console.log(err)
           })
         }).catch(err => {
         alert("Reset token is invalid. Will be redirected to login page");

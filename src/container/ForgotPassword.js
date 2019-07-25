@@ -15,7 +15,6 @@ class ForgotPassword extends React.Component {
 
   handleInput = e => {
     e.preventDefault();
-    //  let errors = this.state.errors
     let value = e.target.value;
       this.setState( {forgotPassword : {
         enterEmail: value
@@ -40,18 +39,15 @@ class ForgotPassword extends React.Component {
 
    }
     const email = this.state.forgotPassword.enterEmail;
-    console.log(email);
     axios.post(`${process.env.REACT_APP_API_URL}/auth/forgot`, {
       email:email,
     })
     .then((res) => {
-      console.log(res.data.token)  
       const returnedToken = res.data.token   
       window.localStorage.setItem("resetToken", returnedToken);
       this.setState( {checkmail : "Check your email. The link is valid for 10 minutes."})
     })
     .catch((err) => {
-      console.log(err)
     })
   }
 

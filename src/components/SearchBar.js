@@ -2,7 +2,6 @@ import React from "react";
 import './FormInput.css';
 
 const SearchBar = props => {
-  //console.log(props)
  return(
  <>
   <div className="form-group" >
@@ -16,7 +15,6 @@ const SearchBar = props => {
       onChange={props.handleChange}
       placeholder={props.placeholder}
       list="books"
-      // {...props}
     />
     <datalist id="books">
       {props.books}
@@ -27,6 +25,3 @@ const SearchBar = props => {
 };
 
 export default SearchBar;
-
-
-// style={{ backgroundColor: '#FFF38A' }}

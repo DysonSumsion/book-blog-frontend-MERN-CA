@@ -23,7 +23,6 @@ class SortByGenre extends React.Component {
         data: data
       });
     } catch (err) {
-      console.log(err);
     }
   }
 
@@ -50,7 +49,6 @@ class SortByGenre extends React.Component {
 
   sortByGenre= (e) => {
     const sortGenre = e.target.value
-    console.log("In sort by memoir");
     const { reviews } = this.state.data;
 
     let description;
