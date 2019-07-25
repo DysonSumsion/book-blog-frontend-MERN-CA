@@ -44,19 +44,6 @@
   align-items: center;
 }
 
-/* .toolbar_navigation {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  padding: 0 1rem;
-  background-color: blue;
-} */
-
-/* .toolbar_navigation_items a:hover,
-.toolbar_navigation_items a:active {
-  color: orange;
-} */
-
 /* ____________ */
 
 @media (max-width: 1050px) {

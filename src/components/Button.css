@@ -1,22 +1,22 @@
 .primaryButton {
-  margin: 20px 20px 20px 20px;
-  background-color: green;
-  width: 100px;
+  /* background-color: green; */
+  width: 80px;
+  cursor: pointer
 };
 
 .secondaryButton {
-  margin: 20px 20px 20px 20px;
-  background-color: pink;
+  /* background-color: pink; */
+  width: 80px;
+  cursor: pointer
 };
+
+.primary {
+  cursor: pointer;
+}
 
 .btn {
   background-color: lavender;
-}
-
-style {
-  background-color: lightgreen;
-}
-
-.buttonStyle {
-  background-color: slateblue;
+  width: 100px;
+  height: 20px;
+  cursor: pointer
 }

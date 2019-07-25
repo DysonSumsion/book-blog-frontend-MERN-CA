@@ -11,21 +11,21 @@ function CardAdmin(props) {
           <img src={props.url} alt={props.title}  ></img>
           </div>
         <div className="cardAdminLeftBottom">
-          <button className="genreButton" onClick={() => props.handleEditClick(props.reviewObject)} className="edit"> Edit</button>
-          <button onClick={() => props.handleDeleteClick(props.title)} className="delete"> Delete</button>
+          <button onClick={() => props.handleEditClick(props.reviewObject)} className="edit"> Edit</button>
+          <button onClick={() => props.handleDeleteClick(props.title)} className="edit"> Delete</button>
         </div>
       </div>
 
       <div className="cardAdminRight">
-        <p>Title: {props.title}</p>
-        <p>Author: {props.author}</p>
-        <p>Review: {props.review}</p>
-        <p>Publisher: {props.publisher}</p>
-        <p>Year Published: {props.yearPublished}</p>
-        <p>Genre: {props.genre}</p>
-        <p>ISBN: {props.isbn}</p>
-        <p>URL to buy: {props.url}</p>
-        <p>SEO Keywords: {props.keywords}</p>
+        <p><strong>Title:</strong> {props.title}</p>
+        <p><strong>Author:</strong> {props.author}</p>
+        <p><strong>Review:</strong> {props.review}</p>
+        <p><strong>Publisher:</strong> {props.publisher}</p>
+        <p><strong>Year Published:</strong> {props.yearPublished}</p>
+        <p><strong>Genre:</strong> {props.genre}</p>
+        <p><strong>ISBN:</strong> {props.isbn}</p>
+        <p><strong>URL to buy:</strong> {props.url}</p>
+        <p><strong>SEO Keywords:</strong> {props.keywords}</p>
       </div>
 
     </div>

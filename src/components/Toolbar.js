@@ -20,7 +20,7 @@ const toolbar = props => {
       <header className="toolbar">
       
       <div className="navLeft">
-      <div className="logo"><Link to="/home"><img src={Jicon}></img></Link></div>
+      <div className="logo"><Link to="/home"><img src={Jicon} alt="logo"></img></Link></div>
         {/* <SearchBarContainer />  */}
       </div>
       <div className="toolbar_toggle_button">
@@ -28,7 +28,7 @@ const toolbar = props => {
       </div>
       <div className="navRightAdmin">
         <Link to="/auth/adminaddreview">Create Review</Link>
-        <Link to = '/adminjaclyn' onClick={deleteToken}> Logout </Link>
+        <Link className="outlineButton" to='/adminjaclyn' onClick={deleteToken}> Logout </Link>
       </div>
   
     </header>
@@ -38,7 +38,7 @@ const toolbar = props => {
       <header className="toolbar">
       
       <div className="navLeft">
-        <div className="logo"><Link to="/home"><img src={Jicon}></img></Link></div>
+        <div className="logo"><Link to="/home"><img src={Jicon} alt="icon"></img></Link></div>
         <SearchBarContainer /> 
       </div>
       <div className="toolbar_toggle_button">
@@ -58,9 +58,3 @@ const toolbar = props => {
 };
 
 export default toolbar;
-
-
-{/* <li><a href='https://arizonaatwork.com'><img src='https://i.imgur.com/fe0T4nw.png'/></a></li>
-
-<img className="img-responsive" src={"../../public/assets/image/img/footer-logo.jpg"} alt="logo"/> */}
-

@@ -10,7 +10,7 @@ const sideDrawer = props => {
   }
   return (
     <nav className={drawerClasses}>
-      <div className="logo"><Link to="/home"><img src={Jicon}></img></Link></div>
+      <div className="logo"><Link to="/home"><img src={Jicon} alt="logo"></img></Link></div>
       <div className="linksMobile">
         <Link to="/aboutme">About me</Link>
         <Link to="/sortbygenre">Reviews by Genre</Link>
