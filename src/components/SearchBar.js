@@ -1,4 +1,5 @@
 import React from "react";
+import './FormInput.css';
 
 const SearchBar = props => {
  return(
@@ -6,9 +7,7 @@ const SearchBar = props => {
   <div className="form-group" >
     <label htmlFor={props.name} className="form-label">{props.title}</label>
     <input
-      className="form-control"
-      id="searchBorder"
-      style={{ color: 'red' }}
+      class="searchBorder"
       id={props.name}
       name={props.name}
       type={props.inputType}

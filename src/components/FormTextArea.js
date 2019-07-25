@@ -1,5 +1,4 @@
 import React from 'react';
-import './FormTextArea.css';
 
 const TextArea = props => (
   <div className="form-group">

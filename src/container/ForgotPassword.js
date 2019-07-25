@@ -3,8 +3,7 @@ import FormInput from '../components/FormInput';
 import Button from '../components/Button';
 import axios from 'axios';
 import emailValidator from 'email-validator';
-
-
+import IntroSectionFlexi from '../components/IntroSectionFlexi';
 
 class ForgotPassword extends React.Component {
   state = {
@@ -31,10 +30,11 @@ class ForgotPassword extends React.Component {
     return emailValidity
   }
 
-
   handleFormSubmit = (e) => {
     e.preventDefault();
     if (this.validateInput()) {
+      console.log("validated")
+      // eslint-disable-next-line
       const formData = {email:this.state.email};
 
    }
@@ -56,6 +56,8 @@ class ForgotPassword extends React.Component {
     return (
       <>
       <div className="containerSecondary" style={{ backgroundColor: '#BFE9E1'}}>
+      <IntroSectionFlexi 
+          headingOne="Reset your password..." />
       <form className="form-add" onSubmit={this.handleFormSubmit}>
           <FormInput
             inputType={"text"}

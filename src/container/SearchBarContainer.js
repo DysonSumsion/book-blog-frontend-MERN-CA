@@ -53,12 +53,12 @@ class SearchBarContainer extends React.Component {
 
     render() {
         return (
-          <form className="container-fluid" style={{ border: 'solid 0.5pt #138B8A' }} onSubmit={this.handleFormSubmit}>
+          <form className="container-fluid" onSubmit={this.handleFormSubmit}>
             <SearchBar
               inputType={"text"}
               name={"name"}
               value={this.state.reviews}
-              placeholder={"search by title"}
+              placeholder={"Search by Book Title"}
               handleChange={this.handleInput}
               books={this.state.books}
             />

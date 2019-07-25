@@ -57,43 +57,43 @@ class SortByGenre extends React.Component {
     switch (e.target.value){
       case "Australian Fiction":
         genre = "My Australian Fiction reviews..."
-        // description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
+        description = "Select from the list below to see my reviews by genre."
         break;
       case "Contemporary Fiction":
         genre = "My Contemporary Fiction reviews..."
-        // description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
+        description = "Select from the list below to see my reviews by genre."
         break;
       case "Crime":
         genre = "My Crime reviews..."
-        // description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
+        description = "Select from the list below to see my reviews by genre."
         break;
       case "Essays":
         genre = "My Essay reviews..."
-        // description = "Lorem ipsum dolor sit amet, sed semper eros varius natoque penatibus magnis dis parturient montes, nascetur ridiculus."
+        description = "Select from the list below to see my reviews by genre."
         break;
       case "Graphic Novels":
         genre = "My Graphic Novel reviews..."
-        // description = "Graphic Novels description"
+        description = "Select from the list below to see my reviews by genre."
         break;
       case "In Translation":
         genre = "My In Translation reviews..."
-        // description = "In Translation description"
+        description = "Select from the list below to see my reviews by genre."
         break;
       case "Memoir":
-        description = "Memoir"
         genre = "My Memoir reviews..."
+        description = "Select from the list below to see my reviews by genre."
         break;
       case "Narrative Non-Fiction":
         genre = "My Narrative Non-Fiction reviews..."
-        // description = "Narrative Non-Fiction description"
+        description = "Select from the list below to see my reviews by genre."
         break;
       case "Short stories":
         genre = "My Short Story reviews..."
-        // description = "Short stories description"
+        description = "Select from the list below to see my reviews by genre."
         break;
       case "Young Adult (YA)":
         genre = "My Young Adult (YA) reviews..."
-        // description = "Young Adult (YA) description"
+        description = "Select from the list below to see my reviews by genre."
         break;
       default:
           description = ""

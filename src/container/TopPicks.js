@@ -17,6 +17,7 @@ class TopPicks extends React.Component {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/reviews`)
       const data = await response.json()
       const { reviews } = data
+      // eslint-disable-next-line
       const topPicks = reviews.filter((review) => {
           if (review.topPick === true) {
             return review

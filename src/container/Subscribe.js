@@ -135,5 +135,3 @@ class Subscribe extends React.Component {
 }
 
 export default Subscribe;
-
-{/* <button onClick={() => props.handleEditClick(props.reviewObject)} className="edit"> Edit</button> */}

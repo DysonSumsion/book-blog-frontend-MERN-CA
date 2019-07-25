@@ -26,8 +26,11 @@ input[type=text] {
   /* border-radius: 30px; */
 }
 
-#searchBorder {
-  height: 200px;
+.searchBorder {
+  min-width: 180px;
+  border: solid 1px #138B8A;
+  padding: 10px;
+  border-radius: 30px;
 }
 
 #publisher {
