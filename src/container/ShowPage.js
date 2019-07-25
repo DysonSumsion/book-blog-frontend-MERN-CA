@@ -39,11 +39,17 @@ class ShowPage extends React.Component {
   }
 
   async componentDidMount() {
-    let res = await axios.get(`${process.env.REACT_APP_API_URL}/reviews`);
+    try {
+      let res = await axios.get(`${process.env.REACT_APP_API_URL}/reviews`);
     this.bookReviews = res.data.reviews
     this.setState({ allReviews: this.renderReviews(this.bookReviews)});
     this.getRevDisplay();
     this.getReviews();
+    }
+    catch(err) {
+      console.log(err)
+    }
+    
  }
 
   replaceSpecialCharsInURL(str) {

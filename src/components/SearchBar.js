@@ -7,7 +7,7 @@ const SearchBar = props => {
   <div className="form-group" >
     <label htmlFor={props.name} className="form-label">{props.title}</label>
     <input
-      class="searchBorder"
+      className="searchBorder"
       id={props.name}
       name={props.name}
       type={props.inputType}
