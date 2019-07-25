@@ -396,7 +396,7 @@ Trello boards:
 ## Unit testing for front and back-end  
 *Front-end*  
 Enzyme and sinon was used for front-end testing.  
-Tests included components rendering, fields displayed correctly, functions working. 
+Tests were limited to components rendering and fields correctly displaying due to the complexity of the component structure in our application. When the snapshots were created, a visual check was made to check for accuracy. Unfortunately, I had run out of time and lacked experience to complete an extensive suite of front end tests.
 
 ## Deliverables
 
