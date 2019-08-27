@@ -11,6 +11,7 @@ import Admin from "./container/Admin";
 import ProtectedRoutes from "./ProtectedRoutes";
 import ForgotPassword from "./container/ForgotPassword";
 import ResetPassword from "./container/ResetPassword";
+import NotFoundPage from "./container/NotFoundPage"
 
 class Routes extends React.Component {
   render() {
@@ -28,6 +29,7 @@ class Routes extends React.Component {
         <Route path="/ForgotPassword" exact component={ForgotPassword} />
         <Route path="/auth" component={ProtectedRoutes} />
         <Route path="/ResetPassword" exact component={ResetPassword} />
+        <Route component={NotFoundPage} />
       </Switch>
     );
   }
