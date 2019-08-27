@@ -51,8 +51,8 @@ class ShowPage extends React.Component {
   }
 
   replaceSpecialCharsInURL(str) {
-    const str = decodeURI(uri);
-    return str;
+    const uri = decodeURI(str);
+    return uri;
   }
 
   getRevDisplay = () => {
